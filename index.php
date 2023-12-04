@@ -4,7 +4,7 @@
   <head>
     <title>Laboratorio de Innovacion Social</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://kit.fontawesome.com/da4a5b6f37.js" crossorigin="anonymous"></script>
+    <!-- <script src="https://kit.fontawesome.com/da4a5b6f37.js" crossorigin="anonymous"></script> -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="icon" href="data:,">
     <style>
@@ -163,22 +163,6 @@
         </div>
         <!-- ================================================================ -->
         
-        <div class="card">
-          <div class="card header">
-            <h3 style="font-size: 1rem;">MONITOREO SENSOR ESP32_03</h3>
-          </div>
-          
-          <!-- Displays the humidity and temperature values received from ESP32. *** -->
-          <h4 class="temperatureColor"><i class="fas fa-thermometer-half"></i> Temperatura</h4>
-          <p class="temperatureColor"><span class="reading"><span id="ESP32_03_Temp"></span> &deg;C</span></p>
-          <h4 class="humidityColor"><i class="fas fa-tint"></i> HUMEDAD</h4>
-          <p class="humidityColor"><span class="reading"><span id="ESP32_03_Humd"></span> &percnt;</span></p>
-          <h4 class="anemometro_title"> <i class="fas fa-tint"></i>Anemometro</h4>
-          <p class="anemometro"><span id="ESP32_03_anemometro"></span></p>
-          <!-- *********************************************************************** -->
-          
-          <p class="statusreadColor"><span>Estado Read Sensor DHT11 : </span><span id="ESP32_03_Status_Read_DHT11"></span></p>
-        </div>
         <!-- ======================================================== -->
         </div>
 
@@ -250,9 +234,9 @@
     //se necesita usar otra variable xmlhttp a xmlhttpp
     obtenerData("esp32_02");
     
-    setInterval(myTimer, 10000);
+    setInterval(myTimer1, 10000);
     
-    function myTimer() {
+    function myTimer1() {
       obtenerData("esp32_02");
     }
     
@@ -294,9 +278,9 @@
     //se necesita usar otra variable xmlhttp a xmlhttpp
     obtenerDataa("esp32_03");
     
-    setInterval(myTimer, 10000);
+    setInterval(myTimer2, 10000);
     
-    function myTimer() {
+    function myTimer2() {
       obtenerDataa("esp32_03");
     }
     
@@ -318,7 +302,7 @@
             document.getElementById("ESP32_03_Status_Read_DHT11").innerHTML = myObjTRES.status_read_sensor_dht11;
             //se agrego esta linea de abajo
             document.getElementById("ESP32_03_anemometro").innerHTML = myObjTRES.anemometro;
-         //   document.getElementById("ESP32_03_LTRD").innerHTML = "Time : " + myObjTRES.ls_time + " | Date : " + myObjTRES  .ls_date + " (dd-mm-yyyy)";
+           document.getElementById("ESP32_03_LTRD").innerHTML = "Time : " + myObjTRES.ls_time + " | Date : " + myObjTRES  .ls_date + " (dd-mm-yyyy)";
           }
         }
       };

@@ -28,7 +28,7 @@
           $myObjDOS->LED_02 = $row['LED_02'];
           $myObjDOS->ls_time = $row['time'];
           $myObjDOS->ls_date = $dateFormat;
-          $myObjDOS->anemometro =$row['anemometro'];
+          //$myObjDOS->anemometro =$row['anemometro'];
           
           $myJSONDOS = json_encode($myObjDOS);
           
