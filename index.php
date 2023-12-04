@@ -262,7 +262,7 @@
             document.getElementById("ESP32_02_Temp").innerHTML = myObjDOS.temperature;
             document.getElementById("ESP32_02_Humd").innerHTML = myObjDOS.humidity;
             document.getElementById("ESP32_02_Status_Read_DHT11").innerHTML = myObjDOS.status_read_sensor_dht11;
-            document.getElementById("ESP32_03_anemometro").innerHTML = myObjDOS.anemometro;
+            document.getElementById("ESP32_02_anemometro").innerHTML = myObjDOS.anemometro;
           }
         }
       };
@@ -270,7 +270,6 @@
       xmlhttpp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
       xmlhttpp.send("id=" + id);
     }
-    
     </script>
     
     <script> //------------------------/ tercer script/------------------------------------------------ 
