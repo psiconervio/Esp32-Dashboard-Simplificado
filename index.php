@@ -268,7 +268,7 @@
     </script>
     
     <script> //------------------------/ tercer script/------------------------------------------------ 
-    //trabajar con este script para enviar bien los datos, del anemomeotr
+    //trabajar con este script para enviar bien los datos, del anemometro
     document.getElementById("ESP32_03_Temp").innerHTML = "NN"; 
     document.getElementById("ESP32_03_Humd").innerHTML = "NN";
     document.getElementById("ESP32_03_Status_Read_DHT11").innerHTML = "NN";
@@ -310,6 +310,7 @@
       xmlhttppp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
       xmlhttppp.send("id=" + id);
     }
+    </script> 
   </body>
 </html>
 
