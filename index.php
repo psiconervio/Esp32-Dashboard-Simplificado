@@ -122,7 +122,6 @@
           
           <p class="statusreadColor"><span>Estado lectura Sensor DHT11 : </span><span id="ESP32_01_Status_Read_DHT11"></span></p>
         </div>
-        <!-- ====================================================================== -->
         
         <!-- == Control LEDs1========================== -->
         <div class="card">
@@ -295,43 +294,6 @@
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xmlhttp.send("id="+id);
 			}
-      
-      //------------------------------------------------------------
-      function GetTogBtnLEDState(togbtnid) {
-        if (togbtnid == "ESP32_01_TogLED_01") {
-          var togbtnchecked = document.getElementById(togbtnid).checked;
-          var togbtncheckedsend = "";
-          if (togbtnchecked == true) togbtncheckedsend = "ON";
-          if (togbtnchecked == false) togbtncheckedsend = "OFF";
-          Update_LEDs("esp32_01","LED_01",togbtncheckedsend);
-        }
-        if (togbtnid == "ESP32_01_TogLED_02") {
-          var togbtnchecked = document.getElementById(togbtnid).checked;
-          var togbtncheckedsend = "";
-          if (togbtnchecked == true) togbtncheckedsend = "ON";
-          if (togbtnchecked == false) togbtncheckedsend = "OFF";
-          Update_LEDs("esp32_01","LED_02",togbtncheckedsend);
-        }
-      }
-      //------------------------------------------------------------
-      
-      function Update_LEDs(id,lednum,ledstate) {
-				if (window.XMLHttpRequest) {
-          // code for IE7+, Firefox, Chrome, Opera, Safari
-          xmlhttp = new XMLHttpRequest();
-        } else {
-          // code for IE6, IE5
-          xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) {
-            //document.getElementById("demo").innerHTML = this.responseText;
-          }
-        }
-        xmlhttp.open("POST","updateLEDs.php",true);
-        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xmlhttp.send("id="+id+"&lednum="+lednum+"&ledstate="+ledstate);
-			}
  
     </script>
 
@@ -384,39 +346,6 @@
       xmlhttpp.send("id=" + id);
     }
     
-    function GetTogBtnLEDStatee(togbtnid) {
-      if (togbtnid == "ESP32_02_TogLED_01") {
-        var togbtnchecked = document.getElementById(togbtnid).checked;
-        var togbtncheckedsend = "";
-        if (togbtnchecked == true) togbtncheckedsend = "ON";
-        if (togbtnchecked == false) togbtncheckedsend = "OFF";
-        Update_LEDss("esp32_02", "LED_01", togbtncheckedsend);
-      }
-      if (togbtnid == "ESP32_02_TogLED_02") {
-        var togbtnchecked = document.getElementById(togbtnid).checked;
-        var togbtncheckedsend = "";
-        if (togbtnchecked == true) togbtncheckedsend = "ON";
-        if (togbtnchecked == false) togbtncheckedsend = "OFF";
-        Update_LEDss("esp32_02", "LED_02", togbtncheckedsend);
-      }
-    }
-    
-    function Update_LEDss(id, lednum, ledstate) {
-      var xmlhttp;
-      if (window.XMLHttpRequest) {
-        xmlhttp = new XMLHttpRequest();
-      } else {
-        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-      }
-      xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-          //document.getElementById("demo").innerHTML = this.responseText;
-        }
-      };
-      xmlhttp.open("POST", "updateLEDs.php", true);
-      xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-      xmlhttp.send("id=" + id + "&lednum=" + lednum + "&ledstate=" + ledstate);
-    }
     </script>
     
     <script> //------------------------/ tercer script/------------------------------------------------ 
@@ -472,42 +401,6 @@
       xmlhttppp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
       xmlhttppp.send("id=" + id);
     }
-    
-    function GetTogBtnLEDStatee(togbtnid) {
-      if (togbtnid == "ESP32_03_TogLED_01") {
-        var togbtnchecked = document.getElementById(togbtnid).checked;
-        var togbtncheckedsend = "";
-        if (togbtnchecked == true) togbtncheckedsend = "ON";
-        if (togbtnchecked == false) togbtncheckedsend = "OFF";
-        Update_LEDss("esp32_03", "LED_01", togbtncheckedsend);
-      }
-      if (togbtnid == "ESP32_03_TogLED_02") {
-        var togbtnchecked = document.getElementById(togbtnid).checked;
-        var togbtncheckedsend = "";
-        if (togbtnchecked == true) togbtncheckedsend = "ON";
-        if (togbtnchecked == false) togbtncheckedsend = "OFF";
-        Update_LEDss("esp32_03", "LED_02", togbtncheckedsend);
-      }
-    }
-    
-    function Update_LEDss(id, lednum, ledstate) {
-      var xmlhttp;
-      if (window.XMLHttpRequest) {
-        xmlhttp = new XMLHttpRequest();
-      } else {
-        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-      }
-      xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-          //document.getElementById("demo").innerHTML = this.responseText;
-        }
-      };
-      xmlhttp.open("POST", "updateLEDs.php", true);
-      xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-      xmlhttp.send("id=" + id + "&lednum=" + lednum + "&ledstate=" + ledstate);
-    }
-    </script>
-
   </body>
 </html>
 
