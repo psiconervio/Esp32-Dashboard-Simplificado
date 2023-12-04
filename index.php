@@ -121,6 +121,8 @@
           <p class="temperatureColor"><span class="reading"><span id="ESP32_01_Temp"></span> &deg;C</span></p>
           <h4 class="humidityColor"><i class="fas fa-tint"></i> HUMEDAD</h4>
           <p class="humidityColor"><span class="reading"><span id="ESP32_01_Humd"></span> &percnt;</span></p>
+          <h4 class="anemometro_title"> <i class="fa-solid fa-gauge-simple-high"></i>Anemometro</h4>
+          <p class="anemometro"><span id="ESP32_01_anemometro"></span></p>
           <p class="statusreadColor"><span>Estado lectura Sensor DHT11 : </span><span id="ESP32_01_Status_Read_DHT11"></span></p>
         </div>
         
@@ -134,7 +136,9 @@
           <h4 class="temperatureColor"><i class="fas fa-thermometer-half"></i> Temperatura</h4>
           <p class="temperatureColor"><span class="reading"><span id="ESP32_02_Temp"></span> &deg;C</span></p>
           <h4 class="humidityColor"><i class="fas fa-tint"></i> HUMEDAD</h4>
-          <p class="humidityColor"><span class="reading"><span id="ESP32_02_Humd"></span> &percnt;</span></p>          
+          <p class="humidityColor"><span class="reading"><span id="ESP32_02_Humd"></span> &percnt;</span></p>       
+          <h4 class="anemometro_title"> <i class="fa-solid fa-gauge-simple-high"></i>Anemometro</h4>
+          <p class="anemometro"><span id="ESP32_02_anemometro"></span></p>   
           <p class="statusreadColor"><span>Estado Read Sensor DHT11 : </span><span id="ESP32_02_Status_Read_DHT11"></span></p>
         </div>
       </div>
@@ -171,7 +175,7 @@
       </div>
     </div>
     </footer>
-
+   <!--primer script -->
     <script>
       //-script para actualizar valores del esp32
       //-PONE LOS VALORES EN NULL
@@ -181,7 +185,6 @@
       document.getElementById("ESP32_01_Status_Read_DHT11").innerHTML = "NN";
       document.getElementById("ESP32_01_LTRD").innerHTML = "NN";
       document.getElementById("ESP32_01_anemometro").innerHTML ="NN";
-      document.getElementById("ESP32_03_LTRD").innerHTML = "Time : " + myObjTRES.ls_time + " | Date : " + myObjTRES  .ls_date + " (dd-mm-yyyy)";
       //-llama a la funcion obtenerdatos y pasa el parametro esp32 que es  id del POST que recibimos de la base de datos con getdata.php
       Get_Data("esp32_01");
       //-llama a la funcion setInterval de js, para que itere la funcion myTimer cada 10seg
@@ -212,8 +215,8 @@
               document.getElementById("ESP32_01_Temp").innerHTML = myObj.temperature;
               document.getElementById("ESP32_01_Humd").innerHTML = myObj.humidity;
               document.getElementById("ESP32_01_Status_Read_DHT11").innerHTML = myObj.status_read_sensor_dht11;
-              document.getElementById("ESP32_03_anemometro").innerHTML = myObj.anemometro;
-
+              document.getElementById("ESP32_01_anemometro").innerHTML = myObj.anemometro;
+              document.getElementById("ESP32_01_LTRD").innerHTML = "Time : " + myObj.ls_time + " | Date : " + myObj.ls_date + " (dd-mm-yyyy)";
             }
           }
         };
@@ -226,13 +229,13 @@
 			}
     </script>
 
-    <script> // segundo script
+    <script> 
+    // segundo script
     //-script para actualizar valores del esp32
     //-PONE LOS VALORES EN NULL 
     document.getElementById("ESP32_02_Temp").innerHTML = "NN"; 
     document.getElementById("ESP32_02_Humd").innerHTML = "NN";
     document.getElementById("ESP32_02_Status_Read_DHT11").innerHTML = "NN";
-    document.getElementById("ESP32_02_LTRD").innerHTML = "NN";
     document.getElementById("ESP32_02_anemometro").innerHTML ="NN";
     //se necesita usar otra variable xmlhttp a xmlhttpp
     

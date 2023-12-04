@@ -10,8 +10,8 @@
     $temperature = $_POST['temperature'];
     $humidity = $_POST['humidity'];
     $status_read_sensor_dht11 = $_POST['status_read_sensor_dht11'];
-    $led_01 = $_POST['led_01'];
-    $led_02 = $_POST['led_02'];
+    $anemometro = $_POST['anemometro'];
+
         
     //........................................ Get the time and date.
     date_default_timezone_set("America/Argentina/Catamarca"); // Look here for your timezone : https://www.php.net/manual/en/timezones.php
@@ -28,7 +28,7 @@
     // This table is operated with the "UPDATE" command, so this table will only contain one row.
     $sql = "UPDATE esp32_table_dht11_leds_update SET temperature = ?, humidity = ?, status_read_sensor_dht11 = ?, time = ?, date = ? WHERE id = ?";
     $q = $pdo->prepare($sql);
-    $q->execute(array($temperature,$humidity,$status_read_sensor_dht11,$tm,$dt,$id));
+    $q->execute(array($temperature,$humidity,$status_read_sensor_dht11,$anemometro,$tm,$dt,$id));
     Database::disconnect();
     //........................................ 
     
