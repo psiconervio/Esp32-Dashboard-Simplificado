@@ -56,19 +56,19 @@
       $q = $pdo->prepare($sql3);
       $q->execute();
     }
-//      if (!$data = $q->fetch()) {
-//        $found_empty = true;
-//      }
-//    }
-//    //:::::::: El proceso de ingresar datos en la tabla record.php
-//    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-//    // replace_with_your_table_name, on this project I use the table name 'esp32_table_dht11_leds_update'.
-//    // This table is used to store and record DHT11 sensor data updated by ESP32. 
-//    // This table is also used to store and record the state of the LEDs, the state of the LEDs is controlled from the "home.php" page. 
-//    // This table is operated with the "INSERT" command, so this table will contain many rows.
-//		$sql3 = "INSERT INTO esp32_table_dht11_leds_update2 (id,board,temperature,humidity,status_read_sensor_dht11,LED_01,LED_02,time,date/*,anemometro*/) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
-//		$q = $pdo->prepare($sql3);
-//    $q->execute(array($id_key,$board,$temperature,$humidity,$status_read_sensor_dht11,$led_01,$led_02,$tm,$dt,/*$anemometro*/));
+      if (!$data = $q->fetch()) {
+        $found_empty = true;
+      }
+    }
+    //:::::::: El proceso de ingresar datos en la tabla record.php
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    // replace_with_your_table_name, on this project I use the table name 'esp32_table_dht11_leds_update'.
+    // This table is used to store and record DHT11 sensor data updated by ESP32. 
+    // This table is also used to store and record the state of the LEDs, the state of the LEDs is controlled from the "home.php" page. 
+    // This table is operated with the "INSERT" command, so this table will contain many rows.
+		$sql3 = "INSERT INTO esp32_table_dht11_leds_update2 (id,board,temperature,humidity,status_read_sensor_dht11,LED_01,LED_02,time,date/*,anemometro*/) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		$q = $pdo->prepare($sql3);
+    $q->execute(array($id_key,$board,$temperature,$humidity,$status_read_sensor_dht11,$led_01,$led_02,$tm,$dt,/*$anemometro*/));
     //::::::::
     
     Database::disconnect();
