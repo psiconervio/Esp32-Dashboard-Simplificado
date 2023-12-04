@@ -12,8 +12,7 @@
     $status_read_sensor_dht11 = $_POST['status_read_sensor_dht11'];
     $led_01 = $_POST['led_01'];
     $led_02 = $_POST['led_02'];
-    //........................................
-    
+        
     //........................................ Get the time and date.
     date_default_timezone_set("America/Argentina/Catamarca"); // Look here for your timezone : https://www.php.net/manual/en/timezones.php
     $tm = date("H:i:s");
@@ -58,16 +57,16 @@
     }
     //::::::::
     
-    //:::::::: The process of entering data into a table.
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    // replace_with_your_table_name, on this project I use the table name 'esp32_table_dht11_leds_update'.
-    // This table is used to store and record DHT11 sensor data updated by ESP32. 
-    // This table is also used to store and record the state of the LEDs, the state of the LEDs is controlled from the "home.php" page. 
-    // This table is operated with the "INSERT" command, so this table will contain many rows.
-		$sql = "INSERT INTO esp32_table_dht11_leds_update (id,board,temperature,humidity,status_read_sensor_dht11,LED_01,LED_02,time,date) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
-		$q = $pdo->prepare($sql);
-		$q->execute(array($id_key,$board,$temperature,$humidity,$status_read_sensor_dht11,$led_01,$led_02,$tm,$dt));
-    //::::::::
+ //   //:::::::: The process of entering data into a table.
+ //   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+ //   // replace_with_your_table_name, on this project I use the table name 'esp32_table_dht11_leds_update'.
+ //   // This table is used to store and record DHT11 sensor data updated by ESP32. 
+ //   // This table is also used to store and record the state of the LEDs, the state of the LEDs is controlled from the "home.php" page. 
+ //   // This table is operated with the "INSERT" command, so this table will contain many rows.
+//		$sql = "INSERT INTO esp32_table_dht11_leds_update (id,board,temperature,humidity,status_read_sensor_dht11,LED_01,LED_02,time,date) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+//		$q = $pdo->prepare($sql);
+//		$q->execute(array($id_key,$board,$temperature,$humidity,$status_read_sensor_dht11,$led_01,$led_02,$tm,$dt));
+ //   //::::::::
     
     Database::disconnect();
     //........................................ 

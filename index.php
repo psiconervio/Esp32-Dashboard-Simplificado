@@ -4,6 +4,7 @@
   <head>
     <title>Laboratorio de Innovacion Social</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/da4a5b6f37.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="icon" href="data:,">
     <style>
@@ -124,29 +125,6 @@
         </div>
         
         <!-- == Control LEDs1========================== -->
-        <div class="card">
-          <div class="card header">
-            <h3 style="font-size: 1rem;">CONTROL</h3>
-          </div>
-          
-          <!-- Buttons for controlling the LEDs on Slave 2.  -->
-          <h4 class="LEDColor"><i class="fas fa-lightbulb"></i> LED 1</h4>
-          <label class="switch">
-            <input type="checkbox" id="ESP32_01_TogLED_01" onclick="GetTogBtnLEDState('ESP32_01_TogLED_01')">
-            <div class="sliderTS"></div>
-          </label>
-          <h4 class="LEDColor"><i class="fas fa-lightbulb"></i> LED 2</h4>
-          <label class="switch">
-            <input type="checkbox" id="ESP32_01_TogLED_02" onclick="GetTogBtnLEDState('ESP32_01_TogLED_02')">
-            <div class="sliderTS"></div>
-          </label>
-          <!-- *********************************************************************** -->
-        </div>  
-        <!-- ===================================================== -->
-        
-      </div>
-            <div class="cards">
-        
         <!-- == MONITOREO_ESP32_02 == -->
         <div class="card">
           <div class="card header">
@@ -162,32 +140,29 @@
           
           <p class="statusreadColor"><span>Estado Read Sensor DHT11 : </span><span id="ESP32_02_Status_Read_DHT11"></span></p>
         </div>
-        <!-- ================================================================ -->
         
-        <!-- == Control Leds 2========= -->
-        <div class="card">
-          <div class="card header">
-            <h3 style="font-size: 1rem;">CONTROL</h3>
-          </div>
-          
-          <!-- Botones para controlar los LED en Slave 2.  -->
-          <h4 class="LEDColor"><i class="fas fa-lightbulb"></i> LED 1</h4>
-          <label class="switch">
-            <input type="checkbox" id="ESP32_02_TogLED_01" onclick="GetTogBtnLEDState('ESP32_02_TogLED_01')">
-            <div class="sliderTS"></div>
-          </label>
-          <h4 class="LEDColor"><i class="fas fa-lightbulb"></i> LED 2</h4>
-          <label class="switch">
-            <input type="checkbox" id="ESP32_02_TogLED_02" onclick="GetTogBtnLEDState('ESP32_02_TogLED_02')">
-            <div class="sliderTS"></div>
-          </label>
-          <!-- *********************************************************************** -->
-        </div>  
-        <!-- ======================================================== -->
-        </div>
+      </div>
             <div class="cards">
         
-        <!-- == MONITOREO_ESP32_03=== -->
+        <!-- == MONITOREO_ESP32_02 == -->
+        <div class="card">
+          <div class="card header">
+            <h3 style="font-size: 1rem;">MONITOREO SENSOR ESP32_03</h3>
+          </div>
+          
+          <!-- Displays the humidity and temperature values received from ESP32. *** -->
+          <h4 class="temperatureColor"><i class="fas fa-thermometer-half"></i> Temperatura</h4>
+          <p class="temperatureColor"><span class="reading"><span id="ESP32_03_Temp"></span> &deg;C</span></p>
+          <h4 class="humidityColor"><i class="fas fa-tint"></i> HUMEDAD</h4>
+          <p class="humidityColor"><span class="reading"><span id="ESP32_03_Humd"></span> &percnt;</span></p>
+          <h4 class="anemometro_title"> <i class="fa-solid fa-gauge-simple-high"></i>Anemometro</h4>
+          <p class="anemometro"><span id="ESP32_03_anemometro"></span></p>
+          <!-- *********************************************************************** -->
+          
+          <p class="statusreadColor"><span>Estado Read Sensor DHT11 : </span><span id="ESP32_03_Status_Read_DHT11"></span></p>
+        </div>
+        <!-- ================================================================ -->
+        
         <div class="card">
           <div class="card header">
             <h3 style="font-size: 1rem;">MONITOREO SENSOR ESP32_03</h3>
@@ -204,29 +179,9 @@
           
           <p class="statusreadColor"><span>Estado Read Sensor DHT11 : </span><span id="ESP32_03_Status_Read_DHT11"></span></p>
         </div>
-        <!-- ============================================================================= -->
-        
-        <!-- == Control LEDs 3 == -->
-        <div class="card">
-          <div class="card header">
-            <h3 style="font-size: 1rem;">CONTROL</h3>
-          </div>
-          
-          <!-- Botones para controlar los LED en Slave 2.  -->
-          <h4 class="LEDColor"><i class="fas fa-lightbulb"></i> LED 1</h4>
-          <label class="switch">
-            <input type="checkbox" id="ESP32_03_TogLED_01" onclick="GetTogBtnLEDState('ESP32_03_TogLED_01')">
-            <div class="sliderTS"></div>
-          </label>
-          <h4 class="LEDColor"><i class="fas fa-lightbulb"></i> LED 2</h4>
-          <label class="switch">
-            <input type="checkbox" id="ESP32_03_TogLED_02" onclick="GetTogBtnLEDState('ESP32_03_TogLED_02')">
-            <div class="sliderTS"></div>
-          </label>
-          <!-- *********************************************************************** -->
-        </div>  
-        <!-- ========================================================== -->
-      </div>
+        <!-- ======================================================== -->
+        </div>
+
     </div>
     
     <br>
