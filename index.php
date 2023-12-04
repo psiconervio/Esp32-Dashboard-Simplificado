@@ -232,16 +232,6 @@
               document.getElementById("ESP32_01_Humd").innerHTML = myObj.humidity;
               document.getElementById("ESP32_01_Status_Read_DHT11").innerHTML = myObj.status_read_sensor_dht11;
               document.getElementById("ESP32_01_LTRD").innerHTML = "Time : " + myObj.ls_time + " | Date : " + myObj.ls_date + " (dd-mm-yyyy)";
-              if (myObj.LED_01 == "ON") {
-                document.getElementById("ESP32_01_TogLED_01").checked = true;
-              } else if (myObj.LED_01 == "OFF") {
-                document.getElementById("ESP32_01_TogLED_01").checked = false;
-              }
-              if (myObj.LED_02 == "ON") {
-                document.getElementById("ESP32_01_TogLED_02").checked = true;
-              } else if (myObj.LED_02 == "OFF") {
-                document.getElementById("ESP32_01_TogLED_02").checked = false;
-              }
             }
           }
         };
@@ -283,16 +273,6 @@
             document.getElementById("ESP32_02_Humd").innerHTML = myObjDOS.humidity;
             document.getElementById("ESP32_02_Status_Read_DHT11").innerHTML = myObjDOS.status_read_sensor_dht11;
             //document.getElementById("ESP32_02_LTRD").innerHTML = "Time : " + myObjDOS.ls_time + " | Date : " + myObjDOS  .ls_date + " (dd-mm-yyyy)";
-            if (myObjDOS.LED_01 == "ON") {
-              document.getElementById("ESP32_02_TogLED_01").checked = true;
-            } else if (myObjDOS.LED_0DOS == "OFF") {
-              document.getElementById("ESP32_02_TogLED_01").checked = false;
-            }
-            if (myObjDOS.LED_02 == "ON") {
-              document.getElementById("ESP32_02_TogLED_02").checked = true;
-            } else if (myObjDOS.LED_02 == "OFF") {
-              document.getElementById("ESP32_02_TogLED_02").checked = false;
-            }
           }
         }
       };
@@ -321,7 +301,7 @@
     }
     
     function obtenerDataa(id) {
-        console.log("se esta ejecutando ObtenerData")
+        console.log("se esta ejecutando ObtenerDataa TRESS")
       var xmlhttppp;
       if (window.XMLHttpRequest) {
         xmlhttppp = new XMLHttpRequest();
@@ -338,17 +318,7 @@
             document.getElementById("ESP32_03_Status_Read_DHT11").innerHTML = myObjTRES.status_read_sensor_dht11;
             //se agrego esta linea de abajo
             document.getElementById("ESP32_03_anemometro").innerHTML = myObjTRES.anemometro;
-            document.getElementById("ESP32_03_LTRD").innerHTML = "Time : " + myObjTRES.ls_time + " | Date : " + myObjTRES  .ls_date + " (dd-mm-yyyy)";
-            if (myObjTRES.LED_01 == "ON") {
-              document.getElementById("ESP32_03_TogLED_01").checked = true;
-            } else if (myObjTRES.LED_0TRES == "OFF") {
-              document.getElementById("ESP32_03_TogLED_01").checked = false;
-            }
-            if (myObjTRES.LED_02 == "ON") {
-              document.getElementById("ESP32_03_TogLED_02").checked = true;
-            } else if (myObjTRES.LED_02 == "OFF") {
-              document.getElementById("ESP32_03_TogLED_02").checked = false;
-            }
+         //   document.getElementById("ESP32_03_LTRD").innerHTML = "Time : " + myObjTRES.ls_time + " | Date : " + myObjTRES  .ls_date + " (dd-mm-yyyy)";
           }
         }
       };
