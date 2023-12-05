@@ -12,7 +12,7 @@
       p {font-size: 1.2rem;}
       h4 {font-size: 0.8rem;}
       body {margin: 0;}
-      .topnav {overflow: hidden; background-color: #0c6980; color: white; font-size: 1.2rem;}
+      .topnav {overflow: hidden; background-color: #00BAFA; color: white; font-size: 1.2rem;}
       .content {padding: 5px; }
       .card {background-color: white; box-shadow: 0px 0px 10px 1px rgba(140,140,140,.5); border: 1px solid #0c6980; border-radius: 15px;}
       .card.header {background-color: #0c6980; color: white; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; border-top-right-radius: 12px; border-top-left-radius: 12px;}
@@ -348,7 +348,7 @@
     document.getElementById("ESP32_03_Humd").innerHTML = "NN";
     document.getElementById("ESP32_03_Status_Read_DHT11").innerHTML = "NN";
     document.getElementById("ESP32_03_anemometro").innerHTML ="NN";
-    docum
+    
 
     //se necesita usar otra variable xmlhttp a xmlhttpp
     obtenerDataa("esp32_03");
