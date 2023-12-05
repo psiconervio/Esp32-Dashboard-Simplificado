@@ -12,10 +12,10 @@
       p {font-size: 1.2rem;}
       h4 {font-size: 0.8rem;}
       body {margin: 0;}
-      .topnav {overflow: hidden; background-color: #0c6980; color: white; font-size: 1.2rem;}
+      .topnav {overflow: hidden; background-color: #00BAFA; color: white; font-size: 1.2rem;}
       .content {padding: 5px; }
-      .card {background-color: white; box-shadow: 0px 0px 10px 1px rgba(140,140,140,.5); border: 1px solid #0c6980; border-radius: 15px;}
-      .card.header {background-color: #0c6980; color: white; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; border-top-right-radius: 12px; border-top-left-radius: 12px;}
+      .card {background-color: white; box-shadow: 0px 0px 10px 1px rgba(140,140,140,.5); border: 1px solid #00BAFA; border-radius: 15px;}
+      .card.header {background-color: #00BAFA; color: white; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; border-top-right-radius: 12px; border-top-left-radius: 12px;}
       .cards {max-width: 700px; margin: 0 auto; display: grid; grid-gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));}
       .reading {font-size: 1.3rem;}
       .packet {color: #bebebe;}
@@ -98,10 +98,12 @@
       }
       /* ----------------------------------- */
     </style>
+
   </head>
   
   <body>
     <div class="topnav">
+      <img src="banernodo.png" width="100%" height="20%" alt="">
       <h3>Laboratorio de Innovacion Social</h3>
     </div>
     <br>
@@ -123,6 +125,8 @@
           <p class="humidityColor"><span class="reading"><span id="ESP32_01_Humd"></span> &percnt;</span></p>
           <h4 class="anemometro_title"> <i class="fa-solid fa-gauge-simple-high"></i>Anemometro</h4>
           <p class="anemometro"><span id="ESP32_01_anemometro"></span></p>
+          <h4 class="veleta_title"><i class="fa-regular fa-compass"></i>Veleta</h4>
+          <p class="veleta"><span id="ESP32_01_veleta"></span></p>
           <p class="statusreadColor"><span>Estado lectura Sensor DHT11 : </span><span id="ESP32_01_Status_Read_DHT11"></span></p>
         </div>
         
