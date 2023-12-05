@@ -214,6 +214,24 @@
       </div>
     </div>
     </footer>
+    <script>
+        function agregarTarjeta() {
+    // Tu lógica para crear una tarjeta
+
+    // Ejemplo de cómo enviar datos al servidor utilizando XMLHttpRequest
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            // Manejar la respuesta del servidor si es necesario
+            console.log(this.responseText);
+        }
+    };
+    xmlhttp.open("POST", "guardar_tarjeta.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send("esp32_id=esp32_01&temperatura=25&humedad=50&status_read_sensor_dht11=OK");
+}
+
+    </script>
 
     <script>
       //-script para actualizar valores del esp32
@@ -222,7 +240,6 @@
       document.getElementById("ESP32_01_Temp").innerHTML = "NN"; 
       document.getElementById("ESP32_01_Humd").innerHTML = "NN";
       document.getElementById("ESP32_01_Status_Read_DHT11").innerHTML = "NN";
-      document.getElementById("ESP32_01_LTRD").innerHTML = "NN";
       //-llama a la funcion obtenerdatos y pasa el parametro esp32 que es  id del POST que recibimos de la base de datos con getdata.php
       Get_Data("esp32_01");
       //-llama a la funcion setInterval de js, para que itere la funcion myTimer cada 10seg
