@@ -162,10 +162,12 @@
     <button onclick="agregarTarjeta()">Agregar Tarjeta</button>
     <button onclick="quitarTarjeta()">Quitar Tarjeta</button>
 
-    <script>
-        let contadorTarjetas = 1;
+    <script> //para CREAR LA TARJETA EN EL FRONT END
+        let contadorTarjetas = 3;
 
         function agregarTarjeta() {
+          clave = prompt("CLAVE PARA AGREGAR NUEVA TARJETA");
+          if (clave == 1234) {   
             // Crea un nuevo elemento div para la tarjeta
             const nuevaTarjeta = document.createElement('div');
             nuevaTarjeta.classList.add('card');
@@ -173,13 +175,13 @@
             // Añade el contenido de la tarjeta
             nuevaTarjeta.innerHTML = `
                 <div class="card header">
-                    <h3 style="font-size: 1rem;">MONITOREO SENSOR ESP32_${contadorTarjetas}</h3>
+                    <h3 style="font-size: 1rem;">MONITOREO SENSOR ESP32_0${contadorTarjetas}</h3>
                 </div>
                 <h4 class="temperatureColor"><i class="fas fa-thermometer-half"></i> TEMPERATURA</h4>
-                <p class="temperatureColor"><span class="reading"><span id="ESP32_${contadorTarjetas}_Temp"></span> &deg;C</span></p>
+                <p class="temperatureColor"><span class="reading"><span id="ESP32_0${contadorTarjetas}_Temp"></span> &deg;C</span></p>
                 <h4 class="humidityColor"><i class="fas fa-tint"></i> HUMEDAD</h4>
-                <p class="humidityColor"><span class="reading"><span id="ESP32_${contadorTarjetas}_Humd"></span> &percnt;</span></p>
-                <p class="statusreadColor"><span>Estado lectura Sensor DHT11 : </span><span id="ESP32_${contadorTarjetas}_Status_Read_DHT11"></span></p>
+                <p class="humidityColor"><span class="reading"><span id="ESP32_0${contadorTarjetas}_Humd"></span> &percnt;</span></p>
+                <p class="statusreadColor"><span>Estado lectura Sensor DHT11 : </span><span id="ESP32_0${contadorTarjetas}_Status_Read_DHT11"></span></p>
             `;
 
             // Agrega la tarjeta al contenedor
@@ -187,6 +189,12 @@
 
             // Incrementa el contador para el siguiente ESP32
             contadorTarjetas++;
+            
+            document.getElementById("ESP32_0${contadorTarjetas_Temp").innerHTML = "NN"; 
+            document.getElementById("ESP32_0${contadorTarjetas_Humd").innerHTML = "NN";
+            document.getElementById("ESP32_0${contadorTarjetas_Status_Read_DHT11").innerHTML = "NN";
+          }
+         else {alert("clave incorrecta");}
         }
 
         function quitarTarjeta() {
@@ -214,23 +222,23 @@
       </div>
     </div>
     </footer>
-    <script>
-        function agregarTarjeta() {
-    // Tu lógica para crear una tarjeta
-
-    // Ejemplo de cómo enviar datos al servidor utilizando XMLHttpRequest
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            // Manejar la respuesta del servidor si es necesario
-            console.log(this.responseText);
-        }
-    };
-    xmlhttp.open("POST", "guardar_tarjeta.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.send("esp32_id=esp32_01&temperatura=25&humedad=50&status_read_sensor_dht11=OK");
-}
-
+//    <script>
+//        function agregarTarjeta() { msql
+//    // Tu lógica para crear una tarjeta
+//
+//    // Ejemplo de cómo enviar datos al servidor utilizando XMLHttpRequest
+//    var xmlhttp = new XMLHttpRequest();
+//    xmlhttp.onreadystatechange = function() {
+//        if (this.readyState == 4 && this.status == 200) {
+//            // Manejar la respuesta del servidor si es necesario
+//            console.log(this.responseText);
+//        }
+//    };
+//    xmlhttp.open("POST", "guardar_tarjeta.php", true);
+//    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//    xmlhttp.send("esp32_id=esp32_01&temperatura=25&humedad=50&status_read_sensor_dht11=OK");
+//}
+//
     </script>
 
     <script>
@@ -288,7 +296,6 @@
     document.getElementById("ESP32_02_Temp").innerHTML = "NN"; 
     document.getElementById("ESP32_02_Humd").innerHTML = "NN";
     document.getElementById("ESP32_02_Status_Read_DHT11").innerHTML = "NN";
-    document.getElementById("ESP32_02_LTRD").innerHTML = "NN";
     //se necesita usar otra variable xmlhttp a xmlhttpp
     
     obtenerData("esp32_02");
@@ -359,7 +366,7 @@
             document.getElementById("ESP32_03_Status_Read_DHT11").innerHTML = myObjTRES.status_read_sensor_dht11;
             //se agrego esta linea de abajo
             document.getElementById("ESP32_03_anemometro").innerHTML = myObjTRES.anemometro;
-           document.getElementById("ESP32_03_LTRD").innerHTML = "Time : " + myObjTRES.ls_time + " | Date : " + myObjTRES  .ls_date + " (dd-mm-yyyy)";
+           //document.getElementById("ESP32_03_LTRD").innerHTML = "Time : " + myObjTRES.ls_time + " | Date : " + myObjTRES  .ls_date + " (dd-mm-yyyy)";
           }
         }
       };
