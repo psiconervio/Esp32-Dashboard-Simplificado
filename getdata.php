@@ -26,7 +26,9 @@
       $myObj->ls_time = $row['time'];
       $myObj->ls_date = $dateFormat;
       $myObj->anemometro =$row['anemometro'];
- 
+      $myObj->veleta =$row['veleta'];
+      $myObj->pluviometro=$row['pluviometro'];
+      
       $myJSON = json_encode($myObj);
       
       echo $myJSON;

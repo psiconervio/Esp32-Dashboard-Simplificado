@@ -11,6 +11,8 @@
     $humidity = $_POST['humidity'];
     $status_read_sensor_dht11 = $_POST['status_read_sensor_dht11'];
     $anemometro = $_POST['anemometro'];
+    $veleta = $_POST['veleta'];
+    $pluviometro = $_POST['pluviometro']
     
     // Get the time and date.
     date_default_timezone_set("America/Argentina/Catamarca"); // Look here for your timezone : https://www.php.net/manual/en/timezones.php
@@ -25,10 +27,10 @@
     // Esta tabla también se utiliza para almacenar el estado de los LED, el estado de los LED se controla desde la página "home.php".               //This table is also used to store the state of the LEDs, the state of the LEDs is controlled from the "home.php" page. 
     // Esta tabla se opera con el comando "ACTUALIZAR", por lo que esta tabla solo contendrá una fila.                                               // This table is operated with the "UPDATE" command, so this table will only contain one row.
     // estructurar bien los datos como el anemometro 
-    $sql3 = "UPDATE esp32_table_dht11_leds_update2 SET temperature = ?, humidity = ?, status_read_sensor_dht11 = ?,anemometro = ?,  time = ?, date = ? WHERE id = ?";
+    $sql3 = "UPDATE esp32_table_dht11_leds_update2 SET temperature = ?, humidity = ?, status_read_sensor_dht11 = ?,anemometro = ?,veleta =?, pluviometro=?,  time = ?, date = ? WHERE id = ?";
     $q = $pdo->prepare($sql3);
     //agregar nuevos sensores dps del anemometro
-    $q->execute(array($temperature,$humidity,$status_read_sensor_dht11,$anemometro,$tm,$dt,$id));
+    $q->execute(array($temperature,$humidity,$status_read_sensor_dht11,$anemometro,$veleta,$pluviometro,$tm,$dt,$id));
     Database::disconnect();
     
     //........................................ Entering data into a table.
