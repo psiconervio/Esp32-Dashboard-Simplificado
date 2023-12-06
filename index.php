@@ -20,7 +20,9 @@
       .reading {font-size: 1.3rem;}
       .packet {color: #bebebe;}
       .temperatureColor {color: #fd7e14;}
+      .anemometro_title {color: #fd7e14;}
       .pluviometro_title {color: #1b78e2;}
+      .pluviometro {color: #1b78e2;}
 
       .humidityColor {color: #1b78e2;}
       .statusreadColor {color: #702963; font-size:12px;}
@@ -98,8 +100,7 @@
         cursor: not-allowed;
         pointer-events: none;
       }
-      /* ----------------------------------- */
-    </style>
+  </style>
 
   </head>
   
@@ -126,11 +127,11 @@
           <h4 class="humidityColor"><i class="fas fa-tint"></i> HUMEDAD</h4>
           <p class="humidityColor"><span class="reading"><span id="ESP32_01_Humd"></span> &percnt;</span></p>
           <h4 class="anemometro_title"> <i class="fa-solid fa-gauge-simple-high"></i> VELOCIDAD VIENTO</h4>
-          <p class="anemometro"><span id="ESP32_01_anemometro"></span></p>
+          <p class="anemometro"><span class="temperatureColor" ><span id="ESP32_01_anemometro"></span> km/h </span></p>
           <h4 class="veleta_title"><i class="fa-regular fa-compass"></i> DIRECCION VIENTO</h4>
-          <p class="veleta"><span id="ESP32_01_veleta"></span></p>
-          <h4 class="pluviometro_title"><i class="fa-solid fa-cloud-rain"></i> CUADAL DE LLUVIA KM/H</h4>
-          <p class="pluviometro"><span class="reading"><span id="ESP32_01_pluviometro"></span> km/h</span></p>
+          <p class="veleta"><span class="reading"><span id="ESP32_01_veleta"></span></span></p>
+          <h4 class="pluviometro_title"><i class="fa-solid fa-cloud-rain"></i> CAUDAL DE LLUVIA </h4>
+          <p class="pluviometro"><span class="reading"><span id="ESP32_01_pluviometro"></span> ml</span></p>
           <p class="statusreadColor"><span>Estado lectura Sensor DHT11 : </span><span id="ESP32_01_Status_Read_DHT11"></span></p>
         </div>
         
