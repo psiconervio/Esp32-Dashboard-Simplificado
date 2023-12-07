@@ -1,0 +1,22 @@
+.icon-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .info {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  html {color:white;}
+
+
+  #icono:hover + #info {
+    display: block;
+  }

@@ -4,84 +4,12 @@
   <head>
     <title>Laboratorio de Innovacion Social</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="funciones/accesibility-hover-moreinfo.js"></script>
+    <link rel="stylesheet" href="funciones/style-hover-moreinfo.css">
     <script src="https://kit.fontawesome.com/da4a5b6f37.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="icon" href="data:,">
-    <style>
-      img {box-shadow: 0px 0px 10px 1px rgba(140,140,140,.5); border: 1px solid #00BAFA;}
-      html {font-family: Arial; display: inline-block; text-align: center; background-color: #232325;}
-      p {font-size: 1.2rem;}
-      h4 {font-size: 0.8rem;}
-      body {margin: 0;}
-      .topnav {overflow: hidden; background-color: #00BAFA; color: white; font-size: 1.2rem;}
-      .content {padding: 5px; }
-      .card {background-color: white; box-shadow: 0px 0px 10px 1px rgba(140,140,140,.5); border: 1px solid #00BAFA; border-radius: 15px;}
-      .card.header {background-color: #00BAFA; color: white; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; border-top-right-radius: 12px; border-top-left-radius: 12px;}
-      .cards {max-width: 700px; margin: 0 auto; display: grid; grid-gap: 2rem; background-color: #F3F4F6; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));}
-      .reading {font-size: 1.3rem;}
-      .packet {color: #bebebe;}
-      .temperatureColor {color: #DC2626;}
-      .anemometro_title {color: #fd7e14;}
-      .pluviometro_title {color: #1b78e2;}
-      .pluviometro {color: #1b78e2;}
-      .veleta {color:#A97D35;}
-      .veleta_title {color:#A97D35;}
-      .humidityColor {color: #1b78e2;}
-      .statusreadColor {color: #702963; font-size:12px;}
-      .LEDColor {color: #183153;}
-      .conttenedorr {color:#F3F4F6;}
-    
-
-      .sliderTS:before {
-        position: absolute;
-        content: "";
-        height: 16px;
-        width: 16px;
-        left: 4px;
-        bottom: 4px;
-        background-color: #f7f7f7;
-        -webkit-transition: .4s;
-        transition: .4s;
-        border-radius: 50%;
-      }
-
-      input:checked + .sliderTS {
-        background-color: #00878F;
-      }
-
-      input:focus + .sliderTS {
-        box-shadow: 0 0 1px #2196F3;
-      }
-
-      input:checked + .sliderTS:before {
-        -webkit-transform: translateX(26px);
-        -ms-transform: translateX(26px);
-        transform: translateX(26px);
-      }
-
-      .sliderTS:after {
-        content:'OFF';
-        color: white;
-        display: block;
-        position: absolute;
-        transform: translate(-50%,-50%);
-        top: 50%;
-        left: 70%;
-        font-size: 10px;
-        font-family: Verdana, sans-serif;
-      }
-
-      input:checked + .sliderTS:after {  
-        left: 25%;
-        content:'ON';
-      }
-
-      input:disabled + .sliderTS {  
-        opacity: 0.3;
-        cursor: not-allowed;
-        pointer-events: none;
-      }
-  </style>
+    <link rel="stylesheet" href="style.css">  
 
   </head>
   
@@ -103,8 +31,14 @@
           </div>
           
           <!-- Muestra los valores de humedad y temperatura recibidos de ESP32.. *** -->
-          <h4 class="temperatureColor"><i class="fas fa-thermometer-half"></i> TEMPERATURA</h4>
-          <p class="temperatureColor"><span class="reading"><span id="ESP32_01_Temp"></span> &deg;C</span></p>
+          <h4 class="temperatureColor"><i class="fas fa-thermometer-half"></i> TEMPERATURA 
+          <div class="icon-container">
+            <i id="icono" class="fa-solid fa-circle-info"></i>
+            <div class="info" id="info"><p> Temperatura actual de el sensor </p></div>
+            
+          </div></h4>
+
+          <p class="temperatureColor"><span class="reading"><span id="ESP32_01_Temp"></span><span id="ESP32_01_Temp"></span> &deg;C</span></p>
           <h4 class="humidityColor"><i class="fas fa-tint"></i> HUMEDAD</h4>
           <p class="humidityColor"><span class="reading"><span id="ESP32_01_Humd"></span> &percnt;</span></p>
           <h4 class="anemometro_title"> <i class="fa-solid fa-gauge-simple-high"></i> VELOCIDAD VIENTO</h4>
