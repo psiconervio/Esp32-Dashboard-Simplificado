@@ -12,7 +12,7 @@
     $status_read_sensor_dht11 = $_POST['status_read_sensor_dht11'];
     $anemometro = $_POST['anemometro'];
     $veleta = $_POST['veleta'];
-    $pluviometro = $_POST['pluviometro']
+    $pluviometro = $_POST['pluviometro'];
     
     // Get the time and date.
     date_default_timezone_set("America/Argentina/Catamarca"); // Look here for your timezone : https://www.php.net/manual/en/timezones.php
