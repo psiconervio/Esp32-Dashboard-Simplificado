@@ -9,7 +9,7 @@
     <link rel="icon" href="data:,">
     <style>
       img {box-shadow: 0px 0px 10px 1px rgba(140,140,140,.5); border: 1px solid #00BAFA;}
-      html {font-family: Arial; display: inline-block; text-align: center; background-color: #F3F4F6;}
+      html {font-family: Arial; display: inline-block; text-align: center; background-color: #232325;}
       p {font-size: 1.2rem;}
       h4 {font-size: 0.8rem;}
       body {margin: 0;}
