@@ -27,6 +27,8 @@
           $myObjDOS->ls_time = $row['time'];
           $myObjDOS->ls_date = $dateFormat;
           $myObjDOS->anemometro =$row['anemometro'];
+          $myObjDOS->veleta=$row['veleta'];
+          $myObjDOS->pluviometro=$row['pluviometro'];
           
           $myJSONDOS = json_encode($myObjDOS);
           

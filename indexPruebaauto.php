@@ -3,6 +3,9 @@
 <html>
   <head>
     <title>Laboratorio de Innovacion Social</title>
+    <script src="FuncionAutomatizar.js">
+      console.log(alummnostotales[i]);
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://kit.fontawesome.com/da4a5b6f37.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">

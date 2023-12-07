@@ -26,7 +26,10 @@
           $myObjDOS->status_read_sensor_dht11 = $row['status_read_sensor_dht11'];
           $myObjDOS->ls_time = $row['time'];
           $myObjDOS->ls_date = $dateFormat;
-          $myObjDOS->anemometro =$row['anemometro'];
+          $myObjDOS->anemometro = $row['anemometro'];
+          $myObjDOS->veleta =$row['veleta'];
+          $myObjDOS->pluviometro=$row['pluviometro'];
+          
 
           $myJSONDOS = json_encode($myObjDOS);
           

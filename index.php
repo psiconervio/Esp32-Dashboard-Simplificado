@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="icon" href="data:,">
     <style>
-      html {font-family: Arial; display: inline-block; text-align: center;}
+      img {box-shadow: 0px 0px 10px 1px rgba(140,140,140,.5); border: 1px solid #00BAFA;}
+      html {font-family: Arial; display: inline-block; text-align: center; background-color: #F3F4F6;}
       p {font-size: 1.2rem;}
       h4 {font-size: 0.8rem;}
       body {margin: 0;}
@@ -16,40 +17,20 @@
       .content {padding: 5px; }
       .card {background-color: white; box-shadow: 0px 0px 10px 1px rgba(140,140,140,.5); border: 1px solid #00BAFA; border-radius: 15px;}
       .card.header {background-color: #00BAFA; color: white; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; border-top-right-radius: 12px; border-top-left-radius: 12px;}
-      .cards {max-width: 700px; margin: 0 auto; display: grid; grid-gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));}
+      .cards {max-width: 700px; margin: 0 auto; display: grid; grid-gap: 2rem; background-color: #F3F4F6; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));}
       .reading {font-size: 1.3rem;}
       .packet {color: #bebebe;}
-      .temperatureColor {color: #fd7e14;}
+      .temperatureColor {color: #DC2626;}
       .anemometro_title {color: #fd7e14;}
       .pluviometro_title {color: #1b78e2;}
       .pluviometro {color: #1b78e2;}
-
+      .veleta {color:#A97D35;}
+      .veleta_title {color:#A97D35;}
       .humidityColor {color: #1b78e2;}
       .statusreadColor {color: #702963; font-size:12px;}
       .LEDColor {color: #183153;}
-      
-      /*Interruptor de palanca / Toggle Switch */
-      .switch {
-        position: relative;
-        display: inline-block;
-        width: 50px;
-        height: 24px;
-      }
-
-      .switch input {display:none;}
-
-      .sliderTS {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #D3D3D3;
-        -webkit-transition: .4s;
-        transition: .4s;
-        border-radius: 34px;
-      }
+      .conttenedorr {color:#F3F4F6;}
+    
 
       .sliderTS:before {
         position: absolute;
@@ -107,7 +88,7 @@
   <body>
     <div class="topnav">
       <img src="banernodo.png" width="100%" height="20%" alt="">
-      <h3>Laboratorio de Innovacion Social  -   Estacion Metereologica</h3>
+      <h3>Laboratorio de Innovacion Social  -   Estacion Metereologica </h3>
     </div>
     <br>
 
@@ -118,7 +99,7 @@
         <!-- ==Primer card MONITOREO_ESP32_01== izquierda -->
         <div class="card">
           <div class="card header">
-            <h3 style="font-size: 1rem;">Estacion Metereologica Norte</h3>
+            <h3 style="font-size: 1rem;">Estacion Metereologica Zona Norte</h3>
           </div>
           
           <!-- Muestra los valores de humedad y temperatura recibidos de ESP32.. *** -->
@@ -138,24 +119,29 @@
         <!-- ==Segundo card MONITOREO_ESP32_02 == derecha-->
         <div class="card">
           <div class="card header">
-            <h3 style="font-size: 1rem;">MONITOREO SENSOR ESP32_02</h3>
+            <h3 style="font-size: 1rem;">Estacion Metereologica Zona Norte</h3>
           </div>
           
-          <!-- Muestra los valores de humedad y temperatura recibidos de ESP32. *** -->
-          <h4 class="temperatureColor"><i class="fas fa-thermometer-half"></i> Temperatura</h4>
+          <!-- Muestra los valores de humedad y temperatura recibidos de ESP32.. *** -->
+          <h4 class="temperatureColor"><i class="fas fa-thermometer-half"></i> TEMPERATURA</h4>
           <p class="temperatureColor"><span class="reading"><span id="ESP32_02_Temp"></span> &deg;C</span></p>
           <h4 class="humidityColor"><i class="fas fa-tint"></i> HUMEDAD</h4>
-          <p class="humidityColor"><span class="reading"><span id="ESP32_02_Humd"></span> &percnt;</span></p>       
-          <h4 class="anemometro_title"> <i class="fa-solid fa-gauge-simple-high"></i>Anemometro</h4>
-          <p class="anemometro"><span id="ESP32_02_anemometro"></span></p>   
-          <p class="statusreadColor"><span>Estado Read Sensor DHT11 : </span><span id="ESP32_02_Status_Read_DHT11"></span></p>
+          <p class="humidityColor"><span class="reading"><span id="ESP32_02_Humd"></span> &percnt;</span></p>
+          <h4 class="anemometro_title"> <i class="fa-solid fa-gauge-simple-high"></i> VELOCIDAD VIENTO</h4>
+          <p class="anemometro"><span class="temperatureColor" ><span id="ESP32_02_anemometro"></span> km/h </span></p>
+          <h4 class="veleta_title"><i class="fa-regular fa-compass"></i> DIRECCION VIENTO</h4>
+          <p class="veleta"><span class="reading"><span id="ESP32_02_veleta"></span></span></p>
+          <h4 class="pluviometro_title"><i class="fa-solid fa-cloud-rain"></i> CAUDAL DE LLUVIA </h4>
+          <p class="pluviometro"><span class="reading"><span id="ESP32_02_pluviometro"></span> ml</span></p>
+          <p class="statusreadColor"><span>Estado lectura Sensor DHT11 : </span><span id="ESP32_02_Status_Read_DHT11"></span></p>
         </div>
+        
       </div>
       <br>
 
       <!-- == Segundo contenedor == -->
       <div class="cards">   
-        <!-- == MONITOREO_ESP32_02 == -->
+        <!-- == MONITOREO_ESP32_03 == -->
         <div class="card">
           <div class="card header">
             <h3 style="font-size: 1rem;">MONITOREO SENSOR ESP32_03</h3>
@@ -165,8 +151,12 @@
           <p class="temperatureColor"><span class="reading"><span id="ESP32_03_Temp"></span> &deg;C</span></p>
           <h4 class="humidityColor"><i class="fas fa-tint"></i> HUMEDAD</h4>
           <p class="humidityColor"><span class="reading"><span id="ESP32_03_Humd"></span> &percnt;</span></p>
-          <h4 class="anemometro_title"> <i class="fa-solid fa-gauge-simple-high"></i>Anemometro</h4>
-          <p class="anemometro"><span id="ESP32_03_anemometro"></span></p>
+          <h4 class="anemometro_title"> <i class="fa-solid fa-gauge-simple-high"></i> VELOCIDAD VIENTO</h4>
+          <p class="anemometro"><span class="temperatureColor" ><span id="ESP32_03_anemometro"></span> km/h </span></p>
+          <h4 class="veleta_title"><i class="fa-regular fa-compass"></i> DIRECCION VIENTO</h4>
+          <p class="veleta"><span class="reading"><span id="ESP32_03_veleta"></span></span></p>
+          <h4 class="pluviometro_title"><i class="fa-solid fa-cloud-rain"></i> CAUDAL DE LLUVIA </h4>
+          <p class="pluviometro"><span class="reading"><span id="ESP32_03_pluviometro"></span> ml</span></p>
           <p class="statusreadColor"><span>Estado Read Sensor DHT11 : </span><span id="ESP32_03_Status_Read_DHT11"></span></p>
         </div>        
       </div>
@@ -250,6 +240,9 @@
     document.getElementById("ESP32_02_Humd").innerHTML = "NN";
     document.getElementById("ESP32_02_Status_Read_DHT11").innerHTML = "NN";
     document.getElementById("ESP32_02_anemometro").innerHTML ="NN";
+    document.getElementById("ESP32_02_veleta").innerHTML="NN";
+    document.getElementById("ESP32_02_pluviometro").innerHTML="NN";
+
     //se necesita usar otra variable xmlhttp a xmlhttpp
     
     obtenerData("esp32_02");
@@ -276,6 +269,8 @@
             document.getElementById("ESP32_02_Humd").innerHTML = myObjDOS.humidity;
             document.getElementById("ESP32_02_Status_Read_DHT11").innerHTML = myObjDOS.status_read_sensor_dht11;
             document.getElementById("ESP32_02_anemometro").innerHTML = myObjDOS.anemometro;
+            document.getElementById("ESP32_02_pluviometro").innerHTML =myObjDOS.pluviometro;
+            document.getElementById("ESP32_02_veleta").innerHTML =myObjDOS.veleta;
           }
         }
       };
@@ -291,6 +286,8 @@
     document.getElementById("ESP32_03_Humd").innerHTML = "NN";
     document.getElementById("ESP32_03_Status_Read_DHT11").innerHTML = "NN";
     document.getElementById("ESP32_03_anemometro").innerHTML ="NN";
+    document.getElementById("ESP32_03_veleta").innerHTML="NN";
+    document.getElementById("ESP32_03_pluviometro").innerHTML="NN";
 
     //se necesita usar otra variable xmlhttp a xmlhttpp
     obtenerDataa("esp32_03");
@@ -318,6 +315,9 @@
             document.getElementById("ESP32_03_Status_Read_DHT11").innerHTML = myObjTRES.status_read_sensor_dht11;
             //se agrego esta linea de abajo
             document.getElementById("ESP32_03_anemometro").innerHTML = myObjTRES.anemometro;
+            document.getElementById("ESP32_03_veleta").innerHTML =myObjTRES.veleta;
+            document.getElementById("ESP32_03_pluviometro").innerHTML =myObjTRES.pluviometro;
+
           }
         }
       };
