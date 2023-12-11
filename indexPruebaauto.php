@@ -3,9 +3,6 @@
 <html>
   <head>
     <title>Laboratorio de Innovacion Social</title>
-    <script src="FuncionAutomatizar.js">
-      console.log(alummnostotales[i]);
-    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://kit.fontawesome.com/da4a5b6f37.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -170,54 +167,50 @@
     <button onclick="quitarTarjeta()">Quitar Tarjeta</button>
       <body>
     
-
+/*
     <script> //para CREAR LA TARJETA EN EL FRONT END
-        let contadorTarjetas = 3;
-
-        function agregarTarjeta() {
-  //     clave = prompt("CLAVE PARA AGREGAR NUEVA TARJETA");
-  //     if (clave == 1234) {   
-            // Crea un nuevo elemento div para la tarjeta
-            const nuevaTarjeta = document.createElement('div');
-            nuevaTarjeta.classList.add('card');
-
-            // Añade el contenido de la tarjeta
-            nuevaTarjeta.innerHTML = `
-                <div class="card header">
-                    <h3 style="font-size: 1rem;">MONITOREO SENSOR ESP32_0${contadorTarjetas}</h3>
-                </div>
-                <h4 class="temperatureColor"><i class="fas fa-thermometer-half"></i> TEMPERATURA</h4>
-                <p class="temperatureColor"><span class="reading"><span id="ESP32_0${contadorTarjetas}_Temp"></span> &deg;C</span></p>
-                <h4 class="humidityColor"><i class="fas fa-tint"></i> HUMEDAD</h4>
-                <p class="humidityColor"><span class="reading"><span id="ESP32_0${contadorTarjetas}_Humd"></span> &percnt;</span></p>
-                <h4 class="anemometro_title"> <i class="fa-solid fa-gauge-simple-high"></i>Anemometro</h4>
-                <p class="anemometro"><span id="ESP32_0${contadorTarjetas}_anemometro"></span></p>
-                <p class="statusreadColor"><span>Estado lectura Sensor DHT11 : </span><span id="ESP32_0${contadorTarjetas}_Status_Read_DHT11"></span></p>
-            `;
-
-            // Agrega la tarjeta al contenedor
-            document.getElementById('cardContainer').appendChild(nuevaTarjeta);
-
-            // Incrementa el contador para el siguiente ESP32
-            contadorTarjetas++;
-            
-        // document.getElementById("ESP32_0${contadorTarjetas_Temp").innerHTML = "NN"; 
-        // document.getElementById("ESP32_0${contadorTarjetas_Humd").innerHTML = "NN";
-        // document.getElementById("ESP32_0${contadorTarjetas_Status_Read_DHT11").innerHTML = "NN";
-          }
-    //  else {alert("clave incorrecta");}
-    // }
-
-        function quitarTarjeta() {
-            const contenedor = document.getElementById('cardContainer');
-            // Verifica si hay tarjetas para quitar
-            if (contenedor.children.length > 0) {
-                // Elimina la última tarjeta agregada
-                contenedor.removeChild(contenedor.lastChild);
-                // Decrementa el contador
-                contadorTarjetas--;
-            }
-        }
+ //       let contadorTarjetas = 3;
+//
+ //       function agregarTarjeta() {  
+ //           // Crea un nuevo elemento div para la tarjeta
+ //           const nuevaTarjeta = document.createElement('div');
+ //           nuevaTarjeta.classList.add('card');
+//
+ //           // Añade el contenido de la tarjeta
+ //           nuevaTarjeta.innerHTML = `
+ //               <div class="card header">
+ //                   <h3 style="font-size: 1rem;">MONITOREO SENSOR ESP32_0${contadorTarjetas}</h3>
+ //               </div>
+ //               <h4 class="temperatureColor"><i class="fas fa-thermometer-half"></i> TEMPERATURA</h4>
+ //               <p class="temperatureColor"><span class="reading"><span id="ESP32_0${contadorTarjetas}_Temp"></span> &deg;C</span></p>
+ //               <h4 class="humidityColor"><i class="fas fa-tint"></i> HUMEDAD</h4>
+ //               <p class="humidityColor"><span class="reading"><span id="ESP32_0${contadorTarjetas}_Humd"></span> &percnt;</span></p>
+ //               <h4 class="anemometro_title"> <i class="fa-solid fa-gauge-simple-high"></i>Anemometro</h4>
+ //               <p class="anemometro"><span id="ESP32_0${contadorTarjetas}_anemometro"></span></p>
+ //               <p class="statusreadColor"><span>Estado lectura Sensor DHT11 : </span><span id="ESP32_0${contadorTarjetas}_Status_Read_DHT11"></span></p>
+ //           `;
+//
+ //           // Agrega la tarjeta al contenedor
+ //           document.getElementById('cardContainer').appendChild(nuevaTarjeta);
+//
+ //           // Incrementa el contador para el siguiente ESP32
+ //           contadorTarjetas++;
+ //           
+ //        document.getElementById("ESP32_0${contadorTarjetas_Temp").innerHTML = "NN"; 
+ //        document.getElementById("ESP32_0${contadorTarjetas_Humd").innerHTML = "NN";
+ //        document.getElementById("ESP32_0${contadorTarjetas_Status_Read_DHT11").innerHTML = "NN";
+ //         }
+ //   
+ //       function quitarTarjeta() {
+ //           const contenedor = document.getElementById('cardContainer');
+ //           // Verifica si hay tarjetas para quitar
+ //           if (contenedor.children.length > 0) {
+ //               // Elimina la última tarjeta agregada
+ //               contenedor.removeChild(contenedor.lastChild);
+ //               // Decrementa el contador
+ //               contadorTarjetas--;
+ //           }
+ //       }
     </script>
     </div>
     

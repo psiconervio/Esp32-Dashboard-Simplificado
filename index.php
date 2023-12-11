@@ -259,6 +259,11 @@
       xmlhttppp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
       xmlhttppp.send("id=" + id);
     }
+
+    <?php
+        include( creadorDeTarjetas.php );
+    
+    ?>
     </script> 
   </body>
 </html>
