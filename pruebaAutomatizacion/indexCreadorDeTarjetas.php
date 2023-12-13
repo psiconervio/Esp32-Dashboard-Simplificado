@@ -85,7 +85,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src="https://kit.fontawesome.com/da4a5b6f37.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="icon" href="data:,">
-    <script src="s"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Botones Tarjetas</title>
@@ -135,7 +134,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </form>
 <div class="content">
     <div class="cards">
-<?php
+    <?php
 // Mostrar todas las tarjetas
 $tarjetas = obtenerTarjetas($conn);
 foreach ($tarjetas as $tarjeta) {
@@ -156,6 +155,45 @@ foreach ($tarjetas as $tarjeta) {
     echo '<p class="statusreadColor"><span>Estado Read Sensor DHT11 : </span><span id="ESP32_' . $tarjeta['id'] . '_Status_Read_DHT11"></span></p>';
     echo '<form method="post"><button type="submit" name="quitarTarjeta" value="' . $tarjeta['id'] . '" onclick="solicitarContrasena(' . $tarjeta['id'] . ')">Quitar Tarjeta</button></form>';
     echo '</div>';
+
+    //parte js
+// Parte JavaScript
+echo '<script>';
+echo 'document.getElementById("ESP32_' . $tarjeta['id'] . '_Temp").innerHTML = "NN";';
+echo 'document.getElementById("ESP32_' . $tarjeta['id'] . '_Humd").innerHTML = "NN";';
+echo 'document.getElementById("ESP32_' . $tarjeta['id'] . '_Status_Read_DHT11").innerHTML = "NN";';
+echo 'document.getElementById("ESP32_' . $tarjeta['id'] . '_anemometro").innerHTML ="NN";';
+echo 'document.getElementById("ESP32_' . $tarjeta['id'] . '_veleta").innerHTML="NN";';
+echo 'document.getElementById("ESP32_' . $tarjeta['id'] . '_pluviometro").innerHTML="NN";';
+echo 'Get_Data' . $tarjeta['id'] . '("esp32_' . $tarjeta['id'] . '");';
+echo 'setInterval(myTimer, 10000);';
+echo 'function myTimer() { Get_Data' . $tarjeta['id'] . '("esp32_' . $tarjeta['id'] . '"); }';
+echo 'function Get_Data' . $tarjeta['id'] . '(id) {';
+echo 'var xmlhttp' . $tarjeta['id'] . ';';
+echo 'if (window.XMLHttpRequest) {';
+echo 'xmlhttp' . $tarjeta['id'] . ' = new XMLHttpRequest();';
+echo '} else {';
+echo 'xmlhttp' . $tarjeta['id'] . ' = new ActiveXObject("Microsoft.XMLHTTP");';
+echo '}';
+echo 'xmlhttp' . $tarjeta['id'] . '.onreadystatechange = function() {';
+echo 'if (this.readyState == 4 && this.status == 200) {';
+echo 'const myObj = JSON.parse(this.responseText);';
+echo 'if (myObj.id == "esp32_' . $tarjeta['id'] . '") {';
+echo 'document.getElementById("ESP32_' . $tarjeta['id'] . '_Temp").innerHTML = myObj.temperature;';
+echo 'document.getElementById("ESP32_' . $tarjeta['id'] . '_Humd").innerHTML = myObj.humidity;';
+echo 'document.getElementById("ESP32_' . $tarjeta['id'] . '_Status_Read_DHT11").innerHTML = myObj.status_read_sensor_dht11;';
+echo 'document.getElementById("ESP32_' . $tarjeta['id'] . '_anemometro").innerHTML = myObj.anemometro;';
+echo 'document.getElementById("ESP32_' . $tarjeta['id'] . '_veleta").innerHTML = myObj.veleta;';
+echo 'document.getElementById("ESP32_' . $tarjeta['id'] . '_pluviometro").innerHTML = myObj.pluviometro;';
+echo 'document.getElementById("ESP32_' . $tarjeta['id'] . '_LTRD").innerHTML = "Time : " + myObj.ls_time + " | Date : " + myObj.ls_date + " (dd-mm-yyyy)";';
+echo '}';
+echo '}';
+echo '};';
+echo 'xmlhttp' . $tarjeta['id'] . '.open("POST","getdata.php",true);';
+echo 'xmlhttp' . $tarjeta['id'] . '.setRequestHeader("Content-type", "application/x-www-form-urlencoded");';
+echo 'xmlhttp' . $tarjeta['id'] . '.send("id="+id);';
+echo '}';
+echo '</script>';
 }
 ?>
 </div>
