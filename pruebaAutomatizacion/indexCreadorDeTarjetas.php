@@ -1,4 +1,5 @@
 <?php
+
 // Funciones PHP
 // Conectar a la base de datos (cambiar estos valores según tu configuración)
 $servername = "localhost";
@@ -80,6 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <script src="apiclima.js"></script>
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://kit.fontawesome.com/da4a5b6f37.js" crossorigin="anonymous"></script>
@@ -128,6 +130,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </script>
 
 <body>
+    
 <!-- Formulario con botones -->
 <form method="post">
     <button id="btnAgregarTarjeta" type="submit" name="agregarTarjeta">Agregar Tarjeta</button>
