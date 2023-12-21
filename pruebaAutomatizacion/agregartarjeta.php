@@ -1,4 +1,6 @@
 <?php
+//include indexCreadorDeTarjetas.php
+
 function agregarTarjeta($contenido, $contraseña, $conn) {
     // Añade la tarjeta a la base de datos
     $sql = "INSERT INTO tarjetas (contenido, contraseña) VALUES ('$contenido', '$contraseña')";

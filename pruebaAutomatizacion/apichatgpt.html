@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+        <script>
+var myHeaders = new Headers();
+myHeaders.append("x-access-token", "openuv-165a9rlqaveqy0-io");
+myHeaders.append("Content-Type", "application/json");
+
+var requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+  redirect: 'follow'
+};
+
+fetch("https://api.openuv.io/api/v1/uv?lat=-28.48&lng=-65.79&alt=100&dt=", requestOptions)
+  .then(response => response.json())
+  .then(data => {
+    // Selecciona el elemento HTML donde deseas mostrar los resultados
+    var resultadoElement = document.getElementById("resultadoUV");
+
+    // Verifica si "result" es un array o un objeto
+    if (Array.isArray(data.result)) {
+      // Si es un array, itera sobre sus elementos
+      data.result.forEach(entry => {
+        mostrarDatos(entry);
+      });
+    } else if (typeof data.result === 'object') {
+      // Si es un objeto, itera sobre sus propiedades
+      Object.keys(data.result).forEach(key => {
+        var entry = data.result[key];
+        mostrarDatos(entry);
+      });
+    } else {
+      console.log('Error: "result" no es un array ni un objeto en la respuesta.');
+    }
+
+    // Función para mostrar datos de una entrada
+    function mostrarDatos(entry) {
+      // Verifica si 'uv' y 'uv_time' están definidos
+      var uv = entry.uv !== undefined ? entry.uv : "No disponible";
+      var uvTime = entry.uv_time !== undefined ? entry.uv_time : "No disponible";
+
+      // Verifica si 'sun_position' existe antes de acceder a sus propiedades
+      if (entry.sun_position) {
+        var azimuth = entry.sun_position.azimuth !== undefined ? entry.sun_position.azimuth : "No disponible";
+        var altitude = entry.sun_position.altitude !== undefined ? entry.sun_position.altitude : "No disponible";
+
+        var uvInfo = `UV: ${uv}, Hora UV: ${uvTime}`;
+        var sunPositionInfo = `Posición del sol - Azimuth: ${azimuth}, Altitud: ${altitude}`;
+
+        // Crea un nuevo párrafo para cada conjunto de datos y agrégalo al elemento HTML
+        var paragraph = document.createElement("p");
+        paragraph.textContent = uvInfo + " | " + sunPositionInfo;
+        resultadoElement.appendChild(paragraph);
+      } else {
+        console.log(`Advertencia: Propiedad 'sun_position' no encontrada en la entrada.`);
+      }
+    }
+  })
+  .catch(error => console.log('Error en la solicitud:', error));
+
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información Meteorológica</title>
+</head>
+<body>
+    https://www.openuv.io/dashboard
+    <h1>Información Meteorológica para San Fernando del Valle de Catamarca</h1>
+
+    <div>
+        <h2>Coordenadas</h2>
+        <p>Latitud: <span id="latitud"></span></p>
+        <p>Longitud: <span id="longitud"></span></p>
+    </div>
+
+    <div>
+        <h2>Condiciones Climáticas</h2>
+        <p>Estado del cielo: <span id="estado-cielo"></span></p>
+        <p>Descripción: <span id="descripcion"></span></p>
+    </div>
+
+    <div>
+        <h2>Temperatura</h2>
+        <p>Temperatura actual: <span id="temperatura"></span> &#8451;</p>
+        <p>Sensación térmica: <span id="sensacion-termica"></span> &#8451;</p>
+        <p>Temperatura mínima: <span id="temp-min"></span> &#8451;</p>
+        <p>Temperatura máxima: <span id="temp-max"></span> &#8451;</p>
+    </div>
+
+    <div>
+        <h2>Viento</h2>
+        <p>Velocidad del viento: <span id="velocidad-viento"></span> m/s</p>
+        <p>Dirección del viento: <span id="direccion-viento"></span> &deg;</p>
+        <p>Ráfaga de viento: <span id="rafaga-viento"></span> m/s</p>
+    </div>
+
+    <div>
+        <h2>Otros Detalles</h2>
+        <p>Presión atmosférica: <span id="presion"></span> hPa</p>
+        <p>Humedad: <span id="humedad"></span>%</p>
+        <p>Visibilidad: <span id="visibilidad"></span> metros</p>
+    </div>
+    <div>
+        <h2>indice uv</h2>
+        <p><span id="resultadoUV"></span></p>
+    </div>
+
+    <!-- Puedes agregar más secciones según sea necesario -->
+
+    <script>
+        // Definir la URL de la API
+        var apiUrl = 'https://api.openweathermap.org/data/2.5/weather?lat=-28.46957&lon=-65.78524&appid=2c290850870ebbba2a0d95586f2aa709';
+
+        // Función para llamar a la API y actualizar los elementos HTML
+        function cargarDatos() {
+            // Realizar la solicitud a la API
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    // Llenar los elementos HTML con la información de la API
+                    document.getElementById('latitud').textContent = data.coord.lat;
+                    document.getElementById('longitud').textContent = data.coord.lon;
+                    document.getElementById('estado-cielo').textContent = data.weather[0].main;
+                    document.getElementById('descripcion').textContent = data.weather[0].description;
+                    document.getElementById('temperatura').textContent = data.main.temp;
+                    document.getElementById('sensacion-termica').textContent = data.main.feels_like;
+                    document.getElementById('temp-min').textContent = data.main.temp_min;
+                    document.getElementById('temp-max').textContent = data.main.temp_max;
+                    document.getElementById('velocidad-viento').textContent = data.wind.speed;
+                    document.getElementById('direccion-viento').textContent = data.wind.deg;
+                    document.getElementById('rafaga-viento').textContent = data.wind.gust;
+                    document.getElementById('presion').textContent = data.main.pressure;
+                    document.getElementById('humedad').textContent = data.main.humidity;
+                    document.getElementById('visibilidad').textContent = data.visibility;
+                })
+                .catch(error => {
+                    console.error('Error al llamar a la API:', error);
+                });
+        }
+
+        // Llamar a la función para cargar datos inicialmente
+        cargarDatos();
+
+        // Configurar la llamada a la función en intervalos de tiempo (en este caso cada 65 segundos)
+        setInterval(cargarDatos, 65000);
+    </script>
+    https://www.openuv.io/dashboard
+
+</body>
+</html>
+
