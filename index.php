@@ -9,7 +9,7 @@
     <script src="https://kit.fontawesome.com/da4a5b6f37.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="icon" href="data:,">
-    <link rel="stylesheet" href="style.css">  
+    <link rel="stylesheet" href="styleindexPrueba.css">  
 
   </head>
   
@@ -31,22 +31,18 @@
           </div>
           
           <!-- Muestra los valores de humedad y temperatura recibidos de ESP32.. *** -->
-          <h4 class="temperatureColor"><i class="fas fa-thermometer-half"></i> TEMPERATURA 
+          <h4 class="temperatureColor"><i class="fas fa-thermometer-half"></i> TEMPERATURA: <span id="ESP32_01_Temp"></span><span id="ESP32_01_Temp"></span> &deg;C</span>
           <div class="icon-container">
             <i id="icono" class="fa-solid fa-circle-info"></i>
             <div class="info" id="info"><p> Temperatura actual de el sensor </p></div>
-            
+
           </div></h4>
 
-          <p class="temperatureColor"><span class="reading"><span id="ESP32_01_Temp"></span><span id="ESP32_01_Temp"></span> &deg;C</span></p>
-          <h4 class="humidityColor"><i class="fas fa-tint"></i> HUMEDAD</h4>
-          <p class="humidityColor"><span class="reading"><span id="ESP32_01_Humd"></span> &percnt;</span></p>
-          <h4 class="anemometro_title"> <i class="fa-solid fa-gauge-simple-high"></i> VELOCIDAD VIENTO</h4>
-          <p class="anemometro"><span class="temperatureColor" ><span id="ESP32_01_anemometro"></span> km/h </span></p>
-          <h4 class="veleta_title"><i class="fa-regular fa-compass"></i> DIRECCION VIENTO</h4>
+          <h4 class="humidityColor"><i class="fas fa-tint"></i> HUMEDAD: <span class="reading"><span id="ESP32_01_Humd"></span> &percnt;</span></h4>
+          <h4 class="anemometro_title"> <i class="fa-solid fa-gauge-simple-high"></i> VELOCIDAD VIENTO: <span class="temperatureColor" ><span id="ESP32_01_anemometro"></span> km/h </span></h4>
+          <h4 class="veleta_title"><i class="fa-regular fa-compass"></i> DIRECCION VIENTO: <span class="reading"><span id="ESP32_01_veleta"></span></span></h4>
           <p class="veleta"><span class="reading"><span id="ESP32_01_veleta"></span></span></p>
-          <h4 class="pluviometro_title"><i class="fa-solid fa-cloud-rain"></i> CAUDAL DE LLUVIA </h4>
-          <p class="pluviometro"><span class="reading"><span id="ESP32_01_pluviometro"></span> ml</span></p>
+          <h4 class="pluviometro_title"><i class="fa-solid fa-cloud-rain"></i> CAUDAL DE LLUVIA: <span class="reading"><span id="ESP32_01_pluviometro"></span> ml</span> </h4>
           <p class="statusreadColor"><span>Estado lectura Sensor DHT11 : </span><span id="ESP32_01_Status_Read_DHT11"></span></p>
         </div>
         
