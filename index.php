@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>Laboratorio de Innovacion Social</title>
+    <title>Laboratorio de Innovacion Sociall</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="funciones/accesibility-hover-moreinfo.js"></script>
     <link rel="stylesheet" href="funciones/style-hover-moreinfo.css">
@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="icon" href="data:,">
     <link rel="stylesheet" href="styleindexPrueba.css">  
-
   </head>
   
   <body>
@@ -29,17 +28,22 @@
           <div class="card header">
             <h3 style="font-size: 1rem;">Estacion Metereologica Zona Norte</h3>
           </div>
+          <video src="videos/nublado.mp4" autoplay muted loop></video>
+          <div class='contenedorTodosItem'>
           
           <!-- Muestra los valores de humedad y temperatura recibidos de ESP32.. *** -->
-          <h4 class="temperatureColor"><i class="fas fa-thermometer-half"></i> TEMPERATURA: <span id="ESP32_01_Temp"></span><span id="ESP32_01_Temp"></span> &deg;C</span>
-          <div class="icon-container">
-            <video src="clouds_-_17723(1080p)"></video>
+          <div class="contenedorItem">
+            <h4 class="temperatureColor"><span id="ESP32_01_Temp"></span><span id="ESP32_01_Temp"></span> &deg;C</span>
+            <div class="icon-container">
             <i id="icono" class="fa-solid fa-circle-info"></i>
             <div class="info" id="info"><p> Temperatura actual de el sensor </p></div>
+          </div>
+          </div>
 
-          </div></h4>
-
+         
+         <div class="contenedorItem">
           <h4 class="humidityColor"><i class="fas fa-tint"></i> HUMEDAD: <span class="reading"><span id="ESP32_01_Humd"></span> &percnt;</span></h4>
+          </div>
           <h4 class="anemometro_title"> <i class="fa-solid fa-gauge-simple-high"></i> VELOCIDAD VIENTO: <span class="temperatureColor" ><span id="ESP32_01_anemometro"></span> km/h </span></h4>
           <h4 class="veleta_title"><i class="fa-regular fa-compass"></i> DIRECCION VIENTO: <span class="reading"><span id="ESP32_01_veleta"></span></span></h4>
           <p class="veleta"><span class="reading"><span id="ESP32_01_veleta"></span></span></p>
@@ -47,12 +51,17 @@
           <p class="statusreadColor"><span>Estado lectura Sensor DHT11 : </span><span id="ESP32_01_Status_Read_DHT11"></span></p>
         </div>
         
+        </div>
+
+
+
+
         <!-- ==Segundo card MONITOREO_ESP32_02 == derecha-->
-        <div class="card">
+        <div class="card video-background">
           <div class="card header">
             <h3 style="font-size: 1rem;">Estacion Metereologica Zona Norte</h3>
           </div>
-          
+          <video src="videos/storm.mp4" autoplay muted loop></video>
           <!-- Muestra los valores de humedad y temperatura recibidos de ESP32.. *** -->
           <h4 class="temperatureColor"><i class="fas fa-thermometer-half"></i> TEMPERATURA</h4>
           <p class="temperatureColor"><span class="reading"><span id="ESP32_02_Temp"></span> &deg;C</span></p>
@@ -73,10 +82,11 @@
       <!-- == Segundo contenedor == -->
       <div class="cards">   
         <!-- == MONITOREO_ESP32_03 == -->
-        <div class="card">
+        <div class="card video-background">
           <div class="card header">
             <h3 style="font-size: 1rem;">MONITOREO SENSOR ESP32_03</h3>
           </div>
+          <video src="videos/blue_sky.mp4" autoplay muted loop></video>
           <!-- Muestra los valores de humedad y temperatura recibidos de ESP32_03. *** -->
           <h4 class="temperatureColor"><i class="fas fa-thermometer-half"></i> Temperatura</h4>
           <p class="temperatureColor"><span class="reading"><span id="ESP32_03_Temp"></span> &deg;C</span></p>
@@ -89,8 +99,30 @@
           <h4 class="pluviometro_title"><i class="fa-solid fa-cloud-rain"></i> CAUDAL DE LLUVIA </h4>
           <p class="pluviometro"><span class="reading"><span id="ESP32_03_pluviometro"></span> ml</span></p>
           <p class="statusreadColor"><span>Estado Read Sensor DHT11 : </span><span id="ESP32_03_Status_Read_DHT11"></span></p>
+        </div>
+        <div class="card video-background" >
+          <div class="card header">
+            <h3 style="font-size: 1rem;">Estacion Metereologica Zona Norte</h3>
+          </div>
+          <video src="videos/nublado.mp4" autoplay muted loop></video>
+
+          <!-- Muestra los valores de humedad y temperatura recibidos de ESP32.. *** -->
+          <h4 class="temperatureColor"><i class="fas fa-thermometer-half"></i> TEMPERATURA: <span id="ESP32_01_Temp"></span><span id="ESP32_01_Temp"></span> &deg;C</span>
+          <div class="icon-container">
+            <i id="icono" class="fa-solid fa-circle-info"></i>
+            <div class="info" id="info"><p> Temperatura actual de el sensor </p></div>
+
+          </div>
+
+          <h4 class="humidityColor"><i class="fas fa-tint"></i> HUMEDADa: <span class="reading"><span id="ESP32_01_Humd"></span> &percnt;</span></h4>
+          <h4 class="anemometro_title"> <i class="fa-solid fa-gauge-simple-high"></i> VELOCIDAD VIENTO: <span class="temperatureColor" ><span id="ESP32_01_anemometro"></span> km/h </span></h4>
+          <h4 class="veleta_title"><i class="fa-regular fa-compass"></i> DIRECCION VIENTO: <span class="reading"><span id="ESP32_01_veleta"></span></span></h4>
+          <p class="veleta"><span class="reading"><span id="ESP32_01_veleta"></span></span></p>
+          <h4 class="pluviometro_title"><i class="fa-solid fa-cloud-rain"></i> CAUDAL DE LLUVIA: <span class="reading"><span id="ESP32_01_pluviometro"></span> ml</span> </h4>
+          <p class="statusreadColor"><span>Estado lectura Sensor DHT11 : </span><span id="ESP32_01_Status_Read_DHT11"></span></p>
         </div>        
       </div>
+      
     </div>
     
     <br>
