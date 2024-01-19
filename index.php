@@ -25,7 +25,7 @@
       <div class="cards">
         
         <!-- ==Primer card MONITOREO_ESP32_01== izquierda -->
-        <div class="card">
+        <div class="card video-background" >
           <div class="card header">
             <h3 style="font-size: 1rem;">Estacion Metereologica Zona Norte</h3>
           </div>
@@ -33,6 +33,7 @@
           <!-- Muestra los valores de humedad y temperatura recibidos de ESP32.. *** -->
           <h4 class="temperatureColor"><i class="fas fa-thermometer-half"></i> TEMPERATURA: <span id="ESP32_01_Temp"></span><span id="ESP32_01_Temp"></span> &deg;C</span>
           <div class="icon-container">
+            <video src="clouds_-_17723(1080p)"></video>
             <i id="icono" class="fa-solid fa-circle-info"></i>
             <div class="info" id="info"><p> Temperatura actual de el sensor </p></div>
 

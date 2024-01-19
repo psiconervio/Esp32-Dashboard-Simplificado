@@ -1,3 +1,22 @@
+.video-background {
+  position: relative;
+  overflow: hidden;
+}
+
+.video-background video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* Para que el video esté detrás del contenido de la tarjeta */
+}
+
+
+
+
+
 img {box-shadow: 0px 0px 10px 1px rgba(140,140,140,.5); border: 1px solid #00BAFA;}
 html {font-family: Arial; display: inline-block; text-align: center; background-color: #232325;}
 p,h2 {font-size: 1.2rem;}
