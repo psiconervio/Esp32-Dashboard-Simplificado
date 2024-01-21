@@ -17,7 +17,7 @@
   
   img {box-shadow: 0px 0px 10px 1px rgba(140,140,140,.5); border: 1px solid #00BAFA;}
   html {font-family: Arial; display: inline-block; text-align: center; background-color: #232325;}
-  p,h2 {font-size: 1.2rem;}
+  h2 {font-size: 1.2rem;}
   
   body {margin: 0;}
   .topnav {overflow: hidden; background-color: #00BAFA; color: white; font-size: 1.2rem;}
@@ -25,30 +25,44 @@
   .card { box-shadow: 0px 0px 10px 1px rgba(140,140,140,.5); border: 1px solid #00BAFA; border-radius: 15px;}
   .card.header {background-color: #00BAFA; color: white; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; border-top-right-radius: 12px; border-top-left-radius: 12px;}
   .cards {max-width: 700px; margin: 0 auto; display: grid; grid-gap: 2rem;  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));}
-  .reading {font-size: 1.3rem;}
-  .packet {color: #bebebe;}
-  .temperatureColor {}
-  .anemometro_title {color: #fd7e14;}
-  .pluviometro_title {color: #1b78e2;}
-  .pluviometro {color: #1b78e2;}
-  .veleta {color:#A97D35;}
-  .veleta_title {color:#A97D35;}
-  .humidityColor {color: #1b78e2;}
-  .statusreadColor {color: #702963; font-size:12px;}
-  .LEDColor {color: #183153;}
-  .conttenedorr {color:#F3F4F6;}
-  .contenedorItem {
-    width: 60px; /* Ajusta el tamaño según sea necesario */
-    height: 60px; /* Ajusta el tamaño según sea necesario */
-    border-radius: 10px; /* Establece el radio para redondear los bordes */
-    border: 2px solid white; /* Puedes ajustar el color y el grosor del borde según sea necesario */
+  .Alinearelementos {
+  display: flex;
+  flex-wrap: nowrap;
+}
+  .contenedorTodosItem {
     position: absolute;
     bottom: 0;
-    left: 50%;
-    transform: translateX(-50%); /* Centra horizontalmente el cuadrado */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow-x: auto; /* Agregado para permitir desplazamiento horizontal */
+
   }
   
+  .contenedorItem {
+    box-shadow: 0px 0px 10px 1px rgba(140,140,140,.5);border: 1px solid #00BAFA; border-radius: 15px;
+    display: inline-block;
+    height: auto; /* Cambiado a "auto" para permitir el crecimiento en altura según el contenido */
+    width :auto;
+
+    border-radius: 10px;
+    border: 2px solid white;
+    margin-bottom: 5px;
+    justify-content: flex-end;
+    justify-content: space-around;
+    overflow: hidden;
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+  }
+  .contenedorItem p {
   
+    margin: 0; /* Elimina el margen predeterminado del párrafo */
+    padding: 5px; /* Añade un pequeño relleno para mejorar la apariencia */
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    overflow: hidden;
+    font-size: 0.5em; /* Puedes ajustar según tus preferencias */
+
+  }
+
   .sliderTS:before {
     position: absolute;
     content: "";

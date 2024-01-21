@@ -27,7 +27,6 @@ body {margin: 0;}
 .cards {max-width: 700px; margin: 0 auto; display: grid; grid-gap: 2rem;  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));}
 .reading {font-size: 1.3rem;}
 .packet {color: #bebebe;}
-.temperatureColor {}
 .anemometro_title {color: #fd7e14;}
 .pluviometro_title {color: #1b78e2;}
 .pluviometro {color: #1b78e2;}
@@ -37,14 +36,21 @@ body {margin: 0;}
 .statusreadColor {color: #702963; font-size:12px;}
 .LEDColor {color: #183153;}
 .conttenedorr {color:#F3F4F6;}
+.contenedorTodosItem {
+  position: absolute;
+  align-items:flex-end;
+  display:flex;
+  justify-content:center ;
+}
 .contenedorItem {
   width: 60px; /* Ajusta el tamaño según sea necesario */
   height: 60px; /* Ajusta el tamaño según sea necesario */
   border-radius: 10px; /* Establece el radio para redondear los bordes */
   border: 2px solid white; /* Puedes ajustar el color y el grosor del borde según sea necesario */
   position: absolute;
-  bottom: 0;
-  left: 50%;
+  align-items:flex-end;
+  display:flex;
+  justify-content:center ;
   transform: translateX(-50%); /* Centra horizontalmente el cuadrado */
 }
 
