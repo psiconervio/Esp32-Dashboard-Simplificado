@@ -36,11 +36,16 @@
           <h2>San fernando del valle de catamarca</h2>
           <h1><span id="ESP32_01_Temp"></span><span id="ESP32_01_Temp"></span> &deg;C</span></h2>
           <br>
-          <p>Parcialmente nublado | Sensacion termica 28°</p>
+          <p>Parcialmente nublado | Sensacion termica 28°C</p>
           <p>Viento 18 km/h N 29°C</p>
           </div>
-            <div class='contenedorTodosItem'>
+           <br><br>
+           <div class="detalles">
+           <p>Detalles</p><br><br>
+           <br><br>
+           </div>
 
+            <div class='contenedorTodosItem'>
               <!-- Muestra los valores de humedad y temperatura recibidos de ESP32.. *** -->
 
               <div class="contenedorInterior">
