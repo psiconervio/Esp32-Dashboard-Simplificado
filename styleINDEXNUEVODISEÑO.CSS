@@ -1,5 +1,6 @@
 ::-webkit-scrollbar {
   width: 10px;
+  height: 5px;
    
 }
 ::-webkit-scrollbar-thumb {
@@ -35,13 +36,20 @@ margin-left: auto;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 margin-left: auto;
 }
+.transparencia{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background: black;
+  opacity: 0.05;
+}
 
 img {box-shadow: 0px 0px 10px 1px rgba(140,140,140,.5); border: 1px solid #00BAFA;}
 html {font-family: Arial; display: inline-block; text-align: center; background-color: #232325;}
  
 h2 {font-size: 1.2rem;
 justify-content: center;
-text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 margin-left: 1px;
 }
 
@@ -74,6 +82,8 @@ body {margin: 0;}
   text-align: start;
   margin-left: 4%;
   white-space: nowrap; /* Evita el quiebre del texto en varias líneas */
+  font-weight: bold;
+
 
 }
 .contenedorItem {
@@ -84,7 +94,7 @@ body {margin: 0;}
   height: auto; /* Cambiado a "auto" para permitir el crecimiento en altura según el contenido */
   min-width: 60px; /* Establece un ancho mínimo para evitar el corte del primer elemento */
   border: 2px solid rgba(255, 255, 255, 0.551); /* Hacer el borde transparente */
-  margin-bottom: 5px;
+  margin-bottom: ;
   justify-content: flex-end;
   justify-content: space-around;
   overflow: hidden;
@@ -95,10 +105,10 @@ body {margin: 0;}
 
 .contenedorItem p {
   margin: 0; /* Elimina el margen predeterminado del párrafo */
-  padding: 5px; /* Añade un pequeño relleno para mejorar la apariencia */
+  padding: 3px; /* Añade un pequeño relleno para mejorar la apariencia */
   white-space: nowrap; /* Evita que el texto se divida en varias líneas */
   overflow: hidden;
-  font-size: 0.5em; /* Puedes ajustar según tus preferencias */
+  font-size: xx-small; /* Puedes ajustar según tus preferencias */
 
 }
 

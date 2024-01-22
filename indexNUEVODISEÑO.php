@@ -31,9 +31,9 @@
           <h3 style="font-size: 1rem;">Estacion Metereologica Zona Norte</h3>
         </div>
         <video src="videos/nublado.mp4" autoplay muted loop></video>
-
+        <div class="transparencia"></div>
         <div class="body-tarjet">
-          <h2>San fernando del valle de catamarca</h2>
+          <h2>San Fernando Del Valle de Catamarca</h2>
           <h1><span id="ESP32_01_Temp"></span><span id="ESP32_01_Temp"></span> &deg;C</span></h2>
           <br>
           <p>Parcialmente nublado | Sensacion termica 28°C</p>
