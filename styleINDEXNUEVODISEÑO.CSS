@@ -44,7 +44,8 @@ margin-left: auto;
   opacity: 0.05;
 }
 
-img {box-shadow: 0px 0px 10px 1px rgba(140,140,140,.5); border: 1px solid #00BAFA;}
+
+img {box-shadow: 0px 0px 10px 1px rgba(140,140,140,.5); border: 1px solid #00BAFA; justify-content: center;}
 html {font-family: Arial; display: inline-block; text-align: center; background-color: #232325;}
  
 h2 {font-size: 1.2rem;
@@ -67,6 +68,17 @@ body {margin: 0;}
   justify-content: flex-start;
   overflow-x: auto; /* Agregado para permitir desplazamiento horizontal */
 }
+.detalles{
+  text-align: left;
+  padding-bottom: 10px; /* Ajusta el valor según tus necesidades */
+  margin-top: 100px;
+
+
+}
+.detalles p {
+  margin-bottom: 10px; /* Ajusta el valor según tus necesidades */
+  margin-top: 1000px;
+}
 .contenedorItem:first{
   position:sticky;
   left:0;
@@ -77,6 +89,7 @@ body {margin: 0;}
   flex-wrap: nowrap;
   gap: 5px; /* Espacio entre elementos */
   padding-left: 5px; /* Ajusta el relleno izquierdo para centrar el primer elemento */
+  margin-bottom: 5px;
 }
 .detalles{
   text-align: start;
@@ -94,7 +107,6 @@ body {margin: 0;}
   height: auto; /* Cambiado a "auto" para permitir el crecimiento en altura según el contenido */
   min-width: 60px; /* Establece un ancho mínimo para evitar el corte del primer elemento */
   border: 2px solid rgba(255, 255, 255, 0.551); /* Hacer el borde transparente */
-  margin-bottom: ;
   justify-content: flex-end;
   justify-content: space-around;
   overflow: hidden;

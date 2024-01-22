@@ -34,15 +34,13 @@
         <div class="transparencia"></div>
         <div class="body-tarjet">
           <h2>San Fernando Del Valle de Catamarca</h2>
-          <h1><span id="ESP32_01_Temp"></span><span id="ESP32_01_Temp"></span> &deg;C</span></h2>
+          <h1><span id="ESP32_01_Temp"></span> &deg;C</span></h2>
           <br>
           <p>Parcialmente nublado | Sensacion termica 28°C</p>
           <p>Viento 18 km/h N 29°C</p>
           </div>
-           <br><br>
            <div class="detalles">
-           <p>Detalles</p><br><br>
-           <br><br>
+           <p>Detalles
            </div>
 
             <div class='contenedorTodosItem'>
@@ -50,22 +48,22 @@
 
               <div class="contenedorInterior">
                 <div class="contenedorItem">
-                <i class="fas fa-tint"></i> <span class="reading"><span id="ESP32_01_Humd"></span> &percnt;</span>
-                  <p class="humidityColor"> Humedad<br></p>
+                <i class="fas fa-tint"></i> <span class="reading"><span id="ESP32_01_Humd"></span>&percnt;</span>
+                  <p class="humidityColor"> Humedad<br></p> 
                 </div>
                 <div class='contenedorItem'>
-                <i class="fa-solid fa-gauge-simple-high"></i> <span class="temperatureColor"><span id="ESP32_01_anemometro"></span> km/h </span>
-                  <p class="anemometro_title"> Velocidad Viento: <br>
+                <i class="fa-solid fa-gauge-simple-high"></i> <span class="temperatureColor"><span id="ESP32_01_anemometro"></span>km/h </span>
+                  <p class="anemometro_title"> Velocidad Viento<br>
                   </p>
                 </div>
                 <div class="contenedorItem">
-                <i class="fa-regular fa-compass"></i> <p class="veleta"><span class="reading"><span id="ESP32_01_veleta"></span></span></p>
+                <i class="fa-regular fa-compass"></i> <span class="reading"><span id="ESP32_01_veleta"></span></span>
                   <p class="veleta_title"> Direccion Viento<br><span
                       class="reading"><span id="ESP32_01_veleta"></span></span></p>
                 </div>
                 <div class="contenedorItem">
                 <i class="fa-solid fa-cloud-rain"></i>  
-                <span class="reading"><span id="ESP32_01_pluviometro"></span> ml</span>
+                <span class="reading"><span id="ESP32_01_pluviometro"></span>ml</span>
                   <p class="pluviometro_title"> Caudal de Lluvia<br>
                   </p>
                 </div>
@@ -130,11 +128,11 @@
       //-IMPORTANTE-Cada vez que se agrega un esp32 se debe crear otra variable xmlhttp para las demas peticiones
       document.getElementById("ESP32_01_Temp").innerHTML = "NN";
       document.getElementById("ESP32_01_Humd").innerHTML = "NN";
-      document.getElementById("ESP32_01_Status_Read_DHT11").innerHTML = "NN";
-      document.getElementById("ESP32_01_LTRD").innerHTML = "NN";
       document.getElementById("ESP32_01_anemometro").innerHTML = "NN";
       document.getElementById("ESP32_01_veleta").innerHTML = "NN";
       document.getElementById("ESP32_01_pluviometro").innerHTML = "NN";
+      document.getElementById("ESP32_01_Status_Read_DHT11").innerHTML = "NN";
+      document.getElementById("ESP32_01_LTRD").innerHTML = "NN";
       //-llama a la funcion obtenerdatos y pasa el parametro esp32 que es  id del POST que recibimos de la base de datos con getdata.php
       Get_Data("esp32_01");
       //-llama a la funcion setInterval de js, para que itere la funcion myTimer cada 10seg
