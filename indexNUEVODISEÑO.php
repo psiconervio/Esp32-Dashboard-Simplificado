@@ -54,7 +54,7 @@
                   <p class="humidityColor"> Humedad<br></p> 
                 </div>
                 <div class='contenedorItem'>
-                <i class="fa-solid fa-gauge-simple-high"></i> <span class="temperatureColor"><span id="ESP32_01_anemometro"></span>km/h </span>
+                <i class="fa-solid fa-gauge-simple-high"></i> <span class="temperatureColor"><span id="ESP32_01_anemometro"></span>m/s </span>
                   <p class="anemometro_title"> Velocidad Viento<br>
                   </p>
                 </div>

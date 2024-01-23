@@ -12,9 +12,12 @@ fetch(apiUrl)
         document.getElementById('presion').textContent = data.main.pressure;
         temperaturaExacta = data.main.temp - 273.15;
         sensaciontermica = data.main.feels_like -273.15;
+        document.getElementById('ESP32_01_Humd').innerText = data.main.humidity;
         document.getElementById("ESP32_01_Temp").innerText = temperaturaExacta.toFixed(1);
         document.getElementById('descripcionCielo').textContent = descripcionCielo;
-        document.getElementById('sensaciontermica').textContent = sensaciontermica.toFixed(0);
+        document.getElementById('sensaciontermica').textContent = sensaciontermica.toFixed(1);
+        document.getElementById('ESP32_01_anemometro').textContent = data.wind.speed.toFixed(1);
+
         console.log(data.weather[0].main);
 
         switch (descripcionCielo){
