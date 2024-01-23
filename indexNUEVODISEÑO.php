@@ -38,8 +38,8 @@
           <h2>San Fernando Del Valle de Catamarca</h2>
           <h1><span id="ESP32_01_Temp"></span> &deg;C</span></h2>
           <br>
-          <p><span id='descripcionCielo'></span> | Sensacion Termica <span id='sensaciontermica'></span>°C</p>
-          <p>Viento 18 km/h N 29°C</p>
+          <p><span id='iddescripcioncielo'></span> | Sensacion Termica <span id='sensaciontermica'></span>°C</p>
+          <p>Rafaga de viento <span id="rafagadeviento"></span></p>
           </div>
            <div class="detalles">
            <p>Detalles
@@ -59,9 +59,14 @@
                   </p>
                 </div>
                 <div class="contenedorItem">
-                <i class="fa-regular fa-compass"></i> <span class="reading"><span id="ESP32_01_veleta"></span></span>
+                <i class="fa-regular fa-compass"></i> <span class="reading"><span id="ESP32_01_veleta"></span>°</span>
                   <p class="veleta_title"> Direccion Viento<br><span
                       class="reading"><span id="ESP32_01_veleta"></span></span></p>
+                </div>
+                <div class="contenedorItem">
+                <span class="reading"><span id="presion"></span> hPA</span>
+                  <p class="pluviometro_title"><i class="fa-solid fa-cloud-rain"></i> Presion Atmosferica<br>
+                  </p>
                 </div>
                 <div class="contenedorItem">
                 <i class="fa-solid fa-cloud-rain"></i>  
@@ -69,11 +74,7 @@
                   <p class="pluviometro_title"> Caudal de Lluvia<br>
                   </p>
                 </div>
-                <div class="contenedorItem">
-                <span class="reading"><span id="presion"></span> ml</span>
-                  <p class="pluviometro_title"><i class="fa-solid fa-cloud-rain"></i> Presion Atmosferica<br>
-                  </p>
-                </div>
+
                 <div class="contenedorItem">
                   <p class="pluviometro_title"><i class="fa-solid fa-cloud-rain"></i> Caudal de Lluvia<br>
                     <span class="reading"><span id="ESP32_01_pluviometro"></span> ml</span>
@@ -125,61 +126,61 @@
     </footer>
     <!--primer script -->
     <script>
-      //-script para actualizar valores del esp32
-      //-PONE LOS VALORES EN NULL
-      //-IMPORTANTE-Cada vez que se agrega un esp32 se debe crear otra variable xmlhttp para las demas peticiones
-      document.getElementById("ESP32_01_Temp").innerHTML = "NN";
-      document.getElementById("ESP32_01_Humd").innerHTML = "NN";
-      document.getElementById("ESP32_01_anemometro").innerHTML = "NN";
-      document.getElementById("ESP32_01_veleta").innerHTML = "NN";
-      document.getElementById("ESP32_01_pluviometro").innerHTML = "NN";
-      document.getElementById("ESP32_01_Status_Read_DHT11").innerHTML = "NN";
-      document.getElementById("ESP32_01_LTRD").innerHTML = "NN";
-      //-llama a la funcion obtenerdatos y pasa el parametro esp32 que es  id del POST que recibimos de la base de datos con getdata.php
-      Get_Data("esp32_01");
-      //-llama a la funcion setInterval de js, para que itere la funcion myTimer cada 10seg
-      setInterval(myTimer, 10000);
-      //-mytimer ejecuta la funcion obtener datos
-      function myTimer() {
-        Get_Data("esp32_01");
-      }
-      //-get_data obtiene los datos de getdata.php y actualiza los datos en la pagina index       
-      function Get_Data(id) {
-        //-cada vez que se agrega un esp32 se debe crear otra variable xmlhttp para las demas peticiones
-        var xmlhttp;
-        // Verifica la compatibilidad del navegador para crear la instancia XMLHttpRequest
-        if (window.XMLHttpRequest) {
-          // code for IE7+, Firefox, Chrome, Opera, Safari
-          xmlhttp = new XMLHttpRequest();
-        } else {
-          // code for IE6, IE5
-          xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        // Define la función que se ejecutará cuando cambie el estado de la solicitud
-        xmlhttp.onreadystatechange = function () {
-          // Verifica si la solicitud se ha completado correctamente y el código de estado es 200 (OK)
-          if (this.readyState == 4 && this.status == 200) {
-            // Parsea la respuesta JSON del servidor
-            const myObj = JSON.parse(this.responseText);
-            if (myObj.id == "esp32_01") {
-              // Actualiza elementos del DOM con la información recibida
-              document.getElementById("ESP32_01_Temp").innerHTML = myObj.temperature;
-              document.getElementById("ESP32_01_Humd").innerHTML = myObj.humidity;
-              document.getElementById("ESP32_01_Status_Read_DHT11").innerHTML = myObj.status_read_sensor_dht11;
-              document.getElementById("ESP32_01_anemometro").innerHTML = myObj.anemometro;
-              document.getElementById("ESP32_01_veleta").innerHTML = myObj.veleta;
-              document.getElementById("ESP32_01_pluviometro").innerHTML = myObj.pluviometro;
-              document.getElementById("ESP32_01_LTRD").innerHTML = "Time : " + myObj.ls_time + " | Date : " + myObj.ls_date + " (dd-mm-yyyy)";
-            }
-          }
-        };
-        // Configura la solicitud HTTP (POST) al archivo "getdata.php" de manera asíncrona
-        xmlhttp.open("POST", "getdata.php", true);
-        // Configura el tipo de contenido de la solicitud
-        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        // Envía la solicitud con el parámetro "id"
-        xmlhttp.send("id=" + id);
-      }
+  //    //-script para actualizar valores del esp32
+  //    //-PONE LOS VALORES EN NULL
+  //    //-IMPORTANTE-Cada vez que se agrega un esp32 se debe crear otra variable xmlhttp para las demas peticiones
+  //    document.getElementById("ESP32_01_Temp").innerHTML = "NN";
+  //    document.getElementById("ESP32_01_Humd").innerHTML = "NN";
+  //    document.getElementById("ESP32_01_anemometro").innerHTML = "NN";
+  //    document.getElementById("ESP32_01_veleta").innerHTML = "NN";
+  //    document.getElementById("ESP32_01_pluviometro").innerHTML = "NN";
+  //    document.getElementById("ESP32_01_Status_Read_DHT11").innerHTML = "NN";
+  //    document.getElementById("ESP32_01_LTRD").innerHTML = "NN";
+  //    //-llama a la funcion obtenerdatos y pasa el parametro esp32 que es  id del POST que recibimos de la base de datos con getdata.php
+  //    Get_Data("esp32_01");
+  //    //-llama a la funcion setInterval de js, para que itere la funcion myTimer cada 10seg
+  //    setInterval(myTimer, 10000);
+  //    //-mytimer ejecuta la funcion obtener datos
+  //    function myTimer() {
+  //      Get_Data("esp32_01");
+  //    }
+  //    //-get_data obtiene los datos de getdata.php y actualiza los datos en la pagina index       
+  //    function Get_Data(id) {
+  //      //-cada vez que se agrega un esp32 se debe crear otra variable xmlhttp para las demas peticiones
+  //      var xmlhttp;
+  //      // Verifica la compatibilidad del navegador para crear la instancia XMLHttpRequest
+  //      if (window.XMLHttpRequest) {
+  //        // code for IE7+, Firefox, Chrome, Opera, Safari
+  //        xmlhttp = new XMLHttpRequest();
+  //      } else {
+  //        // code for IE6, IE5
+  //        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+  //      }
+  //      // Define la función que se ejecutará cuando cambie el estado de la solicitud
+  //      xmlhttp.onreadystatechange = function () {
+  //        // Verifica si la solicitud se ha completado correctamente y el código de estado es 200 (OK)
+  //        if (this.readyState == 4 && this.status == 200) {
+  //          // Parsea la respuesta JSON del servidor
+  //          const myObj = JSON.parse(this.responseText);
+  //          if (myObj.id == "esp32_01") {
+  //            // Actualiza elementos del DOM con la información recibida
+  //            document.getElementById("ESP32_01_Temp").innerHTML = myObj.temperature;
+  //            document.getElementById("ESP32_01_Humd").innerHTML = myObj.humidity;
+  //            document.getElementById("ESP32_01_Status_Read_DHT11").innerHTML = myObj.status_read_sensor_dht11;
+  //            document.getElementById("ESP32_01_anemometro").innerHTML = myObj.anemometro;
+  //            document.getElementById("ESP32_01_veleta").innerHTML = myObj.veleta;
+  //            document.getElementById("ESP32_01_pluviometro").innerHTML = myObj.pluviometro;
+  //            document.getElementById("ESP32_01_LTRD").innerHTML = "Time : " + myObj.ls_time + " | Date : " + myObj.ls_date + " (dd-mm-yyyy)";
+  //          }
+  //        }
+  //      };
+  //      // Configura la solicitud HTTP (POST) al archivo "getdata.php" de manera asíncrona
+  //      xmlhttp.open("POST", "getdata.php", true);
+  //      // Configura el tipo de contenido de la solicitud
+  //      xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  //      // Envía la solicitud con el parámetro "id"
+  //      xmlhttp.send("id=" + id);
+  //    }
     </script>
 
     <script>

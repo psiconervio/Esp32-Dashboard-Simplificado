@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  
         <script>
+          
 var myHeaders = new Headers();
 myHeaders.append("x-access-token", "openuv-165a9rlqaveqy0-io");
 myHeaders.append("Content-Type", "application/json");
@@ -121,7 +123,7 @@ fetch("https://api.openuv.io/api/v1/uv?lat=-28.48&lng=-65.79&alt=100&dt=", reque
 
                     // Llenar los elementos HTML con la información de la API
                     document.getElementById('latitud').textContent = data.coord.lat;
-                    document.getElementById('longitud').textContent = data.coord.lat;
+                    document.getElementById('longitud').textContent = data.coord.lon;
                     document.getElementById('estado-cielo').textContent = data.weather[0].main;
                     document.getElementById('descripcion').textContent = data.weather[0].description;
                     document.getElementById('temperatura').textContent = data.main.temp;
