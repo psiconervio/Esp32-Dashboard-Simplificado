@@ -118,9 +118,10 @@ fetch("https://api.openuv.io/api/v1/uv?lat=-28.48&lng=-65.79&alt=100&dt=", reque
             fetch(apiUrl)
                 .then(response => response.json())
                 .then(data => {
+
                     // Llenar los elementos HTML con la información de la API
                     document.getElementById('latitud').textContent = data.coord.lat;
-                    document.getElementById('longitud').textContent = data.coord.lon;
+                    document.getElementById('longitud').textContent = data.coord.lat;
                     document.getElementById('estado-cielo').textContent = data.weather[0].main;
                     document.getElementById('descripcion').textContent = data.weather[0].description;
                     document.getElementById('temperatura').textContent = data.main.temp;
@@ -133,6 +134,19 @@ fetch("https://api.openuv.io/api/v1/uv?lat=-28.48&lng=-65.79&alt=100&dt=", reque
                     document.getElementById('presion').textContent = data.main.pressure;
                     document.getElementById('humedad').textContent = data.main.humidity;
                     document.getElementById('visibilidad').textContent = data.visibility;
+                    console.log(data.coord.lat);
+                    console.log(data.weather[0].main);
+                    console.log(data.weather[0].description);
+                    console.log(data.main.temp);
+                    console.log(data.main.feels_like);
+                    console.log(data.main.temp_min);
+                    console.log(data.main.temp_max);
+                    console.log(data.wind.speed);
+                    console.log(data.wind.deg);
+                    console.log(data.wind.gust);
+                    console.log(data.main.pressure);
+                    console.log(data.main.humidity);
+                    console.log(data.visibility);
                 })
                 .catch(error => {
                     console.error('Error al llamar a la API:', error);

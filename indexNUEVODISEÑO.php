@@ -38,7 +38,7 @@
           <h2>San Fernando Del Valle de Catamarca</h2>
           <h1><span id="ESP32_01_Temp"></span> &deg;C</span></h2>
           <br>
-          <p><span id='descripcionCielo'></span> | Sensacion termica 28°C</p>
+          <p><span id='descripcionCielo'></span> | Sensacion Termica <span id='sensaciontermica'></span>°C</p>
           <p>Viento 18 km/h N 29°C</p>
           </div>
            <div class="detalles">

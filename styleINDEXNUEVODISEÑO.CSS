@@ -51,7 +51,6 @@ html {font-family: Arial; display: inline-block; text-align: center; background-
 h2 {font-size: 1.2rem;
 justify-content: center;
 text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
-margin-left: 1px;
 }
 
 body {margin: 0;}
@@ -123,7 +122,9 @@ body {margin: 0;}
   font-size: xx-small; /* Puedes ajustar según tus preferencias */
 
 }
-
+.topnav h3{
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
 @media (max-min: 375px ) {
   .detalles {
     margin-top: 0px;

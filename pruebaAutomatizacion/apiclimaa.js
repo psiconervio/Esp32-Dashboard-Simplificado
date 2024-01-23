@@ -10,12 +10,21 @@ fetch(apiUrl)
         console.log(data.main.pressure)
         let descripcionCielo = data.weather[0].description;
         document.getElementById('presion').textContent = data.main.pressure;
+        temperaturaExacta = data.main.temp - 273.15;
+        sensaciontermica = data.main.feels_like -273.15;
+        document.getElementById("ESP32_01_Temp").innerText = temperaturaExacta.toFixed(1);
         document.getElementById('descripcionCielo').textContent = descripcionCielo;
+        document.getElementById('sensaciontermica').textContent = sensaciontermica.toFixed(0);
         console.log(data.weather[0].main);
 
         switch (descripcionCielo){
             case 'overcast clouds': // Corregido aquí
                 console.log("nubes superpuestas");
+                document.getElementById('miVideo').src = 'videos/nublado.mp4';
+                document.getElementById('miVideo').autoplay = true;
+                document.getElementById('miVideo').muted = true;
+                document.getElementById('miVideo').loop = true;
+                document.getElementById('descripcionCielo').textContent = "Nubes superpuestas";
                 break;
             case 'clear sky':
                 console.log("cielo limpio");
@@ -26,10 +35,21 @@ fetch(apiUrl)
                 document.getElementById('descripcionCielo').textContent = "Cielo Limpio";
                 break;
             case 'broken clouds':
+                document.getElementById('miVideo').src = 'videos/blue_sky.mp4';
+                document.getElementById('miVideo').autoplay = true;
+                document.getElementById('miVideo').muted = true;
+                document.getElementById('miVideo').loop = true;
+                document.getElementById('descripcionCielo').textContent = "Cielo Limpio";
                 console.log("nubes rotas");
+
                 break;
             case 'thunderstorm with rain':
                 console.log("tormenta con lluvia");
+                document.getElementById('miVideo').src = 'videos/storm.mp4';
+                document.getElementById('miVideo').autoplay = true;
+                document.getElementById('miVideo').muted = true;
+                document.getElementById('miVideo').loop = true;
+                document.getElementById('descripcionCielo').textContent = "Tormenta con lluvia";
                 break;
             case 'light rain':
                 console.log("lluvia ligera");
