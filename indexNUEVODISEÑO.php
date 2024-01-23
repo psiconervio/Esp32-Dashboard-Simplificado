@@ -3,10 +3,12 @@
 <html>
 
 <head>
+<script src="pruebaAutomatizacion\apiclimaa.js"></script>
   <title>Laboratorio de Innovacion Sociall</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="funciones/accesibility-hover-moreinfo.js"></script>
   <link rel="stylesheet" href="funciones/style-hover-moreinfo.css">
+  <script src="scriptAnimacionClima.js"></script>
   <script src="https://kit.fontawesome.com/da4a5b6f37.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -30,13 +32,13 @@
         <div class="card header">
           <h3 style="font-size: 1rem;">Estacion Metereologica Zona Norte</h3>
         </div>
-        <video src="videos/nublado.mp4" autoplay muted loop></video>
+        <video id="miVideo"></video>
         <div class="transparencia"></div>
         <div class="body-tarjet">
           <h2>San Fernando Del Valle de Catamarca</h2>
           <h1><span id="ESP32_01_Temp"></span> &deg;C</span></h2>
           <br>
-          <p>Parcialmente nublado | Sensacion termica 28°C</p>
+          <p><span id='descripcionCielo'></span> | Sensacion termica 28°C</p>
           <p>Viento 18 km/h N 29°C</p>
           </div>
            <div class="detalles">
@@ -68,8 +70,8 @@
                   </p>
                 </div>
                 <div class="contenedorItem">
-                  <p class="pluviometro_title"><i class="fa-solid fa-cloud-rain"></i> Caudal de Lluvia<br>
-                    <span class="reading"><span id="ESP32_01_pluviometro"></span> ml</span>
+                <span class="reading"><span id="presion"></span> ml</span>
+                  <p class="pluviometro_title"><i class="fa-solid fa-cloud-rain"></i> Presion Atmosferica<br>
                   </p>
                 </div>
                 <div class="contenedorItem">

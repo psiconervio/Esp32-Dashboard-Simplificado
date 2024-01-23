@@ -28,7 +28,7 @@
           <div class="card header">
             <h3 style="font-size: 1rem;">Estacion Metereologica Zona Norte</h3>
           </div>
-          <video src="videos/nublado.mp4" autoplay muted loop></video>
+           <video src="videos/nublado.mp4" autoplay muted loop></video>
           <div class='contenedorTodosItem'>
           
           <!-- Muestra los valores de humedad y temperatura recibidos de ESP32.. *** -->
