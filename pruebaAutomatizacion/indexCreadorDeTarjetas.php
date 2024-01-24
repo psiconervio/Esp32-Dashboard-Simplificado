@@ -125,7 +125,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 //            // Adjuntar el formulario al cuerpo del documento y enviarlo
 //            document.body.appendChild(formulario);
 //            formulario.submit();
-//        }
+//        }a
 //    }
 </script>
 

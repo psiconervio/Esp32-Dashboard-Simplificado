@@ -96,7 +96,7 @@ function timer(){
 }
 
 setInterval(timer, 60000);
-//script para cambiar animacion de clima
+//script para caambiar animacion de clima
 
 /*tipos de cielo 
 broken clouds
