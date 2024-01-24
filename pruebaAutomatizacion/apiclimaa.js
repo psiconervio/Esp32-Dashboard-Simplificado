@@ -64,7 +64,7 @@ fetch(apiUrl)
                 break;
             case 'few clouds':
                 console.log("pocas nubes");
-                document.getElementById('miVideo').src = 'videos/pocasnubes.mp4';
+                document.getElementById('miVideo').src = 'videos/pocasnubess.mp4';
                 document.getElementById('miVideo').autoplay = true;
                 document.getElementById('miVideo').muted = true;
                 document.getElementById('miVideo').loop = true;
