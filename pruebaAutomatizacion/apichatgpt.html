@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   
-        <script>
+<!--         <script>
           
 var myHeaders = new Headers();
 myHeaders.append("x-access-token", "openuv-165a9rlqaveqy0-io");
@@ -14,7 +14,7 @@ var requestOptions = {
   redirect: 'follow'
 };
 
-fetch("https://api.openuv.io/api/v1/uv?lat=-28.48&lng=-65.79&alt=100&dt=", requestOptions)
+fetch("https://api.openuv.io/api/v1/uv?lat=-28.28&lng=-65.47&alt=100&dt=", requestOptions)
   .then(response => response.json())
   .then(data => {
     // Selecciona el elemento HTML donde deseas mostrar los resultados
@@ -61,7 +61,7 @@ fetch("https://api.openuv.io/api/v1/uv?lat=-28.48&lng=-65.79&alt=100&dt=", reque
   })
   .catch(error => console.log('Error en la solicitud:', error));
 
-    </script>
+    </script> -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Información Meteorológica</title>
@@ -120,13 +120,14 @@ fetch("https://api.openuv.io/api/v1/uv?lat=-28.48&lng=-65.79&alt=100&dt=", reque
             fetch(apiUrl)
                 .then(response => response.json())
                 .then(data => {
-
+                    console.log(data.dt)
                     // Llenar los elementos HTML con la información de la API
                     document.getElementById('latitud').textContent = data.coord.lat;
                     document.getElementById('longitud').textContent = data.coord.lon;
                     document.getElementById('estado-cielo').textContent = data.weather[0].main;
                     document.getElementById('descripcion').textContent = data.weather[0].description;
-                    document.getElementById('temperatura').textContent = data.main.temp;
+                    temperaturaExacta = (data.main.temp - 32)* 5/9 ;
+                    document.getElementById('temperatura').textContent = temperaturaExacta;
                     document.getElementById('sensacion-termica').textContent = data.main.feels_like;
                     document.getElementById('temp-min').textContent = data.main.temp_min;
                     document.getElementById('temp-max').textContent = data.main.temp_max;

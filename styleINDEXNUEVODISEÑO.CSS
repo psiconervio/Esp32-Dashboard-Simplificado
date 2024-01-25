@@ -122,6 +122,10 @@ body {margin: 0;}
   font-size: xx-small; /* Puedes ajustar según tus preferencias */
 
 }
+#ESP32_01_Temp{
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+
+}
 .card.header h3 {
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
