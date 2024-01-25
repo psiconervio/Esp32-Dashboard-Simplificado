@@ -9,7 +9,6 @@ fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
         // Llenar los elementos HTML con la información de la API
-        console.log(data.main.pressure)
         let descripcionCielo = data.weather[0].description;
         document.getElementById('presion').textContent = data.main.pressure;
         temperaturaExacta = data.main.temp - 273.15;
@@ -18,10 +17,13 @@ fetch(apiUrl)
         document.getElementById("ESP32_01_Temp").innerText = temperaturaExacta.toFixed(1);
         document.getElementById('iddescripcioncielo').textContent = descripcionCielo;
         document.getElementById('sensaciontermica').textContent = sensaciontermica.toFixed(1);
-        document.getElementById('ESP32_01_anemometro').textContent = data.wind.speed;
-        document.getElementById('ESP32_01_veleta').textContent = data.wind.deg;
-        let rafagadeviento = data.wind.gust * 3.6;
-        document.getElementById('rafagadeviento').textContent= data.wind.gust;
+        velocidaddeviento = data.wind.speed * 1.609 ;
+        document.getElementById('ESP32_01_anemometro').textContent = velocidaddeviento.toFixed(0);
+        let rafagadeviento = data.wind.gust * 1.609 ;
+        document.getElementById('ESP32_01_veleta').textContent = data.wind.gust ;
+        document.getElementById('rafagadeviento').textContent= rafagadeviento.toFixed(0);
+        document.getElementById("nubosidad").innerText = data.clouds.all;
+        document.getElementById("visibilidad").innerText = data.visibility;
 //arreglar la conversion de datos para el front
         console.log(data.weather[0].main);
 
@@ -35,15 +37,15 @@ fetch(apiUrl)
                 document.getElementById('iddescripcioncielo').textContent = "Nubes superpuestas";
                 break;
             case 'clear sky':
-                console.log("cielo limpio");
+                console.log("cielo limpio");//cheked
                 document.getElementById('miVideo').src = 'videos/blue_sky.mp4';
                 document.getElementById('miVideo').autoplay = true;
                 document.getElementById('miVideo').muted = true;
                 document.getElementById('miVideo').loop = true;
                 document.getElementById('iddescripcioncielo').textContent = "Cielo Limpio";
                 break;
-            case 'broken clouds':
-                document.getElementById('miVideo').src = 'videos/nubesrotas.mp4';
+            case 'broken clouds':   //checked
+                document.getElementById('miVideo').src = 'videos/brokenblouds.mp4';
                 document.getElementById('miVideo').autoplay = true;
                 document.getElementById('miVideo').muted = true;
                 document.getElementById('miVideo').loop = true;
@@ -51,7 +53,7 @@ fetch(apiUrl)
                 console.log("nubes rotas");
 
                 break;
-            case 'thunderstorm with rain':
+            case 'thunderstorm with rain': //cheked
                 console.log("tormenta con lluvia");
                 document.getElementById('miVideo').src = 'videos/storm.mp4';
                 document.getElementById('miVideo').autoplay = true;
@@ -60,10 +62,15 @@ fetch(apiUrl)
                 document.getElementById('iddescripcioncielo').textContent = "Tormenta con lluvia";
                 break;
             case 'light rain':
-                console.log("lluvia ligera");
+                console.log("lluvia ligera"); //cheked
+                document.getElementById('miVideo').src = 'videos/lluvialigera.mp4';
+                document.getElementById('miVideo').autoplay = true;
+                document.getElementById('miVideo').muted = true;
+                document.getElementById('miVideo').loop = true;
+                document.getElementById('iddescripcioncielo').textContent = "lluvia ligera";
                 break;
             case 'few clouds':
-                console.log("pocas nubes");
+                console.log("pocas nubes"); //cheked
                 document.getElementById('miVideo').src = 'videos/pocasnubess.mp4';
                 document.getElementById('miVideo').autoplay = true;
                 document.getElementById('miVideo').muted = true;
@@ -80,6 +87,11 @@ fetch(apiUrl)
                 break;
             case 'light intensity shower rain':
                 console.log("lluvia de intensidad de luz");
+                document.getElementById('miVideo').src = 'videos/rainn.mp4';
+                document.getElementById('miVideo').autoplay = true;
+                document.getElementById('miVideo').muted = true;
+                document.getElementById('miVideo').loop = true;
+                document.getElementById('iddescripcioncielo').textContent = "Nubes Dispersas";
                 break;
         }
         

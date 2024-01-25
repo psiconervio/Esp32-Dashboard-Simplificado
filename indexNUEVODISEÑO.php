@@ -39,7 +39,8 @@
           <h1><span id="ESP32_01_Temp"></span> &deg;C</span></h2>
           <br>
           <p><span id='iddescripcioncielo'></span> | Sensacion Termica <span id='sensaciontermica'></span>°C</p>
-          <p>Rafaga de viento <span id="rafagadeviento"></span></p>
+          <p>Rafaga de viento <span id="rafagadeviento"></span> km/h </p>
+          <p>Visibilidad <span id='visibilidad'></span> m</p>
           </div>
            <div class="detalles">
            <p>Detalles
@@ -54,7 +55,7 @@
                   <p class="humidityColor"> Humedad<br></p> 
                 </div>
                 <div class='contenedorItem'>
-                <i class="fa-solid fa-gauge-simple-high"></i> <span class="temperatureColor"><span id="ESP32_01_anemometro"></span>m/s </span>
+                <i class="fa-solid fa-gauge-simple-high"></i> <span class="temperatureColor"><span id="ESP32_01_anemometro"></span>km/h </span>
                   <p class="anemometro_title"> Velocidad Viento<br>
                   </p>
                 </div>
@@ -65,16 +66,14 @@
                 </div>
                 <div class="contenedorItem">
                 <span class="reading"><span id="presion"></span> hPA</span>
-                  <p class="pluviometro_title"><i class="fa-solid fa-cloud-rain"></i> Presion Atmosferica<br>
-                  </p>
+                  <p class="pluviometro_title"><i class="fa-solid fa-cloud-rain"></i> Presion Atmosferica<br> </p>
                 </div>
                 <div class="contenedorItem">
                 <i class="fa-solid fa-cloud-rain"></i>  
-                <span class="reading"><span id="ESP32_01_pluviometro"></span>ml</span>
-                  <p class="pluviometro_title"> Caudal de Lluvia<br>
-                  </p>
+                <span class="reading"><span id="nubosidad"></span></span>
+                  <p class="pluviometro_title"> Nubosidad<br></p>
                 </div>
-
+                
                 <div class="contenedorItem">
                   <p class="pluviometro_title"><i class="fa-solid fa-cloud-rain"></i> Caudal de Lluvia<br>
                     <span class="reading"><span id="ESP32_01_pluviometro"></span> ml</span>
@@ -121,7 +120,7 @@
         <div class="card header">
           <h3 style="font-size: 1rem;">Estacion Metereologica Zona Norte</h3>
         </div>
-        <video id="miVideo"></video>
+        <video src="videos/nubesdispersas.mp4" autoplay muted loop></video>
         <div class="transparencia"></div>
         <div class="body-tarjet">
           <h2>San Fernando Del Valle de Catamarca</h2>
