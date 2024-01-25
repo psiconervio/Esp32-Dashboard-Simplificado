@@ -95,6 +95,7 @@ body {margin: 0;}
   margin-left: 3%;
   white-space: nowrap; /* Evita el quiebre del texto en varias líneas */
   font-weight: bold;
+  font-size: larger;
 
 
 }
@@ -119,7 +120,7 @@ body {margin: 0;}
   padding: 3px; /* Añade un pequeño relleno para mejorar la apariencia */
   white-space: nowrap; /* Evita que el texto se divida en varias líneas */
   overflow: hidden;
-  font-size: xx-small; /* Puedes ajustar según tus preferencias */
+  font-size: x-small; /* Puedes ajustar según tus preferencias */
 
 }
 #ESP32_01_Temp{
