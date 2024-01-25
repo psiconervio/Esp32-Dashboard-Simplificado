@@ -126,7 +126,7 @@ fetch("https://api.openuv.io/api/v1/uv?lat=-28.28&lng=-65.47&alt=100&dt=", reque
                     document.getElementById('longitud').textContent = data.coord.lon;
                     document.getElementById('estado-cielo').textContent = data.weather[0].main;
                     document.getElementById('descripcion').textContent = data.weather[0].description;
-                    temperaturaExacta = (data.main.temp - 32)* 5/9 ;
+                    temperaturaExacta = (data.main.temp - 273.15) ;
                     document.getElementById('temperatura').textContent = temperaturaExacta;
                     document.getElementById('sensacion-termica').textContent = data.main.feels_like;
                     document.getElementById('temp-min').textContent = data.main.temp_min;
