@@ -40,7 +40,6 @@
           <br>
           <p><span id='iddescripcioncielo'></span> | Sensacion Termica <span id='sensaciontermica'></span>°C</p>
           <p>Rafaga de viento <span id="rafagadeviento"></span> km/h </p>
-          <p>Visibilidad <span id='visibilidad'></span> m</p>
           </div>
            <div class="detalles">
            <p>Detalles
@@ -65,15 +64,19 @@
                       class="reading"><span id="ESP32_01_veleta"></span></span></p>
                 </div>
                 <div class="contenedorItem">
-                <span class="reading"><span id="presion"></span> hPA</span>
-                  <p class="pluviometro_title"><i class="fa-solid fa-cloud-rain"></i> Presion Atmosferica<br> </p>
-                </div>
-                <div class="contenedorItem">
                 <i class="fa-solid fa-cloud-rain"></i>  
                 <span class="reading"><span id="nubosidad"></span></span>
                   <p class="pluviometro_title"> Nubosidad<br></p>
                 </div>
-                
+                <div class="contenedorItem">
+                <span class="reading"><i class="fa-solid fa-arrow-down-short-wide" aria-hidden="true"></i> <span id="presion"></span> hPA</span>
+                  <p class="pluviometro_title"></i> Presion Atmosferica<br> </p>
+                </div>
+
+                <div class="contenedorItem">
+                  <p><i class="fa-solid fa-eye"></i> <span id="visibilidad"></span> Km</p>
+                  <p>Visibilidad</p>
+                </div>
                 <div class="contenedorItem">
                   <p class="pluviometro_title"><i class="fa-solid fa-cloud-rain"></i> Caudal de Lluvia<br>
                     <span class="reading"><span id="ESP32_01_pluviometro"></span> ml</span>

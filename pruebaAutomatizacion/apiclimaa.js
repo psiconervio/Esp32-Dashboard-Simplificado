@@ -20,10 +20,11 @@ fetch(apiUrl)
         velocidaddeviento = data.wind.speed * 1.609 ;
         document.getElementById('ESP32_01_anemometro').textContent = velocidaddeviento.toFixed(0);
         let rafagadeviento = data.wind.gust * 1.609 ;
-        document.getElementById('ESP32_01_veleta').textContent = data.wind.gust ;
+        document.getElementById('ESP32_01_veleta').textContent = data.wind.deg ;
         document.getElementById('rafagadeviento').textContent= rafagadeviento.toFixed(0);
         document.getElementById("nubosidad").innerText = data.clouds.all;
-        document.getElementById("visibilidad").innerText = data.visibility;
+        visibilidad = data.visibility / 1000;
+        document.getElementById("visibilidad").innerText = visibilidad.toFixed(1);
 //arreglar la conversion de datos para el front
         console.log(data.weather[0].main);
 
