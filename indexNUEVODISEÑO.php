@@ -92,7 +92,7 @@
 
 
 
-      <!-- ==Segundo card MONITOREO_ESP32_02 == derecha-->
+      <!-- ==PONER INFORMACION API DE OTRAS PROVINCIAS== derecha-->
       <div class="card video-background">
         <div class="card header">
           <h3 style="font-size: 1rem;">Estacion Metereologica Zona Norte</h3>
