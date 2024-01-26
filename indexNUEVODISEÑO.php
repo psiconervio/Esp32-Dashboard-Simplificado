@@ -32,8 +32,9 @@
         <div class="card header">
           <h3 style="font-size: 1rem;">Estacion Metereologica Zona Norte</h3>
         </div>
-        <video id="miVideo"></video>
         <div class="transparencia"></div>
+
+        <video id="miVideo"></video>
         <div class="body-tarjet">
           <h2>San Fernando Del Valle de Catamarca</h2>
           <h1><span id="ESP32_01_Temp"></span> &deg;C</span></h2>
@@ -74,7 +75,7 @@
                 </div>
 
                 <div class="contenedorItem">
-                  <p><i class="fa-solid fa-eye"></i> <span id="visibilidad"></span> Km</p>
+                  <p><i class="fa-solid fa-eye"></i> <span class="" id="visibilidad"></span> Km</p>
                   <p>Visibilidad</p>
                 </div>
                 <div class="contenedorItem">
@@ -84,9 +85,6 @@
                 </div>
               </div>
             </div>
-
-            
-
       </div>
 
 
@@ -116,74 +114,7 @@
         
     </div>
     <div class="content">
-    <div class="cards">
 
-      <!-- ==Primer card MONITOREO_ESP32_01== izquierda -->
-      <div class="card video-background">
-        <div class="card header">
-          <h3 style="font-size: 1rem;">Estacion Metereologica Zona Norte</h3>
-        </div>
-        <video src="videos/nubesdispersas.mp4" autoplay muted loop></video>
-        <div class="transparencia"></div>
-        <div class="body-tarjet">
-          <h2>San Fernando Del Valle de Catamarca</h2>
-          <h1><span id="ESP32_01_Temp"></span> &deg;C</span></h2>
-          <br>
-          <p><span id='iddescripcioncielo'></span> | Sensacion Termica <span id='sensaciontermica'></span>°C</p>
-          <p>Rafaga de viento <span id="rafagadeviento"></span></p>
-          </div>
-           <div class="detalles">
-           <p>Detalles
-           </div>
-
-            <div class='contenedorTodosItem'>
-              <!-- Muestra los valores de humedad y temperatura recibidos de ESP32.. *** -->
-
-              <div class="contenedorInterior">
-                <div class="contenedorItem">
-                <i class="fas fa-tint"></i> <span class="reading"><span id="ESP32_01_Humd"></span>&percnt;</span>
-                  <p class="humidityColor"> Humedad<br></p> 
-                </div>
-                <div class='contenedorItem'>
-                <i class="fa-solid fa-gauge-simple-high"></i> <span class="temperatureColor"><span id="ESP32_01_anemometro"></span>m/s </span>
-                  <p class="anemometro_title"> Velocidad Viento<br>
-                  </p>
-                </div>
-                <div class="contenedorItem">
-                <i class="fa-regular fa-compass"></i> <span class="reading"><span id="ESP32_01_veleta"></span>°</span>
-                  <p class="veleta_title"> Direccion Viento<br><span
-                      class="reading"><span id="ESP32_01_veleta"></span></span></p>
-                </div>
-                <div class="contenedorItem">
-                <span class="reading"><span id="presion"></span> hPA</span>
-                  <p class="pluviometro_title"><i class="fa-solid fa-cloud-rain"></i> Presion Atmosferica<br>
-                  </p>
-                </div>
-                <div class="contenedorItem">
-                <i class="fa-solid fa-cloud-rain"></i>  
-                <span class="reading"><span id="ESP32_01_pluviometro"></span>ml</span>
-                  <p class="pluviometro_title"> Caudal de Lluvia<br>
-                  </p>
-                </div>
-
-                <div class="contenedorItem">
-                  <p class="pluviometro_title"><i class="fa-solid fa-cloud-rain"></i> Caudal de Lluvia<br>
-                    <span class="reading"><span id="ESP32_01_pluviometro"></span> ml</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            
-
-      </div>
-
-
-
-
-
-        
-    </div>
     <br>
     <footer>
       <div class="content">
@@ -255,105 +186,100 @@
   //    }
     </script>
 
-    <script>
-      // segundo script
-      //-script para actualizar valores del esp32
-      //-PONE LOS VALORES EN NULL 
-      document.getElementById("ESP32_02_Temp").innerHTML = "NN";
-      document.getElementById("ESP32_02_Humd").innerHTML = "NN";
-      document.getElementById("ESP32_02_Status_Read_DHT11").innerHTML = "NN";
-      document.getElementById("ESP32_02_anemometro").innerHTML = "NN";
-      document.getElementById("ESP32_02_veleta").innerHTML = "NN";
-      document.getElementById("ESP32_02_pluviometro").innerHTML = "NN";
+   // <script>
+   //   // segundo script
+   //   //-script para actualizar valores del esp32
+   //   //-PONE LOS VALORES EN NULL 
+   //   document.getElementById("ESP32_02_Temp").innerHTML = "NN";
+   //   document.getElementById("ESP32_02_Humd").innerHTML = "NN";
+   //   document.getElementById("ESP32_02_Status_Read_DHT11").innerHTML = "NN";
+   //   document.getElementById("ESP32_02_anemometro").innerHTML = "NN";
+   //   document.getElementById("ESP32_02_veleta").innerHTML = "NN";
+   //   document.getElementById("ESP32_02_pluviometro").innerHTML = "NN";
+//
+   //   //se necesita usar otra variable xmlhttp a xmlhttpp
+//
+   //   obtenerData("esp32_02");
+//
+   //   setInterval(myTimer1, 10000);
+//
+   //   function myTimer1() {
+   //     obtenerData("esp32_02");
+   //   }
+//
+   //   function obtenerData(id) {
+   //     var xmlhttpp;
+   //     if (window.XMLHttpRequest) {
+   //       xmlhttpp = new XMLHttpRequest();
+   //     } else {
+   //       xmlhttpp = new ActiveXObject("Microsoft.XMLHTTP");
+   //     }
+   //     xmlhttpp.onreadystatechange = function () {
+   //       if (this.readyState == 4 && this.status == 200) {
+   //         console.log("Respuesta del servidor:", this.responseText);
+   //         var myObjDOS = JSON.parse(this.responseText);
+   //         if (myObjDOS.id == "esp32_02") {
+   //           document.getElementById("ESP32_02_Temp").innerHTML = myObjDOS.temperature;
+   //           document.getElementById("ESP32_02_Humd").innerHTML = myObjDOS.humidity;
+   //           document.getElementById("ESP32_02_Status_Read_DHT11").innerHTML = myObjDOS.status_read_sensor_dht11;
+   //           document.getElementById("ESP32_02_anemometro").innerHTML = myObjDOS.anemometro;
+   //           document.getElementById("ESP32_02_pluviometro").innerHTML = myObjDOS.pluviometro;
+   //           document.getElementById("ESP32_02_veleta").innerHTML = myObjDOS.veleta;
+   //         }
+   //       }
+   //     };
+   //     xmlhttpp.open("POST", "getdataDOS.php", true);
+   //     xmlhttpp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+   //     xmlhttpp.send("id=" + id);
+   //   }
+   // </script>
+<script> //------------------------/ tercer script/------------------------------------------------ 
+   //   //trabajar con este script para enviar bien los datos, del anemometro
+   //   document.getElementById("ESP32_03_Temp").innerHTML = "NN";
+   //   document.getElementById("ESP32_03_Humd").innerHTML = "NN";
+   //   document.getElementById("ESP32_03_Status_Read_DHT11").innerHTML = "NN";
+   //   document.getElementById("ESP32_03_anemometro").innerHTML = "NN";
+   //   document.getElementById("ESP32_03_veleta").innerHTML = "NN";
+   //   document.getElementById("ESP32_03_pluviometro").innerHTML = "NN";
+//
+   //   //se necesita usar otra variable xmlhttp a xmlhttpp
+   //   obtenerDataa("esp32_03");
+//
+   //   setInterval(myTimer2, 10000);
+//
+   //   function myTimer2() {
+   //     obtenerDataa("esp32_03");
+   //   }
+//
+   //   function obtenerDataa(id) {
+   //     var xmlhttppp;
+   //     if (window.XMLHttpRequest) {
+   //       xmlhttppp = new XMLHttpRequest();
+   //     } else {
+   //       xmlhttppp = new ActiveXObject("Microsoft.XMLHTTP");
+   //     }
+   //     xmlhttppp.onreadystatechange = function () {
+   //       if (this.readyState == 4 && this.status == 200) {
+   //         console.log("Respuesta del servidor:", this.responseText);
+   //         var myObjTRES = JSON.parse(this.responseText);
+   //         if (myObjTRES.id == "esp32_03") {
+   //           document.getElementById("ESP32_03_Temp").innerHTML = myObjTRES.temperature;
+   //           document.getElementById("ESP32_03_Humd").innerHTML = myObjTRES.humidity;
+   //           document.getElementById("ESP32_03_Status_Read_DHT11").innerHTML = myObjTRES.status_read_sensor_dht11;
+   //           //se agrego esta linea de abajo
+   //           document.getElementById("ESP32_03_anemometro").innerHTML = myObjTRES.anemometro;
+   //           document.getElementById("ESP32_03_veleta").innerHTML = myObjTRES.veleta;
+   //           document.getElementById("ESP32_03_pluviometro").innerHTML = myObjTRES.pluviometro;
+//
+   //         }
+   //       }
+   //     };
+   //     xmlhttppp.open("POST", "getdataTRES.php", true);
+   //     xmlhttppp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+   //     xmlhttppp.send("id=" + id);
+   //   }
+//
 
-      //se necesita usar otra variable xmlhttp a xmlhttpp
-
-      obtenerData("esp32_02");
-
-      setInterval(myTimer1, 10000);
-
-      function myTimer1() {
-        obtenerData("esp32_02");
-      }
-
-      function obtenerData(id) {
-        var xmlhttpp;
-        if (window.XMLHttpRequest) {
-          xmlhttpp = new XMLHttpRequest();
-        } else {
-          xmlhttpp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttpp.onreadystatechange = function () {
-          if (this.readyState == 4 && this.status == 200) {
-            console.log("Respuesta del servidor:", this.responseText);
-            var myObjDOS = JSON.parse(this.responseText);
-            if (myObjDOS.id == "esp32_02") {
-              document.getElementById("ESP32_02_Temp").innerHTML = myObjDOS.temperature;
-              document.getElementById("ESP32_02_Humd").innerHTML = myObjDOS.humidity;
-              document.getElementById("ESP32_02_Status_Read_DHT11").innerHTML = myObjDOS.status_read_sensor_dht11;
-              document.getElementById("ESP32_02_anemometro").innerHTML = myObjDOS.anemometro;
-              document.getElementById("ESP32_02_pluviometro").innerHTML = myObjDOS.pluviometro;
-              document.getElementById("ESP32_02_veleta").innerHTML = myObjDOS.veleta;
-            }
-          }
-        };
-        xmlhttpp.open("POST", "getdataDOS.php", true);
-        xmlhttpp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xmlhttpp.send("id=" + id);
-      }
-    </script>
-
-    <script> //------------------------/ tercer script/------------------------------------------------ 
-      //trabajar con este script para enviar bien los datos, del anemometro
-      document.getElementById("ESP32_03_Temp").innerHTML = "NN";
-      document.getElementById("ESP32_03_Humd").innerHTML = "NN";
-      document.getElementById("ESP32_03_Status_Read_DHT11").innerHTML = "NN";
-      document.getElementById("ESP32_03_anemometro").innerHTML = "NN";
-      document.getElementById("ESP32_03_veleta").innerHTML = "NN";
-      document.getElementById("ESP32_03_pluviometro").innerHTML = "NN";
-
-      //se necesita usar otra variable xmlhttp a xmlhttpp
-      obtenerDataa("esp32_03");
-
-      setInterval(myTimer2, 10000);
-
-      function myTimer2() {
-        obtenerDataa("esp32_03");
-      }
-
-      function obtenerDataa(id) {
-        var xmlhttppp;
-        if (window.XMLHttpRequest) {
-          xmlhttppp = new XMLHttpRequest();
-        } else {
-          xmlhttppp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttppp.onreadystatechange = function () {
-          if (this.readyState == 4 && this.status == 200) {
-            console.log("Respuesta del servidor:", this.responseText);
-            var myObjTRES = JSON.parse(this.responseText);
-            if (myObjTRES.id == "esp32_03") {
-              document.getElementById("ESP32_03_Temp").innerHTML = myObjTRES.temperature;
-              document.getElementById("ESP32_03_Humd").innerHTML = myObjTRES.humidity;
-              document.getElementById("ESP32_03_Status_Read_DHT11").innerHTML = myObjTRES.status_read_sensor_dht11;
-              //se agrego esta linea de abajo
-              document.getElementById("ESP32_03_anemometro").innerHTML = myObjTRES.anemometro;
-              document.getElementById("ESP32_03_veleta").innerHTML = myObjTRES.veleta;
-              document.getElementById("ESP32_03_pluviometro").innerHTML = myObjTRES.pluviometro;
-
-            }
-          }
-        };
-        xmlhttppp.open("POST", "getdataTRES.php", true);
-        xmlhttppp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xmlhttppp.send("id=" + id);
-      }
-
-      <?php
-      include(creadorDeTarjetas.php);
-
-      ?>
-    </script>
 </body>
 
 </html>

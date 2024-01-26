@@ -37,6 +37,10 @@ margin-left: auto;
 margin-left: auto;
 }
 .transparencia{
+  position: absolute;
+  top: 0;
+  left: 0;
+  
   height: 100%;
   width: 100%;
   position: absolute;
@@ -123,7 +127,8 @@ body {margin: 0;}
   font-size: x-small; /* Puedes ajustar según tus preferencias */
 
 }
-#ESP32_01_Temp{
+
+.body-tarjet h1 {
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 
 }
