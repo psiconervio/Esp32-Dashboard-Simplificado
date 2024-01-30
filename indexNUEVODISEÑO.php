@@ -45,7 +45,7 @@
            <div class="detalles">
            <p>Detalles
            </div>
-
+           <br>
             <div class='contenedorTodosItem'>
               <!-- Muestra los valores de humedad y temperatura recibidos de ESP32.. *** -->
 
@@ -85,6 +85,7 @@
                 </div>
               </div>
             </div>
+            
       </div>
 
 
@@ -95,25 +96,63 @@
         <div class="card header">
           <h3 style="font-size: 1rem;">Estacion Metereologica Zona Norte</h3>
         </div>
-        <video src="videos/storm.mp4" autoplay muted loop></video>
-        <!-- Muestra los valores de humedad y temperatura recibidos de ESP32.. *** -->
-        <h4 class="temperatureColor"><i class="fas fa-thermometer-half"></i> TEMPERATURA</h4>
-        <p class="temperatureColor"><span class="reading"><span id="ESP32_02_Temp"></span> &deg;C</span></p>
-        <h4 class="humidityColor"><i class="fas fa-tint"></i> HUMEDAD</h4>
-        <p class="humidityColor"><span class="reading"><span id="ESP32_02_Humd"></span> &percnt;</span></p>
-        <h4 class="anemometro_title"> <i class="fa-solid fa-gauge-simple-high"></i> VELOCIDAD VIENTO</h4>
-        <p class="anemometro"><span class="temperatureColor"><span id="ESP32_02_anemometro"></span> km/h </span></p>
-        <h4 class="veleta_title"><i class="fa-regular fa-compass"></i> DIRECCION VIENTO</h4>
-        <p class="veleta"><span class="reading"><span id="ESP32_02_veleta"></span></span></p>
-        <h4 class="pluviometro_title"><i class="fa-solid fa-cloud-rain"></i> CAUDAL DE LLUVIA </h4>
-        <p class="pluviometro"><span class="reading"><span id="ESP32_02_pluviometro"></span> ml</span></p>
-        <p class="statusreadColor"><span>Estado lectura Sensor DHT11 : </span><span
-            id="ESP32_02_Status_Read_DHT11"></span></p>
-      </div>
+        <div class="transparencia"></div>
 
+        <video id="miVideo" src="videos/blue_sky.mp4" autoplay="" loop=""></video>
+        <div class="body-tarjet">
+          <h2>San Fernando Del Valle de Catamarca</h2>
+          <h1><span id="ESP32_01_Temp">29.8</span> °C</h1>
+          <br>
+          <p><span id="iddescripcioncielo">Cielo Limpio</span> | Sensacion Termica <span id="sensaciontermica">29.2</span>°C</p>
+          <p>Rafaga de viento <span id="rafagadeviento">6</span> km/h </p>
+          </div>
+           <div class="detalles">
+           <p>Detalles
+           </p></div>
+
+            <div class="contenedorTodosItem">
+              <!-- Muestra los valores de humedad y temperatura recibidos de ESP32.. *** -->
+
+              <div class="contenedorInterior">
+                <div class="contenedorItem">
+                <i class="fas fa-tint" aria-hidden="true"></i> <span class="reading"><span id="ESP32_01_Humd">38</span>%</span>
+                  <p class="humidityColor"> Humedad<br></p> 
+                </div>
+                <div class="contenedorItem">
+                <i class="fa-solid fa-gauge-simple-high" aria-hidden="true"></i> <span class="temperatureColor"><span id="ESP32_01_anemometro">4</span>km/h </span>
+                  <p class="anemometro_title"> Velocidad Viento<br>
+                  </p>
+                </div>
+                <div class="contenedorItem">
+                <i class="fa-regular fa-compass" aria-hidden="true"></i> <span class="reading"><span id="ESP32_01_veleta">40</span>°</span>
+                  <p class="veleta_title"> Direccion Viento<br><span class="reading"><span id="ESP32_01_veleta"></span></span></p>
+                </div>
+                <div class="contenedorItem">
+                <i class="fa-solid fa-cloud-rain" aria-hidden="true"></i>  
+                <span class="reading"><span id="nubosidad">0</span></span>
+                  <p class="pluviometro_title"> Nubosidad<br></p>
+                </div>
+                <div class="contenedorItem">
+                <span class="reading"><i class="fa-solid fa-arrow-down-short-wide" aria-hidden="true"></i> <span id="presion">1012</span> hPA</span>
+                  <p class="pluviometro_title"> Presion Atmosferica<br> </p>
+                </div>
+
+                <div class="contenedorItem">
+                  <p><i class="fa-solid fa-eye" aria-hidden="true"></i> <span class="" id="visibilidad">10.0</span> Km</p>
+                  <p>Visibilidad</p>
+                </div>
+                <div class="contenedorItem">
+                  <p class="pluviometro_title"><i class="fa-solid fa-cloud-rain" aria-hidden="true"></i> Caudal de Lluvia<br>
+                    <span class="reading"><span id="ESP32_01_pluviometro"></span> ml</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+      </div>
+      
+      
         
     </div>
-    <div class="content">
 
     <br>
     <footer>
@@ -186,7 +225,7 @@
   //    }
     </script>
 
-   // <script>
+    <script>
    //   // segundo script
    //   //-script para actualizar valores del esp32
    //   //-PONE LOS VALORES EN NULL 
