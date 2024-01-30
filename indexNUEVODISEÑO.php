@@ -98,7 +98,131 @@
         </div>
         <div class="transparencia"></div>
 
-        <video id="miVideo" src="videos/blue_sky.mp4" autoplay="" loop=""></video>
+        <video id="miVideo1" src="videos/lluvia.mp4" autoplay loop muted ></video>
+        <div class="body-tarjet">
+          <h2>San Fernando Del Valle de Catamarca</h2>
+          <h1><span id="ESP32_01_Temp">29.8</span> °C</h1>
+          <br>
+          <p><span id="iddescripcioncielo">Cielo Limpio</span> | Sensacion Termica <span id="sensaciontermica">29.2</span>°C</p>
+          <p>Rafaga de viento <span id="rafagadeviento">6</span> km/h </p>
+          </div>
+           <div class="detalles">
+           <p>Detalles
+           </p></div>
+
+            <div class="contenedorTodosItem">
+              <!-- Muestra los valores de humedad y temperatura recibidos de ESP32.. *** -->
+
+              <div class="contenedorInterior">
+                <div class="contenedorItem">
+                <i class="fas fa-tint" aria-hidden="true"></i> <span class="reading"><span id="ESP32_01_Humd">38</span>%</span>
+                  <p class="humidityColor"> Humedad<br></p> 
+                </div>
+                <div class="contenedorItem">
+                <i class="fa-solid fa-gauge-simple-high" aria-hidden="true"></i> <span class="temperatureColor"><span id="ESP32_01_anemometro">4</span>km/h </span>
+                  <p class="anemometro_title"> Velocidad Viento<br>
+                  </p>
+                </div>
+                <div class="contenedorItem">
+                <i class="fa-regular fa-compass" aria-hidden="true"></i> <span class="reading"><span id="ESP32_01_veleta">40</span>°</span>
+                  <p class="veleta_title"> Direccion Viento<br><span class="reading"><span id="ESP32_01_veleta"></span></span></p>
+                </div>
+                <div class="contenedorItem">
+                <i class="fa-solid fa-cloud-rain" aria-hidden="true"></i>  
+                <span class="reading"><span id="nubosidad">0</span></span>
+                  <p class="pluviometro_title"> Nubosidad<br></p>
+                </div>
+                <div class="contenedorItem">
+                <span class="reading"><i class="fa-solid fa-arrow-down-short-wide" aria-hidden="true"></i> <span id="presion">1012</span> hPA</span>
+                  <p class="pluviometro_title"> Presion Atmosferica<br> </p>
+                </div>
+
+                <div class="contenedorItem">
+                  <p><i class="fa-solid fa-eye" aria-hidden="true"></i> <span class="" id="visibilidad">10.0</span> Km</p>
+                  <p>Visibilidad</p>
+                </div>
+                <div class="contenedorItem">
+                  <p class="pluviometro_title"><i class="fa-solid fa-cloud-rain" aria-hidden="true"></i> Caudal de Lluvia<br>
+                    <span class="reading"><span id="ESP32_01_pluviometro"></span> ml</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+      </div>
+    </div>
+</div>
+<div class="content">
+    <div class="cards">
+
+      <!-- ==Primer card MONITOREO_ESP32_01== izquierda -->
+      <div class="card video-background">
+        <div class="card header">
+          <h3 style="font-size: 1rem;">Estacion Metereologica Zona Norte</h3>
+        </div>
+        <div class="transparencia"></div>
+
+        <video id="miVideo2" scr="videos/brokencluds.mp4" autoplay muted loop></video>
+        <div class="body-tarjet">
+          <h2>San Fernando Del Valle de Catamarca</h2>
+          <h1><span id="ESP32_01_Temp"></span> &deg;C</span></h2>
+          <br>
+          <p><span id='iddescripcioncielo'></span> | Sensacion Termica <span id='sensaciontermica'></span>°C</p>
+          <p>Rafaga de viento <span id="rafagadeviento"></span> km/h </p>
+          </div>
+           <div class="detalles">
+           <p>Detalles
+           </div>
+           <br>
+            <div class='contenedorTodosItem'>
+              <!-- Muestra los valores de humedad y temperatura recibidos de ESP32.. *** -->
+
+              <div class="contenedorInterior">
+                <div class="contenedorItem">
+                <i class="fas fa-tint"></i> <span class="reading"><span id="ESP32_01_Humd"></span>&percnt;</span>
+                  <p class="humidityColor"> Humedad<br></p> 
+                </div>
+                <div class='contenedorItem'>
+                <i class="fa-solid fa-gauge-simple-high"></i> <span class="temperatureColor"><span id="ESP32_01_anemometro"></span>km/h </span>
+                  <p class="anemometro_title"> Velocidad Viento<br>
+                  </p>
+                </div>
+                <div class="contenedorItem">
+                <i class="fa-regular fa-compass"></i> <span class="reading"><span id="ESP32_01_veleta"></span>°</span>
+                  <p class="veleta_title"> Direccion Viento<br><span
+                      class="reading"><span id="ESP32_01_veleta"></span></span></p>
+                </div>
+                <div class="contenedorItem">
+                <i class="fa-solid fa-cloud-rain"></i>  
+                <span class="reading"><span id="nubosidad"></span></span>
+                  <p class="pluviometro_title"> Nubosidad<br></p>
+                </div>
+                <div class="contenedorItem">
+                <span class="reading"><i class="fa-solid fa-arrow-down-short-wide" aria-hidden="true"></i> <span id="presion"></span> hPA</span>
+                  <p class="pluviometro_title"></i> Presion Atmosferica<br> </p>
+                </div>
+
+                <div class="contenedorItem">
+                  <p><i class="fa-solid fa-eye"></i> <span class="" id="visibilidad"></span> Km</p>
+                  <p>Visibilidad</p>
+                </div>
+                <div class="contenedorItem">
+                  <p class="pluviometro_title"><i class="fa-solid fa-cloud-rain"></i> Caudal de Lluvia<br>
+                    <span class="reading"><span id="ESP32_01_pluviometro"></span> ml</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+      </div>
+
+      <!-- ==PONER INFORMACION API DE OTRAS PROVINCIAS== derecha-->
+      <div class="card video-background">
+        <div class="card header">
+          <h3 style="font-size: 1rem;">Estacion Metereologica Zona Norte</h3>
+        </div>
+        <div class="transparencia"></div>
+
+        <video id="miVideo" src="videos/nublado.mp4" autoplay loop muted></video>
         <div class="body-tarjet">
           <h2>San Fernando Del Valle de Catamarca</h2>
           <h1><span id="ESP32_01_Temp">29.8</span> °C</h1>
@@ -150,10 +274,8 @@
             </div>
       </div>
       
-      
-        
     </div>
-
+</div>
     <br>
     <footer>
       <div class="content">
