@@ -188,7 +188,7 @@ body {margin: 0;}
 }
 @media (max-width: 1440px) {
   .detalles {
-    margin-top: 70px;
+    margin-top: 30px;
     margin-bottom: 10px;
   }
   .topnav h3{
