@@ -32,7 +32,7 @@
         </div>
         <div class="transparencia"></div>
 
-        <video id="miVideo"></video>
+        <video id="miVideo" ></video>
         <div class="body-tarjet">
           <h2>San Fernando Del Valle de Catamarca</h2>
           <h1><span id="ESP32_01_Temp"></span> &deg;C</span></h2>
@@ -96,7 +96,7 @@
         </div>
         <div class="transparencia"></div>
 
-        <video id="miVideo"></video>
+        <video id="miVideo1" src="videos/lluvia.mp4" autoplay loop muted></video>
         <div class="body-tarjet">
           <h2>San Fernando Del Valle de Catamarca</h2>
           <h1><span id="ESP32_01_Temp"></span> &deg;C</span></h2>
@@ -154,7 +154,7 @@
         </div>
         <div class="transparencia"></div>
 
-        <video id="miVideo"></video>
+        <video id="miVideo2" src="videos/storm.mp4" autoplay loop muted></video>
         <div class="body-tarjet">
           <h2>San Fernando Del Valle de Catamarca</h2>
           <h1><span id="ESP32_01_Temp"></span> &deg;C</span></h2>
@@ -218,7 +218,7 @@
         </div>
         <div class="transparencia"></div>
 
-        <video id="miVideo"></video>
+        <video id="miVideo3" src="videos/pocasnubess.mp4" autoplay loop muted></video>
         <div class="body-tarjet">
           <h2>San Fernando Del Valle de Catamarca</h2>
           <h1><span id="ESP32_01_Temp"></span> &deg;C</span></h2>
@@ -277,7 +277,7 @@
         </div>
         <div class="transparencia"></div>
 
-        <video id="miVideo"></video>
+        <video id="miVideo4" src="videos/rainn.mp4" autoplay loop muted></video>
         <div class="body-tarjet">
           <h2>San Fernando Del Valle de Catamarca</h2>
           <h1><span id="ESP32_01_Temp"></span> &deg;C</span></h2>
