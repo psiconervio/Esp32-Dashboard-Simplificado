@@ -46,7 +46,7 @@ fetch(apiUrl)
                 document.getElementById('iddescripcioncielo').textContent = "Cielo Limpio";
                 break;
             case 'broken clouds':   //checked
-                document.getElementById('miVideo').src = 'videos/brokenblouds.mp4';
+                document.getElementById('miVideo').src = 'videos/brokenclouds.mp4';
                 document.getElementById('miVideo').autoplay = true;
                 document.getElementById('miVideo').muted = true;
                 document.getElementById('miVideo').loop = true;
