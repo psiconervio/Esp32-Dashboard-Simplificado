@@ -33,7 +33,7 @@
   </div>
   </div>
   <div class="topnav">
-    <img src="banernodo.png" width="100%" height="20%" alt="">
+    <img src="banernodo1.png" width="100%" height="20%" alt="">
     <h3>Laboratorio de Innovacion Social - Estacion Metereologica </h3>
   </div>
   <br>
@@ -164,6 +164,20 @@
                 <span class="reading"><span id="ESP32_01_pluviometro"></span> ml</span>
               </p>
             </div>
+          </div>
+        </div>
+        <div class="padre-barra">
+          <div class="barra">
+            <p class="UV"> UV Index: <span id="indexUV"></span></p>
+            <div class="detalles">
+              <p>100%</p>
+            </div>
+            <div class="scroll">
+              <div class="scroll-hijo">
+                
+              </div>
+            </div>
+          </div>
           </div>
         </div>
       </div>

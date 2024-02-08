@@ -1,6 +1,6 @@
 ::-webkit-scrollbar {
   width: 10px;
-  height: 5px;
+  height: 10px;
 }
 ::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.375);
@@ -25,7 +25,10 @@
   object-fit: cover;
   z-index: -1; /* Para que el video esté detrás del contenido de la tarjeta */
 }
-
+#ESP32_01_Temp {
+  height: 100px;
+  width: 100px;
+}
 p {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   margin-left: auto;
@@ -121,7 +124,7 @@ body {
   padding: 5px;
 }
 .card {
-  border: 1px solid #25488d;
+  border: 1px solid rgba(49, 43, 43, 0.753);
   border-radius: 15px;
 }
 .card.header {
@@ -178,7 +181,7 @@ body {
   border-radius: 15px;
   display: inline-block;
   height: auto; /* Cambiado a "auto" para permitir el crecimiento en altura según el contenido */
-  min-width: 60px; /* Establece un ancho mínimo para evitar el corte del primer elemento */
+  min-width: 80px; /* Establece un ancho mínimo para evitar el corte del primer elemento */
   border: 2px solid rgba(255, 255, 255, 0.551); /* Hacer el borde transparente */
   justify-content: flex-end;
   justify-content: space-around;
@@ -193,7 +196,7 @@ body {
   padding: 3px; /* Añade un pequeño relleno para mejorar la apariencia */
   white-space: nowrap; /* Evita que el texto se divida en varias líneas */
   overflow: hidden;
-  font-size: x-small; /* Puedes ajustar según tus preferencias */
+  font-size: small; /* Puedes ajustar según tus preferencias */
 }
 
 .body-tarjet h1 {
