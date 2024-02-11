@@ -166,14 +166,6 @@
             </div>
           </div>
         </div>
-        <div class="padre-barra">
-          <div class="barra">
-            <p class="UV"> UV Index: <span id="indexUV"></span></p>
-            <div class="detalles">
-              <p>100%</p>
-            </div>
-            <div class="scroll">
-              <div class="scroll-hijo">
                 
               </div>
             </div>
