@@ -227,10 +227,18 @@ body {
   }
 }
 
-@media (max-width: 1025px) {
+@media (max-width: 1023px) {
   .detalles {
     margin-top: 0px;
     margin-bottom: 20px;
+  }
+  
+  
+}
+@media (max-width: 1440px) {
+  .detalles {
+    margin-top: 0px;
+    margin-bottom: 30px;
   }
   
   
