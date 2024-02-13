@@ -1,17 +1,16 @@
-<!-- // home.php PHP/HTML code to display DHT11 sensor data and control LEDs state.*/ -->
 <!DOCTYPE HTML>
 <html>
 
 <head>
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
   <script>
-    window.onload = function(){
+    window.onload = function () {
       $('#onload').fadeOut();
       $('body').removeClass('hidden');
     }
   </script>
-  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
   <script src="pruebaAutomatizacion\apiclimaa.js"></script>
-  <title>Laboratorio de Innovacion Sociall</title>
+  <title>Laboratorio de Innovacion Social</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="funciones/accesibility-hover-moreinfo.js"></script>
   <link rel="stylesheet" href="funciones/style-hover-moreinfo.css">
@@ -22,15 +21,16 @@
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="styleINDEXNUEVODISEÑO.css">
 </head>
+<!--loader-->
 
 <body class="hidden">
   <div class="centrado" id='onload'>
-  <div class="lds-ring">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
   </div>
   <div class="topnav">
     <img src="banernodo1.png" width="100%" height="20%" alt="">
@@ -166,12 +166,7 @@
             </div>
           </div>
         </div>
-                
-              </div>
-            </div>
-          </div>
-          </div>
-        </div>
+
       </div>
       <div class="card video-background">
         <div class="card header">
@@ -375,6 +370,6 @@
         </div>
       </div>
     </footer>
-</body >
+</body>
 
-</html >
+</html>
