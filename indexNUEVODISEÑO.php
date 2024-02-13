@@ -54,7 +54,10 @@
             <br>
             <p><span id='iddescripcioncielo'></span> | Sensacion Termica <span id='sensaciontermica'></span>°C</p>
             <p>Rafaga de viento <span id="rafagadeviento"></span> km/h </p>
+            <div class="barraprogreso">asd</div>
+
         </div>
+
         <div class="detalles">
           <p>Detalles
         </div>
@@ -293,9 +296,7 @@
               </div>
             </div>
           </div>
-          <div class="barraprogreso">
-            asdsa
-          </div>
+
         </div>
         <div class="card video-background">
           <div class="card header">

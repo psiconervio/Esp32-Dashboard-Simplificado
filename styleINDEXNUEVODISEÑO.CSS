@@ -9,33 +9,35 @@
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(62, 165, 188, 0.626);
 }
-::root{
+:root{
   --bar-color: green;
-  --fill-size: 0%;
+  --fill-size: 10%;
 }
-.barraprogreso{
+.barraprogreso {
   position: relative;
   width: 200px;
-  height: 20px;
+  height: 20px; /* Ajustado a la altura deseada */
   background-color: white;
   border-radius: 2em;
   overflow: hidden;
 }
-.barraprogreso::before{
-  content :'';
+
+.barraprogreso::before {
+  content: '';
   position: absolute;
-  width: 100%;
-  height: 100px;
+  width: var(--fill-size); /* Ajustado al tamaño deseado de llenado */
+  height: 100%; /* Ajustado a la altura del contenedor */
   background-color: var(--bar-color);
   transform: translateX(-100%);
   animation: fill-bar 0.8s 0.3s ease-in-out forwards;
- 
 }
-@keyframes fill-bar{
-  to{
-    transform: translateX(var(--fill-size));
+
+@keyframes fill-bar {
+  to {
+    transform: translateX(0); /* Cambiado a 0 para llenar la barra completamente */
   }
 }
+
 .video-background {
   position: relative;
   overflow: hidden;
