@@ -54,13 +54,16 @@
             <br>
             <p><span id='iddescripcioncielo'></span> | Sensacion Termica <span id='sensaciontermica'></span>°C</p>
             <p>Rafaga de viento <span id="rafagadeviento"></span> km/h </p>
-            <div class="barraprogreso">asd</div>
-
+            
         </div>
 
         <div class="detalles">
-          <p>Detalles
+        <h2>Detalles</h2>
+        <br>
+          <p>Indice uv</p>
+          <div class="barraprogreso"></div>
         </div>
+
         <br>
         <div class='contenedorTodosItem'>
           <!-- Muestra los valores de humedad y temperatura recibidos de ESP32.. *** -->
@@ -101,7 +104,9 @@
                 <span class="reading"><span id="ESP32_01_pluviometro"></span> ml</span>
               </p>
             </div>
+            
           </div>
+          
         </div>
       </div>
     </div>

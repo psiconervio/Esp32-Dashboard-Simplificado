@@ -10,34 +10,33 @@
   background: rgba(62, 165, 188, 0.626);
 }
 :root{
-  --bar-color: green;
-  --fill-size: 10%;
+  --bar-color: rgba(57, 224, 57, 0.733);
+  --fill-size: -24%;
 }
-.barraprogreso {
+.barraprogreso{
+  margin-left: 8px;
   position: relative;
   width: 200px;
-  height: 20px; /* Ajustado a la altura deseada */
-  background-color: white;
+  height: 10px;
+  background-color:rgb(255 255 255 / 22%);
   border-radius: 2em;
   overflow: hidden;
 }
-
-.barraprogreso::before {
-  content: '';
+.barraprogreso::before{
+  content :'';
   position: absolute;
-  width: var(--fill-size); /* Ajustado al tamaño deseado de llenado */
-  height: 100%; /* Ajustado a la altura del contenedor */
+  width: 100%;
+  height: 100px;
   background-color: var(--bar-color);
   transform: translateX(-100%);
   animation: fill-bar 0.8s 0.3s ease-in-out forwards;
+ 
 }
-
 @keyframes fill-bar {
   to {
-    transform: translateX(0); /* Cambiado a 0 para llenar la barra completamente */
+    transform: translateX(var(--fill-size));
   }
 }
-
 .video-background {
   position: relative;
   overflow: hidden;
@@ -135,7 +134,6 @@ html {
 }
 
 h2 {
-  font-size: 1.2rem;
   justify-content: center;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
@@ -181,6 +179,15 @@ body {
 }
 .detalles {
   text-align: left;
+  margin-bottom: 55px;
+}
+.detalles h2{
+  margin-left: 5px;
+}
+.detalles p{
+  font-size: 0.5cm;
+  margin: 0;
+  margin-left: 8px;
 }
 
 .contenedorItem:first {
@@ -197,10 +204,9 @@ body {
 }
 .detalles {
   text-align: start;
-  margin-left: 3%;
+  margin-left: 1%;
   white-space: nowrap; /* Evita el quiebre del texto en varias líneas */
   font-weight: bold;
-  font-size: larger;
 }
 .contenedorItem {
   box-shadow: 0px 0px 10px 1px rgba(140, 140, 140, 0.5);
@@ -242,7 +248,7 @@ body {
 
 
 /* Consultas de medios para ajustar los márgenes según el ancho de la pantalla/ mover detalles p para arreglar el tamaño con el contenedortodositem */
-@media (max-width: 320px) {
+/* @media (max-width: 320px) {
   .detalles p {
     margin-bottom: 50px;
   }
@@ -268,7 +274,7 @@ body {
     margin-bottom: 50px;
   }
 
-}
+} */
 
 
 /* Media Query para hacerlo responsivo */
