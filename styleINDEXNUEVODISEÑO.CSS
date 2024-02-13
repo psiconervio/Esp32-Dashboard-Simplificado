@@ -9,6 +9,33 @@
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(62, 165, 188, 0.626);
 }
+::root{
+  --bar-color: green;
+  --fill-size: 0%;
+}
+.barraprogreso{
+  position: relative;
+  width: 200px;
+  height: 20px;
+  background-color: white;
+  border-radius: 2em;
+  overflow: hidden;
+}
+.barraprogreso::before{
+  content :'';
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  background-color: var(--bar-color);
+  transform: translateX(-100%);
+  animation: fill-bar 0.8s 0.3s ease-in-out forwards;
+ 
+}
+@keyframes fill-bar{
+  to{
+    transform: translateX(var(--fill-size));
+  }
+}
 .video-background {
   position: relative;
   overflow: hidden;
@@ -211,6 +238,35 @@ body {
   margin-bottom: 10px;
 }
 
+
+/* Consultas de medios para ajustar los márgenes según el ancho de la pantalla/ mover detalles p para arreglar el tamaño con el contenedortodositem */
+@media (max-width: 320px) {
+  .detalles p {
+    margin-bottom: 50px;
+  }
+
+}
+
+@media (min-width: 321px) and (max-width: 640px) {
+  .detalles p {
+    margin-bottom: 50px;
+  }
+
+}
+
+@media (min-width: 641px) and (max-width: 1023px) {
+  .detalles p {
+    margin-bottom: 50px;
+  }
+
+}
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .detalles p {
+    margin-bottom: 50px;
+  }
+
+}
 
 
 /* Media Query para hacerlo responsivo */

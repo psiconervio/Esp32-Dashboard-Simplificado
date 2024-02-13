@@ -293,7 +293,9 @@
               </div>
             </div>
           </div>
-
+          <div class="barraprogreso">
+            asdsa
+          </div>
         </div>
         <div class="card video-background">
           <div class="card header">
