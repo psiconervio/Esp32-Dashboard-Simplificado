@@ -22,20 +22,20 @@
   <link rel="stylesheet" href="styleINDEXNUEVODISEÑO.css">
   <script>
     var myHeaders = new Headers();
-myHeaders.append("x-access-token", "openuv-165a9rlqaveqy0-io");
-myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("x-access-token", "openuv-165a9rlqaveqy0-io");
+    myHeaders.append("Content-Type", "application/json");
 
-var requestOptions = {
-  method: 'GET',
-  headers: myHeaders,
-  redirect: 'follow'
-};
+    var requestOptions = {
+      method: 'GET',
+      headers: myHeaders,
+      redirect: 'follow'
+    };
 
-fetch("https://api.openuv.io/api/v1/uv?lat=-28.51&lng=-65.82&alt=100&dt=", requestOptions)
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
-</script>
+    fetch("https://api.openuv.io/api/v1/uv?lat=-28.51&lng=-65.82&alt=100&dt=", requestOptions)
+      .then(response => response.text())
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));
+  </script>
 </head>
 <!--loader-->
 
@@ -70,12 +70,12 @@ fetch("https://api.openuv.io/api/v1/uv?lat=-28.51&lng=-65.82&alt=100&dt=", reque
             <br>
             <p><span id='iddescripcioncielo'></span> | Sensacion Termica <span id='sensaciontermica'></span>°C</p>
             <p>Rafaga de viento <span id="rafagadeviento"></span> km/h </p>
-            
+
         </div>
 
         <div class="detalles">
-        <h2>Detalles</h2>
-        <br>
+          <h2>Detalles</h2>
+          <br>
           <p>Indice uv</p>
           <div class="barraprogreso"></div>
         </div>
@@ -120,9 +120,9 @@ fetch("https://api.openuv.io/api/v1/uv?lat=-28.51&lng=-65.82&alt=100&dt=", reque
                 <span class="reading"><span id="ESP32_01_pluviometro"></span> ml</span>
               </p>
             </div>
-            
+
           </div>
-          
+
         </div>
       </div>
     </div>
