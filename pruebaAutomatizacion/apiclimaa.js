@@ -3,7 +3,6 @@ var apiuvurl ='';
 var apiUrl = 'https://api.openweathermap.org/data/2.5/weather?lat=-28.46957&lon=-65.78524&appid=2c290850870ebbba2a0d95586f2aa709';
 
 function cargarDatos(){
-console.log("holaaaa")
 // Realizar la solicitud a la API
 fetch(apiUrl)
     .then(response => response.json())
@@ -64,7 +63,7 @@ fetch(apiUrl)
                 break;
             case 'light rain':
                 console.log("lluvia ligera"); //cheked
-                document.getElementById('miVideo').src = 'videos/lluvialigera.mp4';
+                document.getElementById('miVideo').src = 'videos/lluvialigera1.mp4';
                 document.getElementById('miVideo').autoplay = true;
                 document.getElementById('miVideo').muted = true;
                 document.getElementById('miVideo').loop = true;
@@ -79,7 +78,6 @@ fetch(apiUrl)
                 document.getElementById('iddescripcioncielo').textContent = "Pocas Nubes";
                 break;
             case 'scattered clouds':
-                console.log("nubes dispersas");
                 document.getElementById('miVideo').src = 'videos/nubesdispersas1.mp4';
                 document.getElementById('miVideo').autoplay = true;
                 document.getElementById('miVideo').muted = true;

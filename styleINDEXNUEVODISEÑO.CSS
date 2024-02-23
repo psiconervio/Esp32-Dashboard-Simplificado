@@ -11,7 +11,7 @@
 }
 :root{
   --bar-color: rgba(57, 224, 57, 0.733);
-  --fill-size: -24%;
+  --fill-size: -8%;
 }
 .barraprogreso{
   margin-left: 8px;

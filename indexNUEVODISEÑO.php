@@ -14,28 +14,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="funciones/accesibility-hover-moreinfo.js"></script>
   <link rel="stylesheet" href="funciones/style-hover-moreinfo.css">
-  <script src="scriptAnimacionClima.js"></script>
   <script src="https://kit.fontawesome.com/da4a5b6f37.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="styleINDEXNUEVODISEÑO.css">
-  <script>
-    var myHeaders = new Headers();
-    myHeaders.append("x-access-token", "openuv-165a9rlqaveqy0-io");
-    myHeaders.append("Content-Type", "application/json");
 
-    var requestOptions = {
-      method: 'GET',
-      headers: myHeaders,
-      redirect: 'follow'
-    };
-
-    fetch("https://api.openuv.io/api/v1/uv?lat=-28.51&lng=-65.82&alt=100&dt=", requestOptions)
-      .then(response => response.text())
-      .then(result => console.log(result))
-      .catch(error => console.log('error', error));
-  </script>
 </head>
 <!--loader-->
 
@@ -75,11 +59,12 @@
 
         <div class="detalles">
           <h2>Detalles</h2>
-          <br>
           <p>Indice uv</p>
           <div class="barraprogreso"></div>
         </div>
+      <style>
 
+      </style>
         <br>
         <div class='contenedorTodosItem'>
           <!-- Muestra los valores de humedad y temperatura recibidos de ESP32.. *** -->

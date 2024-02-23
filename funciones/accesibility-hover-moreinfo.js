@@ -26,6 +26,5 @@ function accionhover( ) {
       //      }
       //    });
         });
-        console.log("holaaa pruebaa")
 }
 accionhover();
