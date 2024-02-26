@@ -78,7 +78,7 @@ fetch(apiUrl)
                 document.getElementById('iddescripcioncielo').textContent = "Pocas Nubes";
                 break;
             case 'scattered clouds':
-                document.getElementById('miVideo').src = 'videos/nubesdispersas1.mp4';
+                document.getElementById('miVideo').src = 'videos/nubesdispersas.mp4';
                 document.getElementById('miVideo').autoplay = true;
                 document.getElementById('miVideo').muted = true;
                 document.getElementById('miVideo').loop = true;

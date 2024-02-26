@@ -9,6 +9,36 @@
       $('body').removeClass('hidden');
     }
   </script>
+  <!--script api uv-->
+  <script>
+    var myHeaders = new Headers();
+myHeaders.append("x-access-token", "openuv-165a9rlqaveqy0-io");
+myHeaders.append("Content-Type", "application/json");
+
+var requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+  redirect: 'follow'
+};
+funtion cargaruv fetch("https://api.openuv.io/api/v1/uv?lat=-28.51&lng=-65.82&alt=100&dt=", requestOptions)
+.then(response => response.json())
+  .then(data => {
+    // Acceder a los datos
+    const uv = data.result.uv;
+    document.getElementById('uv').innerText= uv;
+  })
+  .catch(error => {
+    console.error('Error al obtener los datos:', error);
+  });
+
+  cargaruv();
+
+function timer(){
+    cargaruv();
+}
+
+setInterval(timer, 60000);
+</script>
   <!--espacio de script medidor uv-->
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
@@ -93,19 +123,18 @@
 
         </div>
         <div id="piechart" style="width: 100px; height: 100x;"></div>
-        <div class="contenedorItem">
-              <span class="reading"><i class="fa-solid fa-arrow-down-short-wide" aria-hidden="true"></i> <span
-                  id="presion"></span> hPA</span>
-              <p class="pluviometro_title"></i> Presion Atmosferica<br> </p>
-            </div>
+
         <div class="detalles">
           <h2>Detalles</h2>
           <p>Indice uv</p>
           <div class="barraprogreso"></div>
+          <div class="contenedorItem">
+              <span class="reading"><i class="fa-solid fa-arrow-down-short-wide" aria-hidden="true"></i> <span
+                  id="uv"></span> uv</span>
+              <p class="pluviometro_title"></i> Indice UV<br> </p>
+            </div>
         </div>
-      <style>
 
-      </style>
         <br>
         <div class='contenedorTodosItem'>
           <!-- Muestra los valores de humedad y temperatura recibidos de ESP32.. *** -->
