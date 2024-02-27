@@ -20,7 +20,7 @@ var requestOptions = {
   headers: myHeaders,
   redirect: 'follow'
 };
-funtion cargaruv fetch("https://api.openuv.io/api/v1/uv?lat=-28.51&lng=-65.82&alt=100&dt=", requestOptions)
+funtion cargaruv{ fetch("https://api.openuv.io/api/v1/uv?lat=-28.51&lng=-65.82&alt=100&dt=", requestOptions)
 .then(response => response.json())
   .then(data => {
     // Acceder a los datos
@@ -30,7 +30,7 @@ funtion cargaruv fetch("https://api.openuv.io/api/v1/uv?lat=-28.51&lng=-65.82&al
   .catch(error => {
     console.error('Error al obtener los datos:', error);
   });
-
+}
   cargaruv();
 
 function timer(){
