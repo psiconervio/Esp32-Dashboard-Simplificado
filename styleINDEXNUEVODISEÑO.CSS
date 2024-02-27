@@ -53,6 +53,11 @@
   object-fit: cover;
   z-index: -1; /* Para que el video esté detrás del contenido de la tarjeta */
 }
+.detalles.contenedorItem{
+  display: flex;
+justify-content: end;
+
+}
 #ESP32_01_Temp {
   height: 100px;
   width: 100px;
