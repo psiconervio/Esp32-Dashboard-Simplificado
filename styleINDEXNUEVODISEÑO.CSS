@@ -22,6 +22,9 @@
   border-radius: 2em;
   overflow: hidden;
 }
+#uv {
+  color: var(--coloraso);
+}
 .barraprogreso::before{
   content :'';
   position: absolute;

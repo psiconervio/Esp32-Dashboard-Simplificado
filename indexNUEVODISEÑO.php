@@ -20,12 +20,32 @@
       headers: myHeaders,
       redirect: 'follow'
     };
-funtion cargaruv{
+function cargaruv{
       fetch("https://api.openuv.io/api/v1/uv?lat=-28.51&lng=-65.82&alt=100&dt=", requestOptions)
       .then(response => response.json())
       .then(data => {
         // Acceder a los datos
         const uv = data.result.uv;
+         if (uv<=2){
+          color = "#4fb400";
+          elemento.style.setProperty("--coloraso", color);
+         }
+         else if(uv<=5){
+          color = "#f8b600";
+          elemento.style.setProperty("--coloraso", color);
+         }
+         else if (uv<=7){
+          color = "#f85900";
+          elemento.style.setProperty("--coloraso", color);
+         }
+         else if (uv<=10){
+          color = "#d81f1d";
+          elemento.style.setProperty("--coloraso", color);
+         }
+         else if (uv>=11){
+          color = "#998cff";
+          elemento.style.setProperty("--coloraso", color);
+         }
         document.getElementById('uv').innerText = uv;
       })
       .catch(error => {
