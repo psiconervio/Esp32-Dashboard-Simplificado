@@ -60,43 +60,7 @@ function cargaruv{
 
     setInterval(timer, 60000);
   </script>
-  <!--espacio de script medidor uv-->
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <script type="text/javascript">
-    google.charts.load("current", { packages: ["corechart"] });
-    google.charts.setOnLoadCallback(drawChart);
-    function drawChart() {
-      var data = google.visualization.arrayToDataTable([
-        ['Task', 'Hours per Day'],
-        ['transparent', 50],
-        ['low', 10],
-        ['medium', 10],
-        ['higt', 10],
-        ['very high', 10],
-        ['extremo', 10]
-      ]);
-
-      var options = {
-        legend: 'none',
-        pieSliceText: 'none',
-        pieStartAngle: 90,
-        slices: {
-          0: { color: 'transparent' },
-          1: { color: '#4fb400' },
-          2: { color: '#f8b600' },
-          3: { color: '#f85900' },
-          4: { color: '#d81f1d' },
-          5: { color: '#998cff' },
-
-        }
-      };
-
-      var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-      chart.draw(data, options);
-    }
-  </script>
-  <!--termina-->
-  <script src="pruebaAutomatizacion\apiclimaa.js"></script>
+   <script src="pruebaAutomatizacion\apiclimaa.js"></script>
   <title>Laboratorio de Innovacion Social</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="funciones/accesibility-hover-moreinfo.js"></script>
