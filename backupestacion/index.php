@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="apifirebase.js"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
   <script>
     window.onload = function () {
