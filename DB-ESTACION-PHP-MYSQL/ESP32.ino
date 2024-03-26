@@ -74,15 +74,12 @@ void setup() {
   c0 = analogRead(2);
   d0 = analogRead(3);
   delay(1500);
-  }
-  //termina//
-  // put your setup code here, to run once:
+
+// put your setup code here, to run once:
   
   Serial.begin(115200); //--> Initialize serial communications with the PC.
 
-
   delay(2000);
-
 
   // Make WiFi on ESP32 in "STA/Station" mode and start connecting to WiFi Router/Hotspot.
   WiFi.mode(WIFI_STA);
@@ -102,7 +99,7 @@ void setup() {
   while (WiFi.status() != WL_CONNECTED) {
     Serial.print(".");
 
-    //........................................ Countdown "connecting_process_timed_out".
+    // Countdown "connecting_process_timed_out".
     if(connecting_process_timed_out > 0) connecting_process_timed_out--;
     if(connecting_process_timed_out == 0) {
       delay(1000);
@@ -259,5 +256,4 @@ void loop() {
     
     delay(5000);
   }
-  
 }
