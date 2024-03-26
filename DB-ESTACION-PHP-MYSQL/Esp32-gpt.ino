@@ -43,7 +43,7 @@ void lecturaAnemometro () {
 // Subrutina para leer y obtener datos del sensor DHT11
 void get_DHT11_sensor_data() {
   Serial.println();
-  Serial.println("-------------get_DHT11_sensor_data()");
+  Serial.println("-get_DHT11_sensor_data()");
   
   send_Temp = dht11_sensor.readTemperature();    // Leer temperatura
   send_Humd = dht11_sensor.readHumidity();    // Leer humedad
