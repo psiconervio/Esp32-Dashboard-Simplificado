@@ -6,14 +6,7 @@
 #define DHTPIN 15 //--> Defines the Digital Pin connected to the DHT11 sensor.
 #define DHTTYPE DHT11 //--> Defines the type of DHT sensor used. Here used is the DHT11 sensor.
 DHT dht11_sensor(DHTPIN, DHTTYPE); //--> Initialize DHT sensor.
-//========================================
-// Defines the Digital Pin of the "On Board LED".
-#define ON_Board_LED 2 
-// Defines GPIO 13 as LED_1.
-#define LED_01 13 
-// Defines GPIO 12 as LED_2.
-#define LED_02 12 
-//======================================== SSID and Password of your WiFi router.
+
 const char* ssid = "PB02";
 const char* password = "12345678";
 //========== Variables for HTTP POST request data POSDATA ALMACENA LAS VARIABLES PARA EL ENVIO DE DATOS
@@ -24,42 +17,11 @@ float send_Temp;
 int send_Humd;
 String send_Status_Read_DHT11 = "";
 int promedio ;
-//========================================
 //variables veleta
 float a= 0, b=0, c=0, d=0, a0=0, b0=0, c0=0, d0=0;
 String puntoCardinal="";
 //termina
 
-//__ Subroutine to control LEDs after successfully fetching data from database/Subrutina para controlar los LED después de recuperar datos de la base de datos con éxito
-void control_LEDs() {
-  Serial.println();
-  Serial.println("---------------control_LEDs()");
-  JSONVar myObject = JSON.parse(payload);
-
-  // JSON.typeof(jsonVar) can be used to get the type of the var/se puede utilizar para obtener el tipo de var  
-  if (JSON.typeof(myObject) == "undefined") {
-    Serial.println("Parsing input failed!");
-    Serial.println("---------------");
-    return;
-  }
-  if (myObject.hasOwnProperty("LED_01")) {
-    Serial.print("myObject[\"LED_01\"] = ");
-    Serial.println(myObject["LED_01"]);
-  }
-  if (myObject.hasOwnProperty("LED_02")) {
-    Serial.print("myObject[\"LED_02\"] = ");
-    Serial.println(myObject["LED_02"]);
-  }
-  if(strcmp(myObject["LED_01"], "ON") == 0)   {digitalWrite(LED_01, HIGH);  Serial.println("LED 01 ON"); }
-  if(strcmp(myObject["LED_01"], "OFF") == 0)  {digitalWrite(LED_01, LOW);   Serial.println("LED 01 OFF");}
-  if(strcmp(myObject["LED_02"], "ON") == 0)   {digitalWrite(LED_02, HIGH);  Serial.println("LED 02 ON"); }
-  if(strcmp(myObject["LED_02"], "OFF") == 0)  {digitalWrite(LED_02, LOW);   Serial.println("LED 02 OFF");}
-  Serial.println("---------------");
-}
-//________________________________________________________________________________ 
-//funcion veleta
-
-//termina
 void lecturaAnemometro (){ 
   int promedio=0;
   for (int i=0; i<1000; i++)
@@ -146,10 +108,8 @@ void setup() {
       delay(1000);
       ESP.restart();
     }
-    //........................................ 
   }
   
-  digitalWrite(ON_Board_LED, LOW); //--> Turn off the On Board LED when it is connected to the wifi router.
   
   //---------------------------------------- If successfully connected to the wifi router, the IP Address that will be visited is displayed in the serial monitor
   Serial.println();
@@ -263,12 +223,7 @@ void loop() {
     
     http.end();  //--> Close connection
     Serial.println("---------------");
-    digitalWrite(ON_Board_LED, LOW);
-    //........................................ 
 
-    // Calls the control_LEDs() subroutine.
-    control_LEDs();
-    delay(1000);
 
     // Calls the get_DHT11_sensor_data() subroutine.
     get_DHT11_sensor_data();
@@ -282,9 +237,8 @@ void loop() {
     
     payload = "";
   
-    digitalWrite(ON_Board_LED, HIGH);
     Serial.println();
-    Serial.println("---------------updateDHT11data.php");
+    Serial.println("-updateDHT11data.php");
     // Example : http.begin("192.168.101.95/ESP32_MySQL_Database/Test/updateDHT11data_and_recordtableTRES.php");
     //ACA SE ESPECIFICA EL ENVIO DE DATOS A UPDATEDHT11DATA
     http.begin("https://192.168.101.95/APPS/ESP32dashboard/Subido-esp32-dashboard/App-web-public/updateDHT11data_and_recordtableTRES.php");
@@ -301,7 +255,6 @@ void loop() {
     
     http.end();  //Close connection
     Serial.println("---------------");
-    digitalWrite(ON_Board_LED, LOW);
     //........................................ 
     
     delay(5000);
