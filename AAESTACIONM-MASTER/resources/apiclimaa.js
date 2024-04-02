@@ -30,7 +30,7 @@ fetch(apiUrl)
         switch (descripcionCielo){
             case 'overcast clouds': // Corregido aquí
                 console.log("nubes superpuestas");
-                document.getElementById('miVideo').src = 'videos/nublado.mp4';
+                document.getElementById('miVideo').src = 'resources/videos/nublado.mp4';
                 document.getElementById('miVideo').autoplay = true;
                 document.getElementById('miVideo').muted = true;
                 document.getElementById('miVideo').loop = true;
@@ -38,14 +38,14 @@ fetch(apiUrl)
                 break;
             case 'clear sky':
                 console.log("cielo limpio");//cheked
-                document.getElementById('miVideo').src = 'videos/blue_sky.mp4';
+                document.getElementById('miVideo').src = 'resources/videos/blue_sky.mp4';
                 document.getElementById('miVideo').autoplay = true;
                 document.getElementById('miVideo').muted = true;
                 document.getElementById('miVideo').loop = true;
                 document.getElementById('iddescripcioncielo').textContent = "Cielo Limpio";
                 break;
             case 'broken clouds':   //checked
-                document.getElementById('miVideo').src = 'videos/brokenclouds.mp4';
+                document.getElementById('miVideo').src = 'resources/videos/brokenclouds.mp4';
                 document.getElementById('miVideo').autoplay = true;
                 document.getElementById('miVideo').muted = true;
                 document.getElementById('miVideo').loop = true;
@@ -55,7 +55,7 @@ fetch(apiUrl)
                 break;
             case 'thunderstorm with rain': //cheked
                 console.log("tormenta con lluvia");
-                document.getElementById('miVideo').src = 'videos/storm.mp4';
+                document.getElementById('miVideo').src = 'resources/videos/storm.mp4';
                 document.getElementById('miVideo').autoplay = true;
                 document.getElementById('miVideo').muted = true;
                 document.getElementById('miVideo').loop = true;
@@ -63,7 +63,7 @@ fetch(apiUrl)
                 break;
             case 'light rain':
                 console.log("lluvia ligera"); //cheked
-                document.getElementById('miVideo').src = 'videos/lluvialigera1.mp4';
+                document.getElementById('miVideo').src = 'resources/videos/lluvialigera1.mp4';
                 document.getElementById('miVideo').autoplay = true;
                 document.getElementById('miVideo').muted = true;
                 document.getElementById('miVideo').loop = true;
@@ -71,14 +71,14 @@ fetch(apiUrl)
                 break;
             case 'few clouds':
                 console.log("pocas nubes"); //cheked
-                document.getElementById('miVideo').src = 'videos/pocasnubess.mp4';
+                document.getElementById('miVideo').src = 'resources/videos/pocasnubess.mp4';
                 document.getElementById('miVideo').autoplay = true;
                 document.getElementById('miVideo').muted = true;
                 document.getElementById('miVideo').loop = true;
                 document.getElementById('iddescripcioncielo').textContent = "Pocas Nubes";
                 break;
             case 'scattered clouds':
-                document.getElementById('miVideo').src = 'videos/nubesdispersas.mp4';
+                document.getElementById('miVideo').src = 'resources/videos/nubesdispersas.mp4';
                 document.getElementById('miVideo').autoplay = true;
                 document.getElementById('miVideo').muted = true;
                 document.getElementById('miVideo').loop = true;
@@ -86,7 +86,7 @@ fetch(apiUrl)
                 break;
             case 'light intensity shower rain':
                 console.log("lluvia de intensidad de luz");
-                document.getElementById('miVideo').src = 'videos/rainn.mp4';
+                document.getElementById('miVideo').src = 'resources/videos/rainn.mp4';
                 document.getElementById('miVideo').autoplay = true;
                 document.getElementById('miVideo').muted = true;
                 document.getElementById('miVideo').loop = true;
