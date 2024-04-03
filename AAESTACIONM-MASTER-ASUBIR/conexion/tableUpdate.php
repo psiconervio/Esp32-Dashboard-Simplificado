@@ -1,4 +1,4 @@
-<!-- // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> updateDHT11data_and_recordtable.php
+<!-- // archivo  tableUpdate .php
 // PHP code to update and record DHT11 sensor data and LEDs state in table.
 MODIFICANDO A MASTERR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
 <?php

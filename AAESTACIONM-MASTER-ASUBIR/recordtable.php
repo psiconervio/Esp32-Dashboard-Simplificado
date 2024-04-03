@@ -128,7 +128,7 @@
       </thead>
       <tbody id="tbody_table_record">
         <?php
-          include 'database.php';
+          include 'conexion/database.php';
           $num = 0;
           //------------------------------------------------------------ The process for displaying a record table containing the DHT11 sensor data and the state of the LEDs.
           $pdo = Database::connect();
@@ -149,7 +149,7 @@
             echo '<td class="bdr">'. $row['humidity'] . '</td>';
             echo '<td class="bdr">'. $row['status_read_sensor_dht11'] . '</td>';
             echo '<td class="bdr">'. $row['veleta'] . '</td>';
-            echo '<td class="bdr">'. $row['anemommetro'] . '</td>';
+            echo '<td class="bdr">'. $row['anemometro'] . '</td>';
             echo '<td class="bdr">'. $row['pluviometro'] . '</td>';            
             echo '<td class="bdr">'. $row['time'] . '</td>';
             echo '<td>'. $dateFormat . '</td>';
