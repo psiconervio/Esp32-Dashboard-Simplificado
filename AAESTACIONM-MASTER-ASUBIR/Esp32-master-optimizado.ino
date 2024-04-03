@@ -9,8 +9,8 @@
 DHT dht11_sensor(DHTPIN, DHTTYPE);    // Inicialización del sensor DHT
 
 // Credenciales de red WiFi
-const char* ssid = "TP-LINK_8E0D5E";
-const char* password = "delc@mpo4268";
+const char* ssid = "P102";
+const char* password = "12345678";
 
 // Variables para datos de solicitud HTTP POST
 String postData = "";
@@ -122,7 +122,7 @@ void loop() {
   
     Serial.println();
     Serial.println("tableUpdate.php");
-    http.begin("http://192.168.0.102/APPS/NUEVO/v4.2home/Esp32-Dashboard-Simplificado/AAESTACIONM-MASTER-ASUBIR/conexion/tableUpdate.php");
+    http.begin("http://192.168.101.86/APPS/nuevos/V4.3office/Esp32-Dashboard-Simplificado/AAESTACIONM-MASTER-ASUBIR/conexion/tableUpdate.php");
     http.addHeader("Content-Type", "application/x-www-form-urlencoded");
     httpCode = http.POST(postData);
     payload = http.getString();
