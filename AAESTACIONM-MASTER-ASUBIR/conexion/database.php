@@ -4,7 +4,7 @@
 	    private static $dbName = 'id21999724_esp32_01'; // Example: private static $dbName = 'myDB';
 	    private static $dbHost = 'localhost'; // Example: private static $dbHost = 'localhost';
 	    private static $dbUsername = 'root'; // Example: private static $dbUsername = 'myUserName';
-	    private static $dbUserPassword = 'root'; // // Example: private static $dbUserPassword = 'myPassword';
+	    private static $dbUserPassword = ''; // // Example: private static $dbUserPassword = 'myPassword';
 		//nuevadatabase
 		//private static $dbName = 'id21999724_esp32_01'; // Example: private static $dbName = 'myDB';
 		//private static $dbHost = 'localhost'; // Example: private static $dbHost = 'localhost';
