@@ -106,7 +106,7 @@ void loop() {
     payload = "";
     
     Serial.println();
-    Serial.println("---------------getdata.php");
+    Serial.println("-getdata.php");
     http.begin("http://192.168.0.102/APPS/NUEVO/v4.2home/Esp32-Dashboard-Simplificado/AAESTACIONM-MASTER-ASUBIR/conexion/getdata.php");
     http.addHeader("Content-Type", "application/x-www-form-urlencoded");
     httpCode = http.POST(postData);
