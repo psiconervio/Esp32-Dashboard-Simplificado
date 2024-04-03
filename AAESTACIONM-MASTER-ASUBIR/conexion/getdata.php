@@ -25,8 +25,8 @@
       $myObj->status_read_sensor_dht11 = $row['status_read_sensor_dht11'];
       $myObj->ls_time = $row['time'];
       $myObj->ls_date = $dateFormat;
-      $myObj->anemometro =$row['anemometro'];
       $myObj->veleta =$row['veleta'];
+      $myObj->anemometro =$row['anemometro'];
       $myObj->pluviometro=$row['pluviometro'];
       
       $myJSON = json_encode($myObj);
