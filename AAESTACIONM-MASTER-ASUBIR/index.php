@@ -387,8 +387,7 @@ setInterval(timer, 90000);
               </div>
               <div class="contenedorItem">
                 <i class="fa-regular fa-compass"></i> <span class="reading"><span id="ESP32_01_veleta"></span>°</span>
-                <p class="veleta_title"> Direccion Viento<br><span class="reading"><span
-                      id="ESP32_01_veleta"></span></span></p>
+                <p class="veleta_title"> Direccion Viento<br><span class="reading"></span></p>
               </div>
               <div class="contenedorItem">
                 <i class="fa-solid fa-cloud-rain"></i>
@@ -467,8 +466,9 @@ setInterval(timer, 90000);
               document.getElementById("ESP32_01_Status_Read_DHT11").innerHTML = myObj.status_read_sensor_dht11;
               document.getElementById("ESP32_01_LTRD").innerHTML = "Time : " + myObj.ls_time + " | Date : " + myObj.ls_date + " (dd-mm-yyyy)";
               document.getElementById("ESP32_01_Veleta").innerHTML = myObj.veleta;
-              document.getElementById("ESP32_01_Anemometro").innerHTML = anemometro;
+              document.getElementById("ESP32_01_Anemometro").innerHTML = myObj.anemometro;
               document.getElementById("ESP32_01_Pluviometro").innerHTML = myObj.pluviometro;
+              console.log(myObj.status_read_sensor_dht11);
               
             }
           }

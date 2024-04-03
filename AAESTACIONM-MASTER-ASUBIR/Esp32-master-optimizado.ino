@@ -104,6 +104,20 @@ void loop() {
     
     postData = "id=esp32_01";
     payload = "";
+    Serial.println();
+    Serial.println("---------------getdata.php");
+    http.begin("http://192.168.101.86/APPS/nuevos/V4.3office/Esp32-Dashboard-Simplificado/AAESTACIONM-MASTER-ASUBIR/conexion/getdata.php");
+    http.addHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpCode = http.POST(postData);
+    payload = http.getString();
+  
+    Serial.print("httpCode : ");
+    Serial.println(httpCode);
+    Serial.print("payload  : ");
+    Serial.println(payload);
+    
+    http.end();
+    Serial.println("---------------");
 
 
     // Leer datos del sensor DHT11
