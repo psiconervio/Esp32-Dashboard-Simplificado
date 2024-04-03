@@ -109,7 +109,7 @@ void loop() {
     // Leer datos del sensor DHT11
     get_DHT11_sensor_data();
     
-    // Enviar datos al servidor
+    // preparar datos para enviar al servidor tableupdate
     postData = "id=esp32_01";
     postData += "&temperature=" + String(send_Temp);
     postData += "&humidity=" + String(send_Humd);
