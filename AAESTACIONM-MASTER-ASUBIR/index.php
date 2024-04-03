@@ -106,7 +106,7 @@ setInterval(timer, 90000);
         </div>
 
         <div class="detalles">
-          <h2>Detalles</h2>
+          <h2>Detalles<span id="ESP32_01_Status_Read_DHT11"></span></h2>
           <div class="contenedorItem">
               <span id=indiceuv> <span class="reading"><i class="fa-regular fa-sun"></i> <span
                   id="uv"></span></span> </span>
@@ -428,6 +428,59 @@ setInterval(timer, 90000);
         </div>
       </div>
     </footer>
+    <script>
+      //------------------------------------------------------------
+      document.getElementById("ESP32_01_Temp").innerHTML = "NN"; 
+      document.getElementById("ESP32_01_Humd").innerHTML = "NN";
+      document.getElementById("ESP32_01_Status_Read_DHT11").innerHTML = "NN";
+      document.getElementById("ESP32_01_LTRD").innerHTML = "NN";
+      document.getElementById("ESP32_01_Veleta").innerHTML = "NN";
+      document.getElementById("ESP32_01_Anemometro").innerHTML = "NN";
+      document.getElementById("ESP32_01_Pluviometro").innerHTML = "NN";
+      //------------------------------------------------------------
+      
+      Get_Data("esp32_01");
+      
+      setInterval(myTimer, 5000);
+      
+      //------------------------------------------------------------
+      function myTimer() {
+        Get_Data("esp32_01");
+      }
+      //------------------------------------------------------------
+      
+      //------------------------------------------------------------
+      function Get_Data(id) {
+				if (window.XMLHttpRequest) {
+          // code for IE7+, Firefox, Chrome, Opera, Safari
+          xmlhttp = new XMLHttpRequest();
+        } else {
+          // code for IE6, IE5
+          xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            const myObj = JSON.parse(this.responseText);
+            if (myObj.id == "esp32_01") {
+              document.getElementById("ESP32_01_Temp").innerHTML = myObj.temperature;
+              document.getElementById("ESP32_01_Humd").innerHTML = myObj.humidity;
+              document.getElementById("ESP32_01_Status_Read_DHT11").innerHTML = myObj.status_read_sensor_dht11;
+              document.getElementById("ESP32_01_LTRD").innerHTML = "Time : " + myObj.ls_time + " | Date : " + myObj.ls_date + " (dd-mm-yyyy)";
+              document.getElementById("ESP32_01_Veleta").innerHTML = myObj.veleta;
+              document.getElementById("ESP32_01_Anemometro").innerHTML = anemometro;
+              document.getElementById("ESP32_01_Pluviometro").innerHTML = myObj.pluviometro;
+              
+            }
+          }
+        };
+        xmlhttp.open("POST","conexion/getdata.php",true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.send("id="+id);
+			}
+      //------------------------------------------------------------
+
+
+    </script>
 </body>
 
 </html>
