@@ -102,13 +102,13 @@ void loop() {
     HTTPClient http;
     int httpCode;
     
-    postData = "id=esp32_03";
+    postData = "id=esp32_01";
     payload = "";
     
     digitalWrite(ON_Board_LED, HIGH);
     Serial.println();
     Serial.println("---------------getdata.php");
-    http.begin("https://esp32dashboard.000webhostapp.com/getdataTRES.php");
+    http.begin("https://esp32dashboard.000webhostapp.com/getdata.php");
     http.addHeader("Content-Type", "application/x-www-form-urlencoded");
     httpCode = http.POST(postData);
     payload = http.getString();
@@ -125,16 +125,18 @@ void loop() {
     get_DHT11_sensor_data();
     
     // Enviar datos al servidor
-    postData = "id=esp32_03";
+    postData = "id=esp32_01";
     postData += "&temperature=" + String(send_Temp);
     postData += "&humidity=" + String(send_Humd);
     postData += "&status_read_sensor_dht11=" + send_Status_Read_DHT11;
+    postData += "&veleta=" + String(promedio);  
     postData += "&anemometro=" + String(promedio);  
-    
+    postData += "&pluviometro=" + String(promedio);  
+
     payload = "";
   
     Serial.println();
-    Serial.println("-updateDHT11data.php");
+    Serial.println("tableUpdate.php");
     http.begin("https://192.168.101.95/APPS/ESP32dashboard/Subido-esp32-dashboard/App-web-public/updateDHT11data_and_recordtableTRES.php");
     http.addHeader("Content-Type", "application/x-www-form-urlencoded");
     httpCode = http.POST(postData);
