@@ -1,15 +1,15 @@
 <?php
 	class Database {
 		//database local
-	    //private static $dbName = 'esp32_mc_db'; // Example: private static $dbName = 'myDB';
-	    //private static $dbHost = 'localhost'; // Example: private static $dbHost = 'localhost';
-	    //private static $dbUsername = 'root'; // Example: private static $dbUsername = 'myUserName';
-	    //private static $dbUserPassword = 'root'; // // Example: private static $dbUserPassword = 'myPassword';
+	    private static $dbName = 'id21999724_esp32_01'; // Example: private static $dbName = 'myDB';
+	    private static $dbHost = 'localhost'; // Example: private static $dbHost = 'localhost';
+	    private static $dbUsername = 'root'; // Example: private static $dbUsername = 'myUserName';
+	    private static $dbUserPassword = 'root'; // // Example: private static $dbUserPassword = 'myPassword';
 		//nuevadatabase
-		private static $dbName = 'id21999724_esp32_01'; // Example: private static $dbName = 'myDB';
-		private static $dbHost = 'localhost'; // Example: private static $dbHost = 'localhost';
-		private static $dbUsername = 'id21999724_admin'; // Example: private static $dbUsername = 'myUserName';
-		private static $dbUserPassword = 'Nodotecnologico1*'; // // Example: private static $dbUserPassword = 'myPassword';
+		//private static $dbName = 'id21999724_esp32_01'; // Example: private static $dbName = 'myDB';
+		//private static $dbHost = 'localhost'; // Example: private static $dbHost = 'localhost';
+		//private static $dbUsername = 'id21999724_admin'; // Example: private static $dbUsername = 'myUserName';
+		//private static $dbUserPassword = 'Nodotecnologico1*'; // // Example: private static $dbUserPassword = 'myPassword';
 		 
 		private static $cont  = null;
 		 

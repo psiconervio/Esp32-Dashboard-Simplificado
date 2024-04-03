@@ -9,8 +9,8 @@
 DHT dht11_sensor(DHTPIN, DHTTYPE);    // Inicialización del sensor DHT
 
 // Credenciales de red WiFi
-const char* ssid = "PB02";
-const char* password = "12345678";
+const char* ssid = "TP-LINK_8E0D5E";
+const char* password = "delc@mpo426865";
 
 // Variables para datos de solicitud HTTP POST
 String postData = "";
@@ -108,7 +108,7 @@ void loop() {
     digitalWrite(ON_Board_LED, HIGH);
     Serial.println();
     Serial.println("---------------getdata.php");
-    http.begin("https://esp32dashboard.000webhostapp.com/getdata.php");
+    http.begin("localhost\APPS\NUEVO\v4.2home\Esp32-Dashboard-Simplificado\AAESTACIONM-MASTER-ASUBIR\conexion\getdata.php");
     http.addHeader("Content-Type", "application/x-www-form-urlencoded");
     httpCode = http.POST(postData);
     payload = http.getString();
@@ -137,7 +137,7 @@ void loop() {
   
     Serial.println();
     Serial.println("tableUpdate.php");
-    http.begin("https://192.168.101.95/APPS/ESP32dashboard/Subido-esp32-dashboard/App-web-public/updateDHT11data_and_recordtableTRES.php");
+    http.begin("localhost\APPS\NUEVO\v4.2home\Esp32-Dashboard-Simplificado\AAESTACIONM-MASTER-ASUBIR\conexion\tableUpdate.php");
     http.addHeader("Content-Type", "application/x-www-form-urlencoded");
     httpCode = http.POST(postData);
     payload = http.getString();

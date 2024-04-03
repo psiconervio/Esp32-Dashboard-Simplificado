@@ -13,7 +13,7 @@
     // This table is used to store DHT11 sensor data updated by ESP32. 
     // This table is also used to store the state of the LEDs, the state of the LEDs is controlled from the "home.php" page. 
     // To store data, this table is operated with the "UPDATE" command, so this table contains only one row.
-    $sql = 'SELECT * FROM esp32_01_tableUpdate WHERE id="' . $id . '"';
+    $sql = 'SELECT * FROM esp32_01_tableupdate WHERE id="' . $id . '"';
   //  if( $id == "ESP32_02"){
     foreach ($pdo->query($sql) as $row) {
       $date = date_create($row['date']);
