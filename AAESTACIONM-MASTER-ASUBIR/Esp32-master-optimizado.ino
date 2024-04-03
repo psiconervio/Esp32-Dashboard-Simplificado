@@ -97,7 +97,7 @@ void loop() {
   // Leer datos del anemómetro
   lecturaAnemometro();
   
-  // Realizar solicitud HTTP POST para obtener datos del servidor
+  // Realizar solicitud HTTP POST para obtener datos del servidor a
   if (WiFi.status() == WL_CONNECTED) {
     HTTPClient http;
     int httpCode;
