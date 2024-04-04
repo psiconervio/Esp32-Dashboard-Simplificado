@@ -130,9 +130,8 @@ setInterval(timeruv, 1200000);
               </p>
             </div>
             <div class="contenedorItem">
-              <i class="fa-regular fa-compass"></i> <span class="reading"><span id="ESP32_01_veleta"></span>°</span>
-              <p class="veleta_title"> Direccion Viento<br><span class="reading"><span
-                    id="ESP32_01_veleta"></span></span></p>
+              <i class="fa-regular fa-compass"></i> <span class="reading"><span id="ESP32_01_Veleta"></span>°</span>
+              <p class="veleta_title"> Direccion Viento<br></p>
             </div>
             <div class="contenedorItem">
               <i class="fa-solid fa-cloud-rain"></i>
@@ -150,8 +149,9 @@ setInterval(timeruv, 1200000);
               <p>Visibilidad</p>
             </div>
             <div class="contenedorItem">
+            <span class="reading"><span id="ESP32_01_Pluviometro"></span> ml</span>
               <p class="pluviometro_title"><i class="fa-solid fa-cloud-rain"></i> Caudal de Lluvia<br>
-                <span class="reading"><span id="ESP32_01_pluviometro"></span> ml</span>
+                
               </p>
             </div>
 
@@ -198,9 +198,8 @@ setInterval(timeruv, 1200000);
               </p>
             </div>
             <div class="contenedorItem">
-              <i class="fa-regular fa-compass"></i> <span class="reading"><span id="ESP32_01_veleta"></span>°</span>
-              <p class="veleta_title"> Direccion Viento<br><span class="reading"><span
-                    id="ESP32_01_veleta"></span></span></p>
+              <i class="fa-regular fa-compass"></i> <span class="reading"><span id="ESP32_01_Veleta"></span>°</span>
+              <p class="veleta_title"> Direccion Viento<br><span class="reading"></span></p>
             </div>
             <div class="contenedorItem">
               <i class="fa-solid fa-cloud-rain"></i>
@@ -254,7 +253,7 @@ setInterval(timeruv, 1200000);
             </div>
             <div class='contenedorItem'>
               <i class="fa-solid fa-gauge-simple-high"></i> <span class="temperatureColor"><span
-                  id="ESP32_01_anemometro"></span>km/h </span>
+                  id="ESP32_01_Anemometro"></span>km/h </span>
               <p class="anemometro_title"> Velocidad Viento<br>
               </p>
             </div>
@@ -280,7 +279,7 @@ setInterval(timeruv, 1200000);
             </div>
             <div class="contenedorItem">
               <p class="pluviometro_title"><i class="fa-solid fa-cloud-rain"></i> Caudal de Lluvia<br>
-                <span class="reading"><span id="ESP32_01_pluviometro"></span> ml</span>
+                <span class="reading"><span id="ESP32_01_Pluviometro"></span> ml</span>
               </p>
             </div>
           </div>
@@ -429,13 +428,12 @@ setInterval(timeruv, 1200000);
     </footer>
     <script>
       //---------posible error, las etiquetas(span con id de las etiquedas) no estan creadas y puede salir el error de ---------------------------------------------------
-     // document.getElementById("ESP32_01_Temp").innerHTML = "NN"; 
-     // document.getElementById("ESP32_01_Humd").innerHTML = "NN";
+      document.getElementById("ESP32_01_Temp").innerHTML = "NN"; 
+      document.getElementById("ESP32_01_Humd").innerHTML = "NN";
       document.getElementById("ESP32_01_Status_Read_DHT11").innerHTML = "NN";
-     // document.getElementById("ESP32_01_LTRD").innerHTML = "NN";
-     // document.getElementById("ESP32_01_Veleta").innerHTML = "NN";
-     // document.getElementById("ESP32_01_Anemometro").innerHTML = "NN";
-     // document.getElementById("ESP32_01_Pluviometro").innerHTML = "NN";
+      document.getElementById("ESP32_01_Veleta").innerHTML = "NN";
+      document.getElementById("ESP32_01_Anemometro").innerHTML = "NN";
+      document.getElementById("ESP32_01_Pluviometro").innerHTML = "NN";
       //------------------------------------------------------------
       
       Get_Data("esp32_01");
@@ -461,14 +459,14 @@ setInterval(timeruv, 1200000);
           if (this.readyState == 4 && this.status == 200) {
             const myObj = JSON.parse(this.responseText);
             if (myObj.id == "esp32_01") {
-             // document.getElementById("ESP32_01_Temp").innerHTML = myObj.temperature;
-             // document.getElementById("ESP32_01_Humd").innerHTML = myObj.humidity;
+              document.getElementById("ESP32_01_Temp").innerHTML = myObj.temperature;
+              document.getElementById("ESP32_01_Humd").innerHTML = myObj.humidity;
               document.getElementById("ESP32_01_Status_Read_DHT11").innerHTML = myObj.status_read_sensor_dht11;
              // document.getElementById("ESP32_01_LTRD").innerHTML = "Time : " + myObj.ls_time + " | Date : " + myObj.ls_date + " (dd-mm-yyyy)";
-             // document.getElementById("ESP32_01_Veleta").innerHTML = myObj.veleta;
-             // document.getElementById("ESP32_01_Anemometro").innerHTML = myObj.anemometro;
-             // document.getElementById("ESP32_01_Pluviometro").innerHTML = myObj.pluviometro;
-             // console.log("hola mundo");
+              document.getElementById("ESP32_01_Veleta").innerHTML = myObj.veleta;
+              document.getElementById("ESP32_01_Anemometro").innerHTML = myObj.anemometro;
+              document.getElementById("ESP32_01_Pluviometro").innerHTML = myObj.pluviometro;
+              console.log("hola mundo");
              // 
             }
           }

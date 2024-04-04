@@ -7,19 +7,19 @@ function cargarDatos(){
 fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
-        // Llenar los elementos HTML con la información de la API
+        // Llenar los elementos HTML con la información de la API//eliminar insercion de datos de la api
         let descripcionCielo = data.weather[0].description;
         document.getElementById('presion').textContent = data.main.pressure;
         temperaturaExacta = data.main.temp - 273.15;
         sensaciontermica = data.main.feels_like -273.15;
-        document.getElementById('ESP32_01_Humd').innerText = data.main.humidity;
-        document.getElementById("ESP32_01_Temp").innerText = temperaturaExacta.toFixed(1);
+       // document.getElementById('ESP32_01_Humd').innerText = data.main.humidity;
+       // document.getElementById("ESP32_01_Temp").innerText = temperaturaExacta.toFixed(1);
         document.getElementById('iddescripcioncielo').textContent = descripcionCielo;
         document.getElementById('sensaciontermica').textContent = sensaciontermica.toFixed(1);
         velocidaddeviento = data.wind.speed * 1.609 ;
-        document.getElementById('ESP32_01_anemometro').textContent = velocidaddeviento.toFixed(0);
+        //document.getElementById('ESP32_01_anemometro').textContent = velocidaddeviento.toFixed(0);
         let rafagadeviento = data.wind.gust * 1.609 ;
-        document.getElementById('ESP32_01_veleta').textContent = data.wind.deg ;
+     //   document.getElementById('ESP32_01_veleta').textContent = data.wind.deg ;
         document.getElementById('rafagadeviento').textContent= rafagadeviento.toFixed(0);
         document.getElementById("nubosidad").innerText = data.clouds.all;
         visibilidad = data.visibility / 1000;
