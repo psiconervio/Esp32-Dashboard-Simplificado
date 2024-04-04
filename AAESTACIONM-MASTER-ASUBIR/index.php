@@ -465,10 +465,10 @@ setInterval(timer, 90000);
               document.getElementById("ESP32_01_Humd").innerHTML = myObj.humidity;
               document.getElementById("ESP32_01_Status_Read_DHT11").innerHTML = myObj.status_read_sensor_dht11;
               document.getElementById("ESP32_01_LTRD").innerHTML = "Time : " + myObj.ls_time + " | Date : " + myObj.ls_date + " (dd-mm-yyyy)";
-              document.getElementById("ESP32_01_Veleta").innerHTML = myObj.veleta;
+              //document.getElementById("ESP32_01_Veleta").innerHTML = myObj.veleta;
               document.getElementById("ESP32_01_Anemometro").innerHTML = myObj.anemometro;
               document.getElementById("ESP32_01_Pluviometro").innerHTML = myObj.pluviometro;
-              console.log(myObj.status_read_sensor_dht11);
+              console.log("hola mundo");
               
             }
           }
