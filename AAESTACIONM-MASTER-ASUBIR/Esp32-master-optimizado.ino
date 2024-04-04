@@ -9,8 +9,10 @@
 DHT dht11_sensor(DHTPIN, DHTTYPE);    // Inicialización del sensor DHT
 
 // Credenciales de red WiFi
-const char* ssid = "P102";
-const char* password = "12345678";
+//const char* ssid = "P102";
+//const char* password = "12345678";
+const char* ssid ="TP-LINK_8E0D5E"
+const char* password = "delc@mpo4268"
 
 // Variables para datos de solicitud HTTP POST
 String postData = "";
@@ -106,7 +108,8 @@ void loop() {
     payload = "";
     Serial.println();
     Serial.println("---------------getdata.php");
-    http.begin("http://192.168.101.86/APPS/nuevos/V4.3office/Esp32-Dashboard-Simplificado/AAESTACIONM-MASTER-ASUBIR/conexion/getdata.php");
+   // http.begin("http://192.168.101.86/APPS/nuevos/V4.3office/Esp32-Dashboard-Simplificado/AAESTACIONM-MASTER-ASUBIR/conexion/getdata.php");
+    http.begin("http://192.168.0.102/APPS/NUEVO/v4.5home/Esp32-Dashboard-Simplificado/AAESTACIONM-MASTER-ASUBIR/conexion/getdata.php");
     http.addHeader("Content-Type", "application/x-www-form-urlencoded");
     httpCode = http.POST(postData);
     payload = http.getString();
@@ -136,7 +139,8 @@ void loop() {
   
     Serial.println();
     Serial.println("tableUpdate.php");
-    http.begin("http://192.168.101.86/APPS/nuevos/V4.3office/Esp32-Dashboard-Simplificado/AAESTACIONM-MASTER-ASUBIR/conexion/tableUpdate.php");
+   // http.begin("http://192.168.101.86/APPS/nuevos/V4.3office/Esp32-Dashboard-Simplificado/AAESTACIONM-MASTER-ASUBIR/conexion/tableUpdate.php");
+    http.begin("http://192.168.0.102/APPS/NUEVO/v4.5home/Esp32-Dashboard-Simplificado/AAESTACIONM-MASTER-ASUBIR/conexion/tableUpdate.php");
     http.addHeader("Content-Type", "application/x-www-form-urlencoded");
     httpCode = http.POST(postData);
     payload = http.getString();
