@@ -1,6 +1,33 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  //configurando notificaciones */
+  <script>
+    //configurando notificaciones */
+    function sendNotification(title, options) {
+  // Primero, verificamos si el navegador soporta notificaciones
+  if (!("Notification" in window)) {
+    console.log("Este navegador no soporta notificaciones del sistema");
+    return;
+  }
+
+  // Luego, solicitamos permiso al usuario para enviar notificaciones
+  Notification.requestPermission().then(function(permission) {
+    // Si el usuario acepta, entonces creamos y mostramos la notificación
+    if (permission === "granted") {
+      var notification = new Notification(title, options);
+    }
+  });
+}
+
+// Para usar la función, puedes hacer algo como esto:
+var title = "¡Hola!";
+var options = {
+  body: "Esta es una notificación personalizada",
+  icon: "url_a_tu_icono.png"
+};
+sendNotification(title, options);
+</script>
   <script src="resources/jquery.js"></script>
   <script>
     window.onload = function () {
@@ -11,7 +38,7 @@
   <!--script api uv-->
   <script>
     var myHeaders = new Headers();
-myHeaders.append("x-access-token", "openuv-5hr13rlt7c8v3w-io");
+myHeaders.append("x-access-token", "openuv-165a9rlqaveqy0-io");
 myHeaders.append("Content-Type", "application/json");
 
 var requestOptions = {
@@ -102,37 +129,57 @@ setInterval(timeruv, 1200000);
             <br>
             <p><span id='iddescripcioncielo'></span> | Sensacion Termica <span id='sensaciontermica'></span>°C</p>
             <p>Rafaga de viento <span id="rafagadeviento"></span> km/h </p>
+            
+        </div>
+        <div class="detalless">
+          <h2>esp32datos<span id="ESP32_01_Status_Read_DHT11"></span></h2>
 
         </div>
 
         <div class="detalles">
-          <h2>Detalles<span id="ESP32_01_Status_Read_DHT11"></span></h2>
+          <h2>esp32datos<span id="ESP32_01_Status_Read_DHT11"></span></h2>
+
+        </div>
+
+        <br>
+        <div class="contenedorTodosItems">
+          <!-- Muestra los valores de humedad y temperatura recibidos de ESP32.. *** -->
+
+          <div class="contenedorInterior">
+          <div class="contenedorItem">
+              <i class="fas fa-tint"></i> <span class="reading"><span id="ESP32_01_Humd"></span>&percnt;</span>
+              <p class="humidityColor"> Humedad<br></p>
+            </div>
+
+            <div class="contenedorItem">
+              <i class="fa-solid fa-gauge-simple-high" aria-hidden="true"></i> <span class="temperatureColor"><span id="ESP32_01_anemometro"></span>km/h </span>
+              <p class="anemometro_title"> Velocidad Viento<br>
+              </p>
+            </div>
+            <div class="contenedorItem">
+              <i class="fa-regular fa-compass" aria-hidden="true"></i> <span class="reading"><span id="ESP32_01_Veleta">asd</span>°</span>
+              <p class="veleta_title"> Direccion Viento<br></p>
+            </div>
+            
+            <div class="contenedorItem">
+            <span class="reading"><span id="ESP32_01_Pluviometro"></span> ml</span>
+              <p class="pluviometro_title"><i class="fa-solid fa-cloud-rain"></i> Caudal de Lluvia<br>
+                
+              </p>
+            </div>
+          </div>
+
+        </div>
+        <div class='contenedorTodosItem'>
+          <!-- Muestra los valores de humedad y temperatura recibidos de ESP32.. *** -->
+
+          <div class="contenedorInterior">
           <div class="contenedorItem">
               <span id=indiceuv> <span class="reading"><i class="fa-regular fa-sun"></i> <span
                   id="uv"></span></span> </span>
               <p class="pluviometro_title"></i> Indice UV<br> </p>
             </div>
-        </div>
 
-        <br>
-        <div class='contenedorTodosItem'>
-          <!-- Muestra los valores de humedad y temperatura recibidos de ESP32.. *** -->
-
-          <div class="contenedorInterior">
-            <div class="contenedorItem">
-              <i class="fas fa-tint"></i> <span class="reading"><span id="ESP32_01_Humd"></span>&percnt;</span>
-              <p class="humidityColor"> Humedad<br></p>
-            </div>
-            <div class='contenedorItem'>
-              <i class="fa-solid fa-gauge-simple-high"></i> <span class="temperatureColor"><span
-                  id="ESP32_01_anemometro"></span>km/h </span>
-              <p class="anemometro_title"> Velocidad Viento<br>
-              </p>
-            </div>
-            <div class="contenedorItem">
-              <i class="fa-regular fa-compass"></i> <span class="reading"><span id="ESP32_01_Veleta"></span>°</span>
-              <p class="veleta_title"> Direccion Viento<br></p>
-            </div>
             <div class="contenedorItem">
               <i class="fa-solid fa-cloud-rain"></i>
               <span class="reading"><span id="nubosidad"></span></span>
@@ -148,12 +195,7 @@ setInterval(timeruv, 1200000);
               <p><i class="fa-solid fa-eye"></i> <span class="" id="visibilidad"></span> Km</p>
               <p>Visibilidad</p>
             </div>
-            <div class="contenedorItem">
-            <span class="reading"><span id="ESP32_01_Pluviometro"></span> ml</span>
-              <p class="pluviometro_title"><i class="fa-solid fa-cloud-rain"></i> Caudal de Lluvia<br>
-                
-              </p>
-            </div>
+
 
           </div>
 
@@ -243,6 +285,7 @@ setInterval(timeruv, 1200000);
           <p>Detalles
         </div>
         <br>
+
         <div class='contenedorTodosItem'>
           <!-- Muestra los valores de humedad y temperatura recibidos de ESP32.. *** -->
 

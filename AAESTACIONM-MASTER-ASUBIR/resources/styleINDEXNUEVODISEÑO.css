@@ -67,7 +67,7 @@ p {
 .body-tarjet {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   margin-left: auto;
-  margin-bottom: 200px;
+  margin-bottom: 120px;
 }
 .transparencia {
   position: absolute;
@@ -172,6 +172,16 @@ body {
   grid-gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
+.contenedorTodosItems {
+  position: absolute;
+  bottom: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  overflow-x: auto; /* Agregado para permitir desplazamiento horizontal */
+}
+
+
 .contenedorTodosItem {
   position: absolute;
   bottom: 0;
@@ -180,14 +190,18 @@ body {
   justify-content: flex-start;
   overflow-x: auto; /* Agregado para permitir desplazamiento horizontal */
 }
+.detalless{
+  text-align: left;
+  margin-bottom: 75px;
+}
 .detalles {
   text-align: left;
-  margin-bottom: 55px;
+  margin-bottom: 50px;
 }
-.detalles h2{
+.detalles h2, .detalless p{
   margin-left: 5px;
 }
-.detalles p{
+.detalles p, .detalless p{
   font-size: 0.5cm;
   margin: 0;
   margin-left: 8px;
@@ -205,7 +219,7 @@ body {
   padding-left: 5px; /* Ajusta el relleno izquierdo para centrar el primer elemento */
   margin-bottom: 5px;
 }
-.detalles {
+.detalles, .detalless {
   text-align: start;
   margin-left: 1%;
   white-space: nowrap; /* Evita el quiebre del texto en varias líneas */
