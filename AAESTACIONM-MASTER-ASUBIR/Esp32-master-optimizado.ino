@@ -9,10 +9,10 @@
 DHT dht11_sensor(DHTPIN, DHTTYPE);    // Inicialización del sensor DHT
 
 // Credenciales de red WiFi
-//const char* ssid = "P102";
-//const char* password = "12345678";
-const char* ssid ="TP-LINK_8E0D5E"
-const char* password = "delc@mpo4268"
+const char* ssid = "P102";
+const char* password = "12345678";
+//const char* ssid ="TP-LINK_8E0D5E"
+//const char* password = "delc@mpo4268"
 
 // Variables para datos de solicitud HTTP POST
 String postData = "";

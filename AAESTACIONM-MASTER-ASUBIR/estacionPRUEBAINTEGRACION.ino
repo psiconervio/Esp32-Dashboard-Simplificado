@@ -1,41 +1,33 @@
-//Laboratorio de Innovación Social del Nodo Tecnológico de la Municipalidad de San Fernando del Valle de Catamarca.
-//Proyecto: Estación Metereológica.
-//Desarrolladores del código y hardware: Emmanuel Ludueña y Augusto Del Campo.
-//Jefe de proyecto: Esteban Colombo.
-//Director: Emilio Ramaci.
+#include <WiFi.h>
+#include <Arduino.h>
+#include <HTTPClient.h>
+#include <Arduino_JSON.h>
+#include "DHT.h"
 
-#include <WiFi.h> //Libreria para el wifi.
-#include "DHT.h" //Libreria para el sensor de humedad y temperatura.
+// Credenciales de red WiFi
+const char* ssid = "PB02";
+const char* password = "12345678";
+//const char* ssid ="TP-LINK_8E0D5E"
+//const char* password = "delc@mpo4268"
 
-#define WIFI_SSID "P102" //Red de wifi.
-#define WIFI_PASSWORD "12345678" //Clave de wifi.
+// Definiciones para el sensor DHT11
+#define DHTPIN 23    // Pin digital conectado al sensor DHT11
+#define DHTTYPE DHT11    // Tipo de sensor DHT utilizado (DHT11 en este caso)
+DHT dht11_sensor(DHTPIN, DHTTYPE);    // Inicialización del sensor DHT
 
-#define DHTPIN 23 //Pin del sensor de humedad y temperatura
-#define DHTTYPE DHT11 //Tipo de Sensor de humedad y temperatura
-
-DHT dht(DHTPIN, DHTTYPE); //Declaración del sensor de humedad y temperatura
+// Variables para datos de solicitud HTTP POST
+String postData = "";
+String payload = "";
 
 String puntoCardinal = ""; //Variable de Dirección del Viento
+
+// Variables para datos del sensor DHT11
 
 float acumuladorAnemometro = 0, velocidadViento = 0; //acumulador de lecturas y promedio del anemómetro.
 int contadorAnemometro=0;
 
 int lecturaPluv = 0, contadorCiclosPluv = 0, contadorEstadoPluviometroA = 0, contadorEstadoPluviometroB = 0; //variables auxiliares del Pluviometro.
 float acumuladorMmCaidos = 0; //acumulador de mm caidos detectados por el pluviometro.
-
-// Conexión WiFi
-void conectarWiFi() {
-  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
-  Serial.print("Conectando a Wi-Fi");
-  while (WiFi.status() != WL_CONNECTED) {
-    Serial.print(".");
-    delay(300);
-  }
-  Serial.println();
-  Serial.print("Conectado con IP: ");
-  Serial.println(WiFi.localIP());
-  Serial.println();
-}
 
 // Lectura del pluviómetro
 float pluviometro() {
@@ -59,7 +51,7 @@ float pluviometro() {
   return acumuladorMmCaidos;
 }
 
-// Lectura del anemómetro
+// Función para leer y obtener datos del anemómetro
 float anemometro() {
   float lecturaViento = analogRead(39);
   float divisor = 1;
@@ -77,7 +69,6 @@ float anemometro() {
   acumuladorAnemometro = 0;
   return velocidadViento;
 }
-  puntoCardinalfinal = veleta();
 
 // Lectura de la veleta
 String veleta() {
@@ -112,23 +103,56 @@ String veleta() {
   return puntoCardinal;
 }
 
+
 void setup() {
-  Serial.begin(9600);
-  conectarWiFi();
-  dht.begin();
+  Serial.begin(115200);    // Inicializar comunicación serial
+  dht11_sensor.begin();
+  delay(2000);
+  WiFi.mode(WIFI_STA);
+  WiFi.begin(ssid, password);
+  Serial.println();
+  Serial.println("-------------");
+  Serial.print("Connecting");
+  int connecting_process_timed_out = 20; //--> 20 = 20 seconds.
+  connecting_process_timed_out = connecting_process_timed_out * 2;
+  // Esperar a que se conecte a la red WiFi
+  while (WiFi.status() != WL_CONNECTED) {
+    Serial.print(".");
+    delay(500);
+        if(connecting_process_timed_out > 0) connecting_process_timed_out--;
+    if(connecting_process_timed_out == 0) {
+      delay(1000);
+      ESP.restart();
+    }
+  }
+  
+  Serial.println();
+  Serial.print("Successfully connected to : ");
+  Serial.println(ssid);
+  Serial.println("-------------"); 
+
+  // Inicializar sensor DHT11
+
   delay(2000);
 }
 
 void loop() {
+
   for (int i=0; i<200; i++){
     pluviometro();
     anemometro();
     delay(10);
   }
+  // Realizar solicitud HTTP POST para obtener datos del servidor a
+  if (WiFi.status() == WL_CONNECTED) {
+    HTTPClient http;
+    int httpCode;
+    
 
-  float humedad = dht.readHumidity();
-  float temperatura = dht.readTemperature();
 
+  float humedad = dht11_sensor.readHumidity();
+  float temperatura = dht11_sensor.readTemperature();
+  
   Serial.print("Temperatura: ");
   Serial.print(temperatura);
   Serial.println("°C");
@@ -142,8 +166,40 @@ void loop() {
 
   Serial.print("Dirección del viento: ");
   Serial.println(veleta());
-  Serial.println(puntoCardinalfinal);
+  Serial.println(veleta());
 
   Serial.print("mm de lluvia caída: ");
   Serial.println(pluviometro());
+
+    postData = "id=esp32_01";
+    payload = "";
+
+    // preparar datos para enviar al servidor tableupdate
+    postData = "id=esp32_01";
+    postData += "&temperature=" + String(temperatura);
+    postData += "&humidity=" + String(humedad);
+    postData += "&veleta=" + String("veleta()");  
+    postData += "&anemometro=" + String("anemometro()");  
+    postData += "&pluviometro=" + String("pluviometro()");  
+
+    payload = "";
+  
+    Serial.println();
+    Serial.println("tableUpdate.php");
+   // http.begin("http://192.168.101.86/APPS/nuevos/V4.3office/Esp32-Dashboard-Simplificado/AAESTACIONM-MASTER-ASUBIR/conexion/tableUpdate.php");
+    http.begin("http://192.168.101.109/APPS/nuevos/v4.5office/Esp32-Dashboard-Simplificado/AAESTACIONM-MASTER-ASUBIR/conexion/tableUpdate.php");
+    http.addHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpCode = http.POST(postData);
+    payload = http.getString();
+  
+    Serial.print("httpCode : ");
+    Serial.println(httpCode);
+    Serial.print("payload  : ");
+    Serial.println(payload);
+    
+    http.end();
+    Serial.println("---------------");
+    
+    delay(5000);
+  }
 }

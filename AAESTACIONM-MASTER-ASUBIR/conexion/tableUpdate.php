@@ -10,7 +10,6 @@ MODIFICANDO A MASTERR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
     $id = $_POST['id'];
     $temperature = $_POST['temperature'];
     $humidity = $_POST['humidity'];
-    $status_read_sensor_dht11 = $_POST['status_read_sensor_dht11'];
     $veleta = $_POST['veleta'];
     $anemometro = $_POST['anemometro'];
     $pluviometro = $_POST['pluviometro'];
@@ -29,9 +28,9 @@ MODIFICANDO A MASTERR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
     // This table is used to store DHT11 sensor data updated by ESP32. 
     // This table is also used to store the state of the LEDs, the state of the LEDs is controlled from the "home.php" page. 
     // This table is operated with the "UPDATE" command, so this table will only contain one row.
-    $sql = "UPDATE esp32_01_tableupdate SET temperature = ?, humidity = ?, status_read_sensor_dht11 = ?,veleta = ?,anemometro = ?,pluviometro = ?, time = ?, date = ? WHERE id = ?";
+    $sql = "UPDATE esp32_01_tableupdate SET temperature = ?, humidity = ?, veleta = ?,anemometro = ?,pluviometro = ?, time = ?, date = ? WHERE id = ?";
     $q = $pdo->prepare($sql);
-    $q->execute(array($temperature,$humidity,$status_read_sensor_dht11,$veleta,$anemometro,$pluviometro,$tm,$dt,$id));
+    $q->execute(array($temperature,$humidity,$veleta,$anemometro,$pluviometro,$tm,$dt,$id));
     Database::disconnect();
     //........................................ 
     
@@ -66,9 +65,9 @@ MODIFICANDO A MASTERR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
  //   // This table is used to store and record DHT11 sensor data updated by ESP32. 
  //   // This table is also used to store and record the state of the LEDs, the state of the LEDs is controlled from the "home.php" page. 
  //   // This table is operated with the "INSERT" command, so this table will contain many rows.
-		$sql = "INSERT INTO esp32_01_tablerecord (id,board,temperature,humidity,status_read_sensor_dht11,veleta,anemometro,pluviometro,time,date) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		$sql = "INSERT INTO esp32_01_tablerecord (id,board,temperature,humidity,veleta,anemometro,pluviometro,time,date) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		$q = $pdo->prepare($sql);
-		$q->execute(array($id_key,$board,$temperature,$humidity,$status_read_sensor_dht11,$veleta,$anemometro,$pluviometro,$tm,$dt));
+		$q->execute(array($id_key,$board,$temperature,$humidity,$veleta,$anemometro,$pluviometro,$tm,$dt));
     //::::::::
     
     Database::disconnect();
