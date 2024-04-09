@@ -1,33 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  //configurando notificaciones */
-  <script>
-    //configurando notificaciones */
-    function sendNotification(title, options) {
-  // Primero, verificamos si el navegador soporta notificaciones
-  if (!("Notification" in window)) {
-    console.log("Este navegador no soporta notificaciones del sistema");
-    return;
-  }
-
-  // Luego, solicitamos permiso al usuario para enviar notificaciones
-  Notification.requestPermission().then(function(permission) {
-    // Si el usuario acepta, entonces creamos y mostramos la notificación
-    if (permission === "granted") {
-      var notification = new Notification(title, options);
-    }
-  });
-}
-
-// Para usar la función, puedes hacer algo como esto:
-var title = "¡Hola!";
-var options = {
-  body: "Esta es una notificación personalizada",
-  icon: "url_a_tu_icono.png"
-};
-sendNotification(title, options);
-</script>
   <script src="resources/jquery.js"></script>
   <script>
     window.onload = function () {
@@ -38,46 +12,46 @@ sendNotification(title, options);
   <!--script api uv-->
   <script>
     var myHeaders = new Headers();
-myHeaders.append("x-access-token", "openuv-165a9rlqaveqy0-io");
-myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("x-access-token", "openuv-165a9rlqaveqy0-io");
+    myHeaders.append("Content-Type", "application/json");
 
-var requestOptions = {
-  method: 'GET',
-  headers: myHeaders,
-  redirect: 'follow'
-}
-function cargaruv() {
+    var requestOptions = {
+      method: 'GET',
+      headers: myHeaders,
+      redirect: 'follow'
+    }
+    function cargaruv() {
       fetch("https://api.openuv.io/api/v1/uv?lat=-28.51&lng=-65.82&alt=100&dt=", requestOptions)
-      .then(response => response.json())
-      .then(data => {
-        // Acceder a los datos
-        let uv = data.result.uv;
-        document.getElementById('uv').innerText = uv;
+        .then(response => response.json())
+        .then(data => {
+          // Acceder a los datos
+          let uv = data.result.uv;
+          document.getElementById('uv').innerText = uv;
 
-         if (uv<=2){
-          color = "#4fb400";
-          indiceuv.style.setProperty("--coloraso", color);
-         }
-         else if(uv<=5){
-          color = "#f8b600";
-          indiceuv.style.setProperty("--coloraso", color);
-         }
-         else if (uv<=7){
-          color = "#f85900";
-          indiceuv.style.setProperty("--coloraso", color);
-         }
-         else if (uv<=10){
-          color = "#d81f1d";
-          indiceuv.style.setProperty("--coloraso", color);
-         }
-         else if (uv>=11){
-          color = "#998cff";
-          indiceuv.style.setProperty("--coloraso", color);
-         }
-      })
-      .catch(error => {
-        console.error('Error al obtener los datos:', error);
-      });
+          if (uv <= 2) {
+            color = "#4fb400";
+            indiceuv.style.setProperty("--coloraso", color);
+          }
+          else if (uv <= 5) {
+            color = "#f8b600";
+            indiceuv.style.setProperty("--coloraso", color);
+          }
+          else if (uv <= 7) {
+            color = "#f85900";
+            indiceuv.style.setProperty("--coloraso", color);
+          }
+          else if (uv <= 10) {
+            color = "#d81f1d";
+            indiceuv.style.setProperty("--coloraso", color);
+          }
+          else if (uv >= 11) {
+            color = "#998cff";
+            indiceuv.style.setProperty("--coloraso", color);
+          }
+        })
+        .catch(error => {
+          console.error('Error al obtener los datos:', error);
+        });
     }
     cargaruv();
 
@@ -85,8 +59,8 @@ function cargaruv() {
       cargaruv();
     }
 
-setInterval(timeruv, 1200000);
-</script>
+    setInterval(timeruv, 1200000);
+  </script>
   <script src="resources/apiclimaa.js"></script>
   <title>Laboratorio de Innovacion Social</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -129,15 +103,15 @@ setInterval(timeruv, 1200000);
             <br>
             <p><span id='iddescripcioncielo'></span> | Sensacion Termica <span id='sensaciontermica'></span>°C</p>
             <p>Rafaga de viento <span id="rafagadeviento"></span> km/h </p>
-            
+
         </div>
         <div class="detalless">
-          <h2>esp32datos<span id="ESP32_01_Status_Read_DHT11"></span></h2>
+          <h2>Datos Generales<span id="ESP32_01_Status_Read_DHT11"></span></h2>
 
         </div>
 
         <div class="detalles">
-          <h2>esp32datos<span id="ESP32_01_Status_Read_DHT11"></span></h2>
+          <h2>Datos Esp32<span id="ESP32_01_Status_Read_DHT11"></span></h2>
 
         </div>
 
@@ -146,25 +120,27 @@ setInterval(timeruv, 1200000);
           <!-- Muestra los valores de humedad y temperatura recibidos de ESP32.. *** -->
 
           <div class="contenedorInterior">
-          <div class="contenedorItem">
+            <div class="contenedorItem">
               <i class="fas fa-tint"></i> <span class="reading"><span id="ESP32_01_Humd"></span>&percnt;</span>
               <p class="humidityColor"> Humedad<br></p>
             </div>
 
             <div class="contenedorItem">
-              <i class="fa-solid fa-gauge-simple-high" aria-hidden="true"></i> <span class="temperatureColor"><span id="ESP32_01_anemometro"></span>km/h </span>
+              <i class="fa-solid fa-gauge-simple-high" aria-hidden="true"></i> <span class="temperatureColor"><span
+                  id="ESP32_01_anemometro"></span>km/h </span>
               <p class="anemometro_title"> Velocidad Viento<br>
               </p>
             </div>
             <div class="contenedorItem">
-              <i class="fa-regular fa-compass" aria-hidden="true"></i> <span class="reading"><span id="ESP32_01_Veleta">asd</span>°</span>
+              <i class="fa-regular fa-compass" aria-hidden="true"></i> <span class="reading"><span
+                  id="ESP32_01_Veleta">asd</span></span>
               <p class="veleta_title"> Direccion Viento<br></p>
             </div>
-            
+
             <div class="contenedorItem">
-            <span class="reading"><span id="ESP32_01_Pluviometro"></span> ml</span>
+              <span class="reading"><span id="ESP32_01_Pluviometro"></span> ml</span>
               <p class="pluviometro_title"><i class="fa-solid fa-cloud-rain"></i> Caudal de Lluvia<br>
-                
+
               </p>
             </div>
           </div>
@@ -174,9 +150,9 @@ setInterval(timeruv, 1200000);
           <!-- Muestra los valores de humedad y temperatura recibidos de ESP32.. *** -->
 
           <div class="contenedorInterior">
-          <div class="contenedorItem">
-              <span id=indiceuv> <span class="reading"><i class="fa-regular fa-sun"></i> <span
-                  id="uv"></span></span> </span>
+            <div class="contenedorItem">
+              <span id=indiceuv> <span class="reading"><i class="fa-regular fa-sun"></i> <span id="uv"></span></span>
+              </span>
               <p class="pluviometro_title"></i> Indice UV<br> </p>
             </div>
 
@@ -471,53 +447,52 @@ setInterval(timeruv, 1200000);
     </footer>
     <script>
       //---------posible error, las etiquetas(span con id de las etiquedas) no estan creadas y puede salir el error de ---------------------------------------------------
-      document.getElementById("ESP32_01_Temp").innerHTML = "NN"; 
+      document.getElementById("ESP32_01_Temp").innerHTML = "NN";
       document.getElementById("ESP32_01_Humd").innerHTML = "NN";
-      document.getElementById("ESP32_01_Status_Read_DHT11").innerHTML = "NN";
+      //document.getElementById("ESP32_01_Status_Read_DHT11").innerHTML = "NN";
       document.getElementById("ESP32_01_Veleta").innerHTML = "NN";
       document.getElementById("ESP32_01_Anemometro").innerHTML = "NN";
       document.getElementById("ESP32_01_Pluviometro").innerHTML = "NN";
       //------------------------------------------------------------
-      
+
       Get_Data("esp32_01");
-      
+
       setInterval(myTimer, 5000);
-      
+
       //------------------------------------------------------------
       function myTimer() {
         Get_Data("esp32_01");
       }
       //------------------------------------------------------------
-      
+
       //------------------------------------------------------------
       function Get_Data(id) {
-				if (window.XMLHttpRequest) {
+        if (window.XMLHttpRequest) {
           // code for IE7+, Firefox, Chrome, Opera, Safari
           xmlhttp = new XMLHttpRequest();
         } else {
           // code for IE6, IE5
           xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
         }
-        xmlhttp.onreadystatechange = function() {
+        xmlhttp.onreadystatechange = function () {
           if (this.readyState == 4 && this.status == 200) {
             const myObj = JSON.parse(this.responseText);
             if (myObj.id == "esp32_01") {
               document.getElementById("ESP32_01_Temp").innerHTML = myObj.temperature;
               document.getElementById("ESP32_01_Humd").innerHTML = myObj.humidity;
-              document.getElementById("ESP32_01_Status_Read_DHT11").innerHTML = myObj.status_read_sensor_dht11;
-             // document.getElementById("ESP32_01_LTRD").innerHTML = "Time : " + myObj.ls_time + " | Date : " + myObj.ls_date + " (dd-mm-yyyy)";
+              // document.getElementById("ESP32_01_LTRD").innerHTML = "Time : " + myObj.ls_time + " | Date : " + myObj.ls_date + " (dd-mm-yyyy)";
               document.getElementById("ESP32_01_Veleta").innerHTML = myObj.veleta;
               document.getElementById("ESP32_01_Anemometro").innerHTML = myObj.anemometro;
               document.getElementById("ESP32_01_Pluviometro").innerHTML = myObj.pluviometro;
               console.log("hola mundo");
-             // 
+              // 
             }
           }
         };
-        xmlhttp.open("POST","conexion/getdata.php",true);
+        xmlhttp.open("POST", "conexion/getdata.php", true);
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xmlhttp.send("id="+id);
-			}
+        xmlhttp.send("id=" + id);
+      }
       //------------------------------------------------------------
 
 

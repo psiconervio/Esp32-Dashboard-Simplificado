@@ -30,6 +30,7 @@ fetch(apiUrl)
         switch (descripcionCielo){
             case 'overcast clouds': // Corregido aquí
                 console.log("nubes superpuestas");
+                document.getElementById('miVideo').loading = lazyLoad;
                 document.getElementById('miVideo').src = 'resources/videos/nublado.mp4';
                 document.getElementById('miVideo').autoplay = true;
                 document.getElementById('miVideo').muted = true;

@@ -9,28 +9,27 @@
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(62, 165, 188, 0.626);
 }
-:root{
+:root {
   --bar-color: rgba(57, 224, 57, 0.733);
   --fill-size: -8%;
 }
-.barraprogreso{
+.barraprogreso {
   margin-left: 8px;
   position: relative;
   width: 200px;
   height: 10px;
-  background-color:rgb(255 255 255 / 22%);
+  background-color: rgb(255 255 255 / 22%);
   border-radius: 2em;
   overflow: hidden;
 }
-.barraprogreso::before{
-  content :'';
+.barraprogreso::before {
+  content: "";
   position: absolute;
   width: 100%;
   height: 100px;
   background-color: var(--bar-color);
   transform: translateX(-100%);
   animation: fill-bar 0.8s 0.3s ease-in-out forwards;
- 
 }
 @keyframes fill-bar {
   to {
@@ -172,7 +171,7 @@ body {
   grid-gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
-.contenedorTodosItems {
+.contenedorTodosItem {
   position: absolute;
   bottom: 100px;
   width: 100%;
@@ -181,8 +180,7 @@ body {
   overflow-x: auto; /* Agregado para permitir desplazamiento horizontal */
 }
 
-
-.contenedorTodosItem {
+.contenedorTodosItems {
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -190,7 +188,7 @@ body {
   justify-content: flex-start;
   overflow-x: auto; /* Agregado para permitir desplazamiento horizontal */
 }
-.detalless{
+.detalless {
   text-align: left;
   margin-bottom: 75px;
 }
@@ -198,10 +196,12 @@ body {
   text-align: left;
   margin-bottom: 50px;
 }
-.detalles h2, .detalless p{
+.detalles h2,
+.detalless p {
   margin-left: 5px;
 }
-.detalles p, .detalless p{
+.detalles p,
+.detalless p {
   font-size: 0.5cm;
   margin: 0;
   margin-left: 8px;
@@ -219,7 +219,8 @@ body {
   padding-left: 5px; /* Ajusta el relleno izquierdo para centrar el primer elemento */
   margin-bottom: 5px;
 }
-.detalles, .detalless {
+.detalles,
+.detalless {
   text-align: start;
   margin-left: 1%;
   white-space: nowrap; /* Evita el quiebre del texto en varias líneas */
@@ -263,7 +264,6 @@ body {
   margin-bottom: 10px;
 }
 
-
 /* Consultas de medios para ajustar los márgenes según el ancho de la pantalla/ mover detalles p para arreglar el tamaño con el contenedortodositem */
 /* @media (max-width: 320px) {
   .detalles p {
@@ -286,18 +286,27 @@ body {
 
 }
 
-@media (min-width: 1024px) and (max-width: 1440px) {
-  .detalles p {
-    margin-bottom: 50px;
-  }
+
 
 } */
 
-
+@media (min-width: 767px) and (max-width: 2560px) {
+  .contenedorInterior {
+    padding: 0 0px;
+    margin: 0 auto;
+    }
+  .detalles, .detalless{
+  text-align: center;
+  }
+  .contenedorTodosItems, .contenedorTodosItem{
+    margin-bottom: 10px;
+  }
+}
 /* Media Query para hacerlo responsivo */
 @media (max-width: 700px) {
   .contenedorTodosItem {
     padding: 0 0px;
+    align-content: center;
   }
   .contenedorInterior {
     margin-left: 0;

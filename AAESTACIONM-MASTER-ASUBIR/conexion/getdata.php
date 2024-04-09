@@ -22,7 +22,6 @@
       $myObj->id = $row['id'];
       $myObj->temperature = $row['temperature'];
       $myObj->humidity = $row['humidity'];
-      $myObj->status_read_sensor_dht11 = $row['status_read_sensor_dht11'];
       $myObj->ls_time = $row['time'];
       $myObj->ls_date = $dateFormat;
       $myObj->veleta =$row['veleta'];
@@ -36,4 +35,3 @@
      }}
     Database::disconnect();
 
-?>
