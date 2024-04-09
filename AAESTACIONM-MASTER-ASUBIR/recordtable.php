@@ -118,7 +118,6 @@
           <th>BOARD</th>
           <th>TEMPERATURE (°C)</th>
           <th>HUMIDITY (%)</th>
-          <th>STATUS READ SENSOR DHT11</th>
           <th>VELETA</th>
           <th>ANEMOMETRO</th>
           <th>PLUVIOMETRO</th>
@@ -147,7 +146,6 @@
             echo '<td class="bdr">'. $row['board'] . '</td>';
             echo '<td class="bdr">'. $row['temperature'] . '</td>';
             echo '<td class="bdr">'. $row['humidity'] . '</td>';
-            echo '<td class="bdr">'. $row['status_read_sensor_dht11'] . '</td>';
             echo '<td class="bdr">'. $row['veleta'] . '</td>';
             echo '<td class="bdr">'. $row['anemometro'] . '</td>';
             echo '<td class="bdr">'. $row['pluviometro'] . '</td>';            
