@@ -136,8 +136,8 @@
             </div>
 
             <div class="contenedorItem">
-              <span class="reading"><span id="ESP32_01_Pluviometro"></span> ml</span>
-              <p class="pluviometro_title"><i class="fa-solid fa-cloud-rain"></i> Caudal de Lluvia<br>
+              <span class="reading"><i class="fa-solid fa-cloud-rain"></i> <span id="ESP32_01_Pluviometro"></span> ml</span>
+              <p class="pluviometro_title"> Caudal de Lluvia<br>
 
               </p>
             </div>
@@ -586,7 +586,6 @@
       //---------posible error, las etiquetas(span con id de las etiquedas) no estan creadas y puede salir el error de ---------------------------------------------------
       document.getElementById("ESP32_01_Temp").innerHTML = "NN";
       document.getElementById("ESP32_01_Humd").innerHTML = "NN";
-      //document.getElementById("ESP32_01_Status_Read_DHT11").innerHTML = "NN";
       document.getElementById("ESP32_01_Veleta").innerHTML = "NN";
       document.getElementById("ESP32_01_Anemometro").innerHTML = "NN";
       document.getElementById("ESP32_01_Pluviometro").innerHTML = "NN";
@@ -621,7 +620,6 @@
               document.getElementById("ESP32_01_Veleta").innerHTML = myObj.veleta;
               document.getElementById("ESP32_01_Anemometro").innerHTML = myObj.anemometro;
               document.getElementById("ESP32_01_Pluviometro").innerHTML = myObj.pluviometro;
-              console.log("hola mundo");
               // 
             }
           }
