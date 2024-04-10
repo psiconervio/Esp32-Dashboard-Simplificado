@@ -107,12 +107,10 @@
         </div>
         <div class="detalless">
           <h2>Datos Generales<span id="ESP32_01_Status_Read_DHT11"></span></h2>
-
         </div>
 
         <div class="detalles">
           <h2>Datos Esp32<span id="ESP32_01_Status_Read_DHT11"></span></h2>
-
         </div>
 
         <br>
@@ -197,8 +195,11 @@
             <p><span id='iddescripcioncielo'></span> | Sensacion Termica <span id='sensaciontermica'></span>°C</p>
             <p>Rafaga de viento <span id="rafagadeviento"></span> km/h </p>
         </div>
+        <div class="detalless">
+          <h2>Datos Generales<span id="ESP32_01_Status_Read_DHT11"></span></h2>
+        </div>
         <div class="detalles">
-          <p>Detalles
+          <h2>Datos Esp32</h2>
         </div>
         <br>
         <div class="contenedorTodosItems">
@@ -206,23 +207,27 @@
 
           <div class="contenedorInterior">
             <div class="contenedorItem">
-              <i class="fas fa-tint" aria-hidden="true"></i> <span class="reading"><span id="ESP32_01_Humd">55</span>%</span>
+              <i class="fas fa-tint" aria-hidden="true"></i> <span class="reading"><span
+                  id="ESP32_01_Humd">55</span>%</span>
               <p class="humidityColor"> Humedad<br></p>
             </div>
 
             <div class="contenedorItem">
-              <i class="fa-solid fa-gauge-simple-high" aria-hidden="true"></i> <span class="temperatureColor"><span id="ESP32_01_Anemometro">0</span>km/h </span>
+              <i class="fa-solid fa-gauge-simple-high" aria-hidden="true"></i> <span class="temperatureColor"><span
+                  id="ESP32_01_Anemometro">0</span>km/h </span>
               <p class="anemometro_title"> Velocidad Viento<br>
               </p>
             </div>
             <div class="contenedorItem">
-              <i class="fa-regular fa-compass" aria-hidden="true"></i> <span class="reading"><span id="ESP32_01_Veleta">NOROESTE</span></span>
+              <i class="fa-regular fa-compass" aria-hidden="true"></i> <span class="reading"><span
+                  id="ESP32_01_Veleta">NOROESTE</span></span>
               <p class="veleta_title"> Direccion Viento<br></p>
             </div>
 
             <div class="contenedorItem">
               <span class="reading"><span id="ESP32_01_Pluviometro">10</span> ml</span>
-              <p class="pluviometro_title"><i class="fa-solid fa-cloud-rain" aria-hidden="true"></i> Caudal de Lluvia<br>
+              <p class="pluviometro_title"><i class="fa-solid fa-cloud-rain" aria-hidden="true"></i> Caudal de
+                Lluvia<br>
 
               </p>
             </div>
@@ -285,8 +290,11 @@
             <p><span id='iddescripcioncielo'></span> | Sensacion Termica <span id='sensaciontermica'></span>°C</p>
             <p>Rafaga de viento <span id="rafagadeviento"></span> km/h </p>
         </div>
+        <div class="detalless">
+          <h2>Datos Generales<span id="ESP32_01_Status_Read_DHT11"></span></h2>
+        </div>
         <div class="detalles">
-          <p>Detalles
+          <h2>Datos Esp32</h2>
         </div>
         <br>
         <div class="contenedorTodosItems">
@@ -294,23 +302,27 @@
 
           <div class="contenedorInterior">
             <div class="contenedorItem">
-              <i class="fas fa-tint" aria-hidden="true"></i> <span class="reading"><span id="ESP32_01_Humd">55</span>%</span>
+              <i class="fas fa-tint" aria-hidden="true"></i> <span class="reading"><span
+                  id="ESP32_01_Humd">55</span>%</span>
               <p class="humidityColor"> Humedad<br></p>
             </div>
 
             <div class="contenedorItem">
-              <i class="fa-solid fa-gauge-simple-high" aria-hidden="true"></i> <span class="temperatureColor"><span id="ESP32_01_Anemometro">0</span>km/h </span>
+              <i class="fa-solid fa-gauge-simple-high" aria-hidden="true"></i> <span class="temperatureColor"><span
+                  id="ESP32_01_Anemometro">0</span>km/h </span>
               <p class="anemometro_title"> Velocidad Viento<br>
               </p>
             </div>
             <div class="contenedorItem">
-              <i class="fa-regular fa-compass" aria-hidden="true"></i> <span class="reading"><span id="ESP32_01_Veleta">NOROESTE</span></span>
+              <i class="fa-regular fa-compass" aria-hidden="true"></i> <span class="reading"><span
+                  id="ESP32_01_Veleta">NOROESTE</span></span>
               <p class="veleta_title"> Direccion Viento<br></p>
             </div>
 
             <div class="contenedorItem">
               <span class="reading"><span id="ESP32_01_Pluviometro">10</span> ml</span>
-              <p class="pluviometro_title"><i class="fa-solid fa-cloud-rain" aria-hidden="true"></i> Caudal de Lluvia<br>
+              <p class="pluviometro_title"><i class="fa-solid fa-cloud-rain" aria-hidden="true"></i> Caudal de
+                Lluvia<br>
 
               </p>
             </div>
@@ -379,38 +391,45 @@
               <p><span id='iddescripcioncielo'></span> | Sensacion Termica <span id='sensaciontermica'></span>°C</p>
               <p>Rafaga de viento <span id="rafagadeviento"></span> km/h </p>
           </div>
+          <div class="detalless">
+            <h2>Datos Generales<span id="ESP32_01_Status_Read_DHT11"></span></h2>
+          </div>
           <div class="detalles">
-            <p>Detalles
+            <h2>Datos Esp32</h2>
           </div>
           <br>
           <div class="contenedorTodosItems">
-          <!-- Muestra los valores de humedad y temperatura recibidos de ESP32.. *** -->
+            <!-- Muestra los valores de humedad y temperatura recibidos de ESP32.. *** -->
 
-          <div class="contenedorInterior">
-            <div class="contenedorItem">
-              <i class="fas fa-tint" aria-hidden="true"></i> <span class="reading"><span id="ESP32_01_Humd">55</span>%</span>
-              <p class="humidityColor"> Humedad<br></p>
+            <div class="contenedorInterior">
+              <div class="contenedorItem">
+                <i class="fas fa-tint" aria-hidden="true"></i> <span class="reading"><span
+                    id="ESP32_01_Humd">55</span>%</span>
+                <p class="humidityColor"> Humedad<br></p>
+              </div>
+
+              <div class="contenedorItem">
+                <i class="fa-solid fa-gauge-simple-high" aria-hidden="true"></i> <span class="temperatureColor"><span
+                    id="ESP32_01_Anemometro">0</span>km/h </span>
+                <p class="anemometro_title"> Velocidad Viento<br>
+                </p>
+              </div>
+              <div class="contenedorItem">
+                <i class="fa-regular fa-compass" aria-hidden="true"></i> <span class="reading"><span
+                    id="ESP32_01_Veleta">NOROESTE</span></span>
+                <p class="veleta_title"> Direccion Viento<br></p>
+              </div>
+
+              <div class="contenedorItem">
+                <span class="reading"><span id="ESP32_01_Pluviometro">10</span> ml</span>
+                <p class="pluviometro_title"><i class="fa-solid fa-cloud-rain" aria-hidden="true"></i> Caudal de
+                  Lluvia<br>
+
+                </p>
+              </div>
             </div>
 
-            <div class="contenedorItem">
-              <i class="fa-solid fa-gauge-simple-high" aria-hidden="true"></i> <span class="temperatureColor"><span id="ESP32_01_Anemometro">0</span>km/h </span>
-              <p class="anemometro_title"> Velocidad Viento<br>
-              </p>
-            </div>
-            <div class="contenedorItem">
-              <i class="fa-regular fa-compass" aria-hidden="true"></i> <span class="reading"><span id="ESP32_01_Veleta">NOROESTE</span></span>
-              <p class="veleta_title"> Direccion Viento<br></p>
-            </div>
-
-            <div class="contenedorItem">
-              <span class="reading"><span id="ESP32_01_Pluviometro">10</span> ml</span>
-              <p class="pluviometro_title"><i class="fa-solid fa-cloud-rain" aria-hidden="true"></i> Caudal de Lluvia<br>
-
-              </p>
-            </div>
           </div>
-
-        </div>
           <div class='contenedorTodosItem'>
             <!-- Muestra los valores de humedad y temperatura recibidos de ESP32.. *** -->
 
@@ -468,38 +487,45 @@
               <p><span id='iddescripcioncielo'></span> | Sensacion Termica <span id='sensaciontermica'></span>°C</p>
               <p>Rafaga de viento <span id="rafagadeviento"></span> km/h </p>
           </div>
+          <div class="detalless">
+            <h2>Datos Generales<span id="ESP32_01_Status_Read_DHT11"></span></h2>
+          </div>
           <div class="detalles">
-            <p>Detalles
+            <h2>Datos Esp32</h2>
           </div>
           <br>
           <div class="contenedorTodosItems">
-          <!-- Muestra los valores de humedad y temperatura recibidos de ESP32.. *** -->
+            <!-- Muestra los valores de humedad y temperatura recibidos de ESP32.. *** -->
 
-          <div class="contenedorInterior">
-            <div class="contenedorItem">
-              <i class="fas fa-tint" aria-hidden="true"></i> <span class="reading"><span id="ESP32_01_Humd">55</span>%</span>
-              <p class="humidityColor"> Humedad<br></p>
+            <div class="contenedorInterior">
+              <div class="contenedorItem">
+                <i class="fas fa-tint" aria-hidden="true"></i> <span class="reading"><span
+                    id="ESP32_01_Humd">55</span>%</span>
+                <p class="humidityColor"> Humedad<br></p>
+              </div>
+
+              <div class="contenedorItem">
+                <i class="fa-solid fa-gauge-simple-high" aria-hidden="true"></i> <span class="temperatureColor"><span
+                    id="ESP32_01_Anemometro">0</span>km/h </span>
+                <p class="anemometro_title"> Velocidad Viento<br>
+                </p>
+              </div>
+              <div class="contenedorItem">
+                <i class="fa-regular fa-compass" aria-hidden="true"></i> <span class="reading"><span
+                    id="ESP32_01_Veleta">NOROESTE</span></span>
+                <p class="veleta_title"> Direccion Viento<br></p>
+              </div>
+
+              <div class="contenedorItem">
+                <span class="reading"><span id="ESP32_01_Pluviometro">10</span> ml</span>
+                <p class="pluviometro_title"><i class="fa-solid fa-cloud-rain" aria-hidden="true"></i> Caudal de
+                  Lluvia<br>
+
+                </p>
+              </div>
             </div>
 
-            <div class="contenedorItem">
-              <i class="fa-solid fa-gauge-simple-high" aria-hidden="true"></i> <span class="temperatureColor"><span id="ESP32_01_Anemometro">0</span>km/h </span>
-              <p class="anemometro_title"> Velocidad Viento<br>
-              </p>
-            </div>
-            <div class="contenedorItem">
-              <i class="fa-regular fa-compass" aria-hidden="true"></i> <span class="reading"><span id="ESP32_01_Veleta">NOROESTE</span></span>
-              <p class="veleta_title"> Direccion Viento<br></p>
-            </div>
-
-            <div class="contenedorItem">
-              <span class="reading"><span id="ESP32_01_Pluviometro">10</span> ml</span>
-              <p class="pluviometro_title"><i class="fa-solid fa-cloud-rain" aria-hidden="true"></i> Caudal de Lluvia<br>
-
-              </p>
-            </div>
           </div>
-
-        </div>
           <div class='contenedorTodosItem'>
             <!-- Muestra los valores de humedad y temperatura recibidos de ESP32.. *** -->
 

@@ -3,3 +3,6 @@ FALTA VIDEO DE LLUVIA LIGERA
 poner la variable uv
 
 HACEER DOS SECCIONES DE DETALLES PARA MOSTRAR LOS DE LA ESTACION Y LOS GENERALES
+
+
+poner sombra y mejorar el contraste

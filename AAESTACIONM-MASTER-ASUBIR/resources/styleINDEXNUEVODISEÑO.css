@@ -1,6 +1,6 @@
 ::-webkit-scrollbar {
   width: 10px;
-  height: 10px;
+  height: 5px;
 }
 ::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.375);
@@ -9,33 +9,7 @@
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(62, 165, 188, 0.626);
 }
-:root {
-  --bar-color: rgba(57, 224, 57, 0.733);
-  --fill-size: -8%;
-}
-.barraprogreso {
-  margin-left: 8px;
-  position: relative;
-  width: 200px;
-  height: 10px;
-  background-color: rgb(255 255 255 / 22%);
-  border-radius: 2em;
-  overflow: hidden;
-}
-.barraprogreso::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100px;
-  background-color: var(--bar-color);
-  transform: translateX(-100%);
-  animation: fill-bar 0.8s 0.3s ease-in-out forwards;
-}
-@keyframes fill-bar {
-  to {
-    transform: translateX(var(--fill-size));
-  }
-}
+
 .video-background {
   position: relative;
   overflow: hidden;
@@ -187,6 +161,7 @@ body {
   display: flex;
   justify-content: flex-start;
   overflow-x: auto; /* Agregado para permitir desplazamiento horizontal */
+  
 }
 .detalless {
   text-align: left;
@@ -218,6 +193,8 @@ body {
   gap: 5px; /* Espacio entre elementos */
   padding-left: 5px; /* Ajusta el relleno izquierdo para centrar el primer elemento */
   margin-bottom: 5px;
+  /*box-shadow: inset 0 0 10px rgba(0, 0, 0, 1); /* sombra interna */
+
 }
 .detalles,
 .detalless {
@@ -240,6 +217,7 @@ body {
   white-space: nowrap; /* Evita que el texto se divida en varias líneas */
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   margin-left: auto;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8); 
 }
 
 .contenedorItem p {
@@ -247,7 +225,7 @@ body {
   padding: 3px; /* Añade un pequeño relleno para mejorar la apariencia */
   white-space: nowrap; /* Evita que el texto se divida en varias líneas */
   overflow: hidden;
-  font-size: small; /* Puedes ajustar según tus preferencias */
+  font-size: 7; /* Puedes ajustar según tus preferencias */
 }
 
 .body-tarjet h1 {
@@ -299,7 +277,7 @@ body {
   text-align: center;
   }
   .contenedorTodosItems, .contenedorTodosItem{
-    margin-bottom: 10px;
+    margin-bottom: 5px;
   }
 }
 /* Media Query para hacerlo responsivo */
