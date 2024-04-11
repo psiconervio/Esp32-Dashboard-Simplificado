@@ -110,7 +110,7 @@
         </div>
 
         <div class="detalles">
-          <h2>Datos Esp32<span id="ESP32_01_Status_Read_DHT11"></span></h2>
+          <h2>Datos Estacion Nodo<span id="ESP32_01_Status_Read_DHT11"></span></h2>
         </div>
 
         <br>
