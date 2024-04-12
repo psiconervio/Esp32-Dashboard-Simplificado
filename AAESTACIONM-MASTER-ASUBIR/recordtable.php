@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>ESP32 WITH MYSQL DATABASE</title>
+    <title>Datos Estacion Metereologica del Nodo Tecnologico</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
       html {font-family: Arial; display: inline-block; text-align: center;}
@@ -102,26 +102,26 @@
   
   <body>
     <div class="topnav">
-      <h3>ESP32 WITH MYSQL DATABASE</h3>
+      <h3>LABORATORIO DE INNOVACION</h3>
     </div>
     
     <br>
     
-    <h3 style="color: #0c6980;">ESP32_01 RECORD DATA TABLE</h3>
+    <h3 style="color: #0c6980;">DATOS ESTACION METEREOLOGICA</h3>
     
     <table class="styled-table" id= "table_id">
       <thead>
         <tr>
           <th>NO</th>
           <th>ID</th>
-          <th>BOARD</th>
-          <th>TEMPERATURE (°C)</th>
-          <th>HUMIDITY (%)</th>
-          <th>VELETA</th>
-          <th>ANEMOMETRO</th>
-          <th>PLUVIOMETRO</th>
-          <th>TIME</th>
-          <th>DATE (dd-mm-yyyy)</th>
+          <th>PLACA</th>
+          <th>TEMPERATURA (°C)</th>
+          <th>HUMEDAD (%)</th>
+          <th>DIRECCION DE VIENTO</th>
+          <th>VELOCIDAD DE VIENTO</th>
+          <th>CAUDAL DE LLUVIA</th>
+          <th>TIEMPO</th>
+          <th>FECHA (D-M-A)</th>
         </tr>
       </thead>
       <tbody id="tbody_table_record">
@@ -161,10 +161,10 @@
     <br>
     
     <div class="btn-group">
-      <button class="button" id="btn_prev" onclick="prevPage()">Prev</button>
-      <button class="button" id="btn_next" onclick="nextPage()">Next</button>
+      <button class="button" id="btn_prev" onclick="prevPage()">Anterior</button>
+      <button class="button" id="btn_next" onclick="nextPage()">Siguiente</button>
       <div style="display: inline-block; position:relative; border: 0px solid #e3e3e3; float: center; margin-left: 2px;;">
-        <p style="position:relative; font-size: 14px;"> Table : <span id="page"></span></p>
+        <p style="position:relative; font-size: 14px;"> Tabla : <span id="page"></span></p>
       </div>
       <select name="number_of_rows" id="number_of_rows">
         <option value="10">10</option>
@@ -172,7 +172,7 @@
         <option value="50">50</option>
         <option value="100">100</option>
       </select>
-      <button class="button" id="btn_apply" onclick="apply_Number_of_Rows()">Apply</button>
+      <button class="button" id="btn_apply" onclick="apply_Number_of_Rows()">Aplicar</button>
     </div>
 
     <br>
@@ -234,7 +234,7 @@
           }
         }
           
-        page_span.innerHTML = page + "/" + numPages() + " (Total Number of Rows = " + (l-1) + ") | Number of Rows : ";
+        page_span.innerHTML = page + "/" + numPages() + " (Total numero de filas = " + (l-1) + ") | Numero de filas : ";
         
         if (page == 0 && numPages() == 0) {
           btn_prev.disabled = true;
