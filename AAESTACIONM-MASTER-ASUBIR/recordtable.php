@@ -9,8 +9,8 @@
       p {font-size: 1.2rem;}
       h4 {font-size: 0.8rem;}
       body {margin: 0;}
-      /* ----------------------------------- TOPNAV STYLE */
-      .topnav {overflow: hidden; background-color: #0c6980; color: white; font-size: 1.2rem;}
+      /* ----------------------------------- TOPNAV STYLE color anterior verde agua#0c6980 */
+      .topnav {overflow: hidden; background-color: #25488d; color: white; font-size: 1.2rem;}
       /* ----------------------------------- */
       
       /* ----------------------------------- TABLE STYLE */
@@ -28,7 +28,7 @@
       }
 
       .styled-table thead tr {
-        background-color: #0c6980;
+        background-color: #25488d;
         color: #ffffff;
         text-align: left;
       }
