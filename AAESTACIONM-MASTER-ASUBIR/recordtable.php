@@ -3,6 +3,8 @@
 <html>
   <head>
     <title>Datos Estacion Metereologica del Nodo Tecnologico</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
       html {font-family: Arial; display: inline-block; text-align: center;}
@@ -151,15 +153,21 @@
             echo '<td class="bdr">'. $row['time'] . '</td>';
             echo '<td>'. $dateFormat . '</td>';
             echo '</tr>';
+            $data[] = ['date' => $dateFormat,'tiempo' =>$row['time'], 'temperature' => $row['temperature'], 'humidity' => $row['humidity']];
           }
+          
+          
+        //  print_r($data);
+
           Database::disconnect();
           //------------------------------------------------------------
+
         ?>
       </tbody>
     </table>
     
     <br>
-    
+                    
     <div class="btn-group">
       <button class="button" id="btn_prev" onclick="prevPage()">Anterior</button>
       <button class="button" id="btn_next" onclick="nextPage()">Siguiente</button>
@@ -176,7 +184,8 @@
     </div>
 
     <br>
-    
+
+
     <script>
       //------------------------------------------------------------
       var current_page = 1;
@@ -270,5 +279,38 @@
       };
       //------------------------------------------------------------
     </script>
+        <h1>grafico</h1>
+        <canvas id="myChart"></canvas>
+    <script>
+      
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: [<?php foreach ($data as $row) { echo '"' . $row['date'] . '",'; } ?>],
+        datasets: [{
+            label: 'Temperatura',
+            data: [<?php foreach ($data as $row) { echo $row['temperature'] . ','; } ?>],
+            borderColor: 'rgba(255, 99, 132, 1)',
+            fill: false
+        }, {
+            label: 'Humedad',
+            data: [<?php foreach ($data as $row) { echo $row['humidity'] . ','; } ?>],
+            borderColor: 'rgba(75, 192, 192, 1)',
+            fill: false
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+
+</script>
+
   </body>
 </html>
