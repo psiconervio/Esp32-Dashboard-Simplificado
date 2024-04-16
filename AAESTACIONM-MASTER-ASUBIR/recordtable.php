@@ -230,7 +230,7 @@
 
             //listing_table.rows contiene el valor de cada elemento a poner en la tabla , buscar variable que controla la cantidad
             console.log(listing_table.rows[i].style.display);
-            //console.log(listing_table.rows[i]);
+            console.log(listing_table.rows[i]);
           } else {
             continue;
           }
