@@ -184,6 +184,9 @@
     </div>
     <br>
     <script>
+        var arrayfecha = [];
+        var arraytemp = []; 
+        var arrayhum =[];
       //------------------------------------------------------------
       var current_page = 1;
       var records_per_page = 10;
@@ -223,9 +226,7 @@
             tr.style.display='none'; // reset all to not display
         });
         listing_table.rows[0].style.display = ""; // display the title row
-        var arrayfecha = [];
-        var arraytemp = []; 
-        var arrayhum =[];
+
         for (var i = (page-1) * records_per_page + 1; i < (page * records_per_page) + 1; i++) {
           if (listing_table.rows[i]) {
             listing_table.rows[i].style.display = ""
@@ -295,15 +296,15 @@ var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: [<?php foreach ($data as $row) { echo '"' . $row['date'] . '",'; } ?>],
+        labels: arrayfecha,
         datasets: [{
             label: 'Temperatura',
-            data: [<?php foreach ($data as $row) { echo $row['temperature'] . ','; } ?>],
+            data: arraytemp,
             borderColor: 'rgba(255, 99, 132, 1)',
             fill: false
         }, {
             label: 'Humedad',
-            data: [<?php foreach ($data as $row) { echo $row['humidity'] . ','; } ?>],
+            data: arrayhum,
             borderColor: 'rgba(75, 192, 192, 1)',
             fill: false
         }]
