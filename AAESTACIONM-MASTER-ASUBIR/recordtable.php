@@ -227,6 +227,10 @@
         for (var i = (page-1) * records_per_page + 1; i < (page * records_per_page) + 1; i++) {
           if (listing_table.rows[i]) {
             listing_table.rows[i].style.display = ""
+
+            //listing_table.rows contiene el valor de cada elemento a poner en la tabla , buscar variable que controla la cantidad
+            console.log(listing_table.rows[i].style.display);
+            //console.log(listing_table.rows[i]);
           } else {
             continue;
           }
@@ -264,7 +268,6 @@
         changePage(current_page);
       };
       //------------------------------------------------------------
-      console.log(windows.onload);
     </script>
         <h1>grafico</h1>
         <canvas id="myChart"></canvas>
