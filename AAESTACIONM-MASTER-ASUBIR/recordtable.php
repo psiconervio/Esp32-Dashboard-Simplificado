@@ -223,19 +223,37 @@
             tr.style.display='none'; // reset all to not display
         });
         listing_table.rows[0].style.display = ""; // display the title row
-
+        var arrayfecha = [];
+        var arraytemp = []; 
+        var arrayhum =[];
         for (var i = (page-1) * records_per_page + 1; i < (page * records_per_page) + 1; i++) {
           if (listing_table.rows[i]) {
             listing_table.rows[i].style.display = ""
 
             //listing_table.rows contiene el valor de cada elemento a poner en la tabla , buscar variable que controla la cantidad
-            console.log(listing_table.rows[i].style.display);
-            console.log(listing_table.rows[i]);
+            //console.log(listing_table.rows[i].style.display);
+            var row = listing_table.rows[i];
+            console.log(row)
+            var children = row.children;
+            var fecha = row.children[9];
+            var temp = row.children[3];
+            var hum = row.children[4];
+            var valortemp =temp.innerText;
+            var valorfecha = fecha.innerText;
+            var valorhum = hum.innerText;
+            arrayfecha.unshift(valorfecha); 
+            arraytemp.unshift(valortemp); 
+            arrayhum.unshift(valorhum); 
+           // console.log(valortemp);
+           // console.log(valor);
           } else {
             continue;
           }
         }
-          
+        console.log(arrayfecha);
+        console.log(arraytemp);
+        console.log(arrayhum);
+
         page_span.innerHTML = page + "/" + numPages() + " (Total numero de filas = " + (l-1) + ") | Numero de filas : ";
         
         if (page == 0 && numPages() == 0) {
