@@ -187,6 +187,7 @@
         var arrayfecha = [];
         var arraytemp = []; 
         var arrayhum =[];
+        var arrayhora=[];
       //------------------------------------------------------------
       var current_page = 1;
       var records_per_page = 10;
@@ -239,12 +240,15 @@
             var fecha = row.children[9];
             var temp = row.children[3];
             var hum = row.children[4];
+            var hora = row.children[8];
             var valortemp =temp.innerText;
             var valorfecha = fecha.innerText;
             var valorhum = hum.innerText;
+            var valorhora = hora.innerText;
             arrayfecha.unshift(valorfecha); 
             arraytemp.unshift(valortemp); 
             arrayhum.unshift(valorhum); 
+            arrayhora.unshift(valorhora); 
            // console.log(valortemp);
            // console.log(valor);
           } else {
@@ -254,6 +258,7 @@
         console.log(arrayfecha);
         console.log(arraytemp);
         console.log(arrayhum);
+        console.log(arrayhora);
 
         page_span.innerHTML = page + "/" + numPages() + " (Total numero de filas = " + (l-1) + ") | Numero de filas : ";
         
