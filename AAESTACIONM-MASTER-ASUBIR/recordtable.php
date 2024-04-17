@@ -10,7 +10,7 @@
       html {font-family: Arial; display: inline-block; text-align: center;}
       p {font-size: 1.2rem;}
       h4 {font-size: 0.8rem;}
-      body >*not{margin: 0;}
+      body {margin: 0;}
       /* ----------------------------------- TOPNAV STYLE color anterior verde agua#0c6980 */
       .topnav {overflow: hidden; background-color: #25488d; color: white; font-size: 1.2rem;}
       /* ----------------------------------- */
@@ -204,6 +204,7 @@
         if (current_page > 1) {
             current_page--;
             changePage(current_page);
+            myChart.update()
         }
       }
       //------------------------------------------------------------
@@ -252,6 +253,7 @@
             arrayhora.unshift(valorhora); 
            // console.log(valortemp);
            // console.log(valor);
+           myChart.update()
           } else {
             continue;
           }
@@ -294,9 +296,10 @@
       };
       //------------------------------------------------------------
     </script>
-    <div id=graficocanvas>
-        <h1>grafico</h1>
-        <canvas id="myChart" width="400" height="100"></canvas>
+            <h1>GRAFICO DE TIEMPO</h1>
+
+    <div id=graficocanvas style="height:80vh; width:100vw; margin: 0; display: flex; justify-content: center; align-items: center;">
+        <canvas id="myChart" ></canvas>
         </div>
     <script>
    
@@ -318,6 +321,7 @@ var myChart = new Chart(ctx, {
         }]
     },
     options: {
+      responsive: true,
         scales: {
             y: {
                 beginAtZero: true
@@ -325,6 +329,11 @@ var myChart = new Chart(ctx, {
         }
     }
 });
+
+if (myChart) {
+    myChart.update();
+}
+
 </script>
   </body>
   <footer>

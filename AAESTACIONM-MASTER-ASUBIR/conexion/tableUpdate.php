@@ -57,8 +57,6 @@ MODIFICANDO A MASTERR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
         $found_empty = true;
       }
     }
-    //::::::::
-    
  //   //:::::::: The process of entering data into a table.
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
  //   // replace_with_your_table_name, on this project I use the table name 'esp32_table_dht11_leds_update'.
@@ -69,12 +67,8 @@ MODIFICANDO A MASTERR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
 		$q = $pdo->prepare($sql);
 		$q->execute(array($id_key,$board,$temperature,$humidity,$veleta,$anemometro,$pluviometro,$tm,$dt));
     //::::::::
-    
     Database::disconnect();
-    //........................................ 
   }
-  //---------------------------------------- 
-  
   //---------------------------------------- Function to create "id" based on numbers and characters.
   function generate_string_id($strength = 16) {
     $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -85,6 +79,5 @@ MODIFICANDO A MASTERR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
       $random_string .= $random_character;
     }
     return $random_string;
-  }
-  
+  }  
 ?>
