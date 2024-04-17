@@ -10,7 +10,7 @@
       html {font-family: Arial; display: inline-block; text-align: center;}
       p {font-size: 1.2rem;}
       h4 {font-size: 0.8rem;}
-      body {margin: 0;}
+      body >*not{margin: 0;}
       /* ----------------------------------- TOPNAV STYLE color anterior verde agua#0c6980 */
       .topnav {overflow: hidden; background-color: #25488d; color: white; font-size: 1.2rem;}
       /* ----------------------------------- */
@@ -245,6 +245,7 @@
             var valorfecha = fecha.innerText;
             var valorhum = hum.innerText;
             var valorhora = hora.innerText;
+            //push para cambiar el sentido de la grafica
             arrayfecha.unshift(valorfecha); 
             arraytemp.unshift(valortemp); 
             arrayhum.unshift(valorhum); 
@@ -293,8 +294,10 @@
       };
       //------------------------------------------------------------
     </script>
+    <div id=graficocanvas>
         <h1>grafico</h1>
-        <canvas id="myChart"></canvas>
+        <canvas id="myChart" width="400" height="100"></canvas>
+        </div>
     <script>
    
 var ctx = document.getElementById('myChart').getContext('2d');
@@ -324,4 +327,7 @@ var myChart = new Chart(ctx, {
 });
 </script>
   </body>
+  <footer>
+    
+  </footer>
 </html>
