@@ -278,7 +278,7 @@
       </div>
       <div class="card video-background">
         <div class="card header">
-          <h3 style="font-size: 1rem;">Estacion Metereologica Zona Norte</h3>
+          <h3 style="font-size: 1rem;">Estacion Metereologica Zona Sur</h3>
         </div>
         <div class="transparencia"></div>
 
@@ -379,7 +379,7 @@
         <!-- ==Primer card MONITOREO_ESP32_01== izquierda -->
         <div class="card video-background">
           <div class="card header">
-            <h3 style="font-size: 1rem;">Estacion Metereologica Zona Norte</h3>
+            <h3 style="font-size: 1rem;">Estacion Metereologica Zona Este</h3>
           </div>
           <div class="transparencia"></div>
 
@@ -475,7 +475,7 @@
         </div>
         <div class="card video-background">
           <div class="card header">
-            <h3 style="font-size: 1rem;">Estacion Metereologica Zona Norte</h3>
+            <h3 style="font-size: 1rem;">Estacion Metereologica Zona oeste</h3>
           </div>
           <div class="transparencia"></div>
 

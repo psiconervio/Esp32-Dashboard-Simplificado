@@ -8,3 +8,5 @@ HACEER DOS SECCIONES DE DETALLES PARA MOSTRAR LOS DE LA ESTACION Y LOS GENERALES
 poner sombra y mejorar el contraste
 
 cambiar orden de muestra recordtable
+
+hacer sensor low bateri cuanndo tire valores mal

@@ -165,6 +165,32 @@
         ?>
       </tbody>
     </table>
+    <!--proceso para sacar los ultimos 7 dias --->
+    <?php
+   //       include 'conexion/database.php';
+   //      // contador para que itere los idas
+   //       // The process for displaying a record table containing the DHT11 sensor data and the state of the LEDs.
+   //       $pdo = Database::connect();
+   //       // replace_with_your_table_name, on this project I use the table name 'esp32_table_dht11_leds_record'.
+   //       // This table is used to store and record DHT11 sensor data updated by ESP32. 
+   //       // This table is also used to store and record the state of the LEDs, the state of the LEDs is controlled from the "home.php" page. 
+   //       // To store data, this table is operated with the "INSERT" command, so this table will contain many rows.
+   //       //traer dias de tabla
+   //       $sql = 'SELECT *  FROM tableupdate WHERE date >= DATEADD(DAY, -7, GETDATE());';
+   //       foreach ($pdo->query($sql) as $row) {
+   //         $date = date_create($row['date']);
+   //         $dateFormat = date_format($date,"d-m-Y");
+//
+   //         $data[] = ['date' => $dateFormat,'tiempo' =>$row['time']];
+   //       }
+   //       
+   //       
+   //       print_r($date);
+//
+   //       Database::disconnect();
+   //       //------------------------------------------------------------
+
+        ?>
     
     <br>
                     
