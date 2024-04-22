@@ -156,13 +156,14 @@
         //  print_r($data);
 
           Database::disconnect();
+          
           //-logica para traer los ultimos dias grabados en la base de datos, hacer logica para traer los valores--------------------------------------
-          foreach ($dateform as $fechaexacta) {
-            if ($fechaexacta !$fechaexacta){
-             mientras sea difrente guardar
-            }
-          }
-          print_r($data)
+     //     foreach ($dateform as $fechaexacta) {
+     //       if ($fechaexacta !$fechaexacta){
+     //        mientras sea difrente guardar
+     //       }
+     //     }
+          print_r($dateFormat);
 ?>
       </tbody>
     </table>
@@ -203,7 +204,7 @@
             echo 'No hay resultados para la consulta.';
         } else {
             echo '<pre>';
-            print_r($fechachart);
+          //  print_r($fechachart);
             echo '</pre>';
         }
               
