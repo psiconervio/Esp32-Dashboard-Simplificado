@@ -156,9 +156,11 @@
         //  print_r($data);
 
           Database::disconnect();
-          //----------------------logica para traer los ultimos dias grabados en la base de datos, hacer logica para traer los valores--------------------------------------
-          foreach ($dateform as $key => $value) {
-            
+          //-logica para traer los ultimos dias grabados en la base de datos, hacer logica para traer los valores--------------------------------------
+          foreach ($dateform as $fechaexacta) {
+            if ($fechaexacta !$fechaexacta){
+             mientras sea difrente guardar
+            }
           }
           print_r($data)
 ?>
