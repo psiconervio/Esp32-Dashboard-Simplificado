@@ -153,11 +153,13 @@
             $data[] = ['date' => $dateFormat,'tiempo' =>$row['time'], 'temperature' => $row['temperature'], 'humidity' => $row['humidity']];
          //   print_r($dateFormat);
             array_push($arraydateFormat, $dateFormat);
+           // array_push($arraydateFormat, $dateFormat);
         }
-          $fechaexactacambia = $dateformat;
+     //     $fechaexactacambia = $dateformat;
 
           Database::disconnect();
    //-logica para traer los ultimos dias grabados en la base de datos, hacer logica para traer los valores---------
+          $fechaexactacambia = null; 
           foreach ($arraydateFormat as $fechaexacta) {
             if ($fechaexacta != $fechaexactacambia){
               array_push($arrayfechaexactatotal, $fechaexacta);
@@ -368,12 +370,13 @@
         <canvas id="myChart" ></canvas>
         </div>
     <script>
-   
+   var arrayfechaexactatotal = <?php echo json_encode($arrayfechaexactatotal); ?>;
+
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: arrayfecha,
+        labels: arrayfechaexactatotal,
         datasets: [{
             label: 'Temperatura',
             data: arraytemp,
