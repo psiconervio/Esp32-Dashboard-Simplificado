@@ -98,7 +98,6 @@
         cursor: not-allowed;
         pointer-events:none;
       }
-      /* ----------------------------------- */
     </style>
   </head>
   
@@ -115,8 +114,6 @@
       <thead>
         <tr>
           <th>NO</th>
-          <th>ID</th>
-          <th>PLACA</th>
           <th>TEMPERATURA (°C)</th>
           <th>HUMEDAD (%)</th>
           <th>DIRECCION DE VIENTO</th>
@@ -130,7 +127,7 @@
         <?php
           include 'conexion/database.php';
           $num = 0;
-          //------------------------------------------------------------ The process for displaying a record table containing the DHT11 sensor data and the state of the LEDs.
+          //The process for displaying a record table containing the DHT11 sensor data and the state of the LEDs.
           $pdo = Database::connect();
           // replace_with_your_table_name, on this project I use the table name 'esp32_table_dht11_leds_record'.
           // This table is used to store and record DHT11 sensor data updated by ESP32. 
@@ -143,30 +140,33 @@
             $num++;
             echo '<tr>';
             echo '<td>'. $num . '</td>';
-            echo '<td class="bdr">'. $row['id'] . '</td>';
-            echo '<td class="bdr">'. $row['board'] . '</td>';
-            echo '<td class="bdr">'. $row['temperature'] . '</td>';
-            echo '<td class="bdr">'. $row['humidity'] . '</td>';
+            echo '<td class="bdr">'. $row['temperature'] . ' °C</td>';
+            echo '<td class="bdr">'. $row['humidity'] . ' %</td>';
             echo '<td class="bdr">'. $row['veleta'] . '</td>';
-            echo '<td class="bdr">'. $row['anemometro'] . '</td>';
-            echo '<td class="bdr">'. $row['pluviometro'] . '</td>';            
+            echo '<td class="bdr">'. $row['anemometro'] . ' km/h</td>';
+            echo '<td class="bdr">'. $row['pluviometro'] . ' ml/h</td>';            
             echo '<td class="bdr">'. $row['time'] . '</td>';
             echo '<td>'. $dateFormat . '</td>';
             echo '</tr>';
             $data[] = ['date' => $dateFormat,'tiempo' =>$row['time'], 'temperature' => $row['temperature'], 'humidity' => $row['humidity']];
+  
           }
           
           
         //  print_r($data);
 
           Database::disconnect();
-          //------------------------------------------------------------
-
-        ?>
+          //----------------------logica para traer los ultimos dias grabados en la base de datos, hacer logica para traer los valores--------------------------------------
+          foreach ($dateform as $key => $value) {
+            
+          }
+          print_r($data)
+?>
       </tbody>
     </table>
     <!--proceso para sacar los ultimos 7 dias --->
     <?php
+     $contador=0;
          // contador para que itere los idas
           // The process for displaying a record table containing the DHT11 sensor data and the state of the LEDs.
           $pdo = Database::connect();
@@ -175,15 +175,17 @@
           // This table is also used to store and record the state of the LEDs, the state of the LEDs is controlled from the "home.php" page. 
           // To store data, this table is operated with the "INSERT" command, so this table will contain many rows.
           //traer dias de tabla
-          $sql = 'SELECT * FROM esp32_01_tablerecord WHERE `date` >= DATE_SUB(CURDATE(), INTERVAL 7 DAY) ORDER BY `date` DESC;';          $result = $pdo->query($sql);
+ //       $sql = 'SELECT * FROM esp32_01_tablerecord WHERE `date` >= DATE_SUB(CURDATE(), INTERVAL 7 DAY) ORDER BY `date` DESC;';    
+          $sql = 'SELECT * FROM `esp32_01_tablerecord` ORDER BY `esp32_01_tablerecord`.`date` DESC;';    
+          $result = $pdo->query($sql);
 
           // Crear un array vacío para almacenar los resultados
           $fechachart = array();
-          
+          $fecha = array();
           // Iterar sobre los resultados de la consulta
           foreach ($result as $fila) {
               // Crear un objeto DateTime a partir del tiempo en la fila actual
-              $fecha = date_create($fila['tiempo']);
+              $fecha = date_create($fila['time']);
           
               // Formatear la fecha al formato deseado
               $formatofecha = date_format($fecha,"d-m-y");
@@ -230,6 +232,15 @@
     </div>
     <br>
     <script>
+      //script para sacar fecha actual y de los ultimos 6 dias
+      let fechas = [];
+      for(let i = 0; i < 7; i++){
+          let fecha = new Date();
+          fecha.setDate(fecha.getDate() - i);
+          fechas.push(fecha.toISOString().split('T')[0]);
+      }
+      console.log(fechas);
+        var arraypluvi= [];
         var arrayfecha = [];
         var arraytemp = []; 
         var arrayhum =[];
@@ -281,29 +292,36 @@
 
             //listing_table.rows contiene el valor de cada elemento a poner en la tabla , buscar variable que controla la cantidad
             //console.log(listing_table.rows[i].style.display);
+            //extrae datos especificos de la tabla
             var row = listing_table.rows[i];
             console.log(row)
             var children = row.children;
-            var fecha = row.children[9];
-            var temp = row.children[3];
-            var hum = row.children[4];
-            var hora = row.children[8];
+            var fecha = row.children[7];
+            var temp = row.children[1];
+            var hum = row.children[3];
+            var hora = row.children[6];
+            var pluvi= row.children[5];
+            var valorpluvi = pluvi.innerText;
             var valortemp =temp.innerText;
             var valorfecha = fecha.innerText;
             var valorhum = hum.innerText;
             var valorhora = hora.innerText;
             //push para cambiar el sentido de la grafica
+            arraypluvi.unshift(valorpluvi);
             arrayfecha.unshift(valorfecha); 
             arraytemp.unshift(valortemp); 
             arrayhum.unshift(valorhum); 
             arrayhora.unshift(valorhora); 
            // console.log(valortemp);
            // console.log(valor);
-           myChart.update()
-          } else {
-            continue;
+
           }
         }
+        if (arraypluvi >= 100) {
+          console.log("bateria baja")
+          
+        }
+        console.log(arraypluvi)
         console.log(arrayfecha);
         console.log(arraytemp);
         console.log(arrayhum);
