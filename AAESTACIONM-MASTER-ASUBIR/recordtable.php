@@ -162,10 +162,10 @@
    //impplementar la carga de los ultimos 7 dias. probar con base de datos actualizada
           $fechaexactacambia = null; 
           $longfechaexacta = sizeof($arrayfechaexactatotal);
-
+          $diass= 7;
           foreach ($arraydateFormat as $fechaexacta) {
-            if ($fechaexacta != $fechaexactacambia && $longfechaexacta <=7 ){
-              
+            if ($fechaexacta != $fechaexactacambia && $longfechaexacta <$diass){
+
               array_push($arrayfechaexactatotal, $fechaexacta);
               $fechaexactacambia = $fechaexacta;
               $longfechaexacta++;
@@ -173,6 +173,7 @@
           }
            }
             print_r($arrayfechaexactatotal);
+            print_r($longfechaexacta);
   //logica para funcion de sacar maximo y minimo de tiempo para el dashboard// sacar promedio de datos obtenidos de la base de datos, con una variacion de 5 grados
 
 ?>
