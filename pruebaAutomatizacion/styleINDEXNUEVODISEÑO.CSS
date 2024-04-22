@@ -1,0 +1,346 @@
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.375);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(62, 165, 188, 0.626);
+}
+:root{
+  --bar-color: rgba(57, 224, 57, 0.733);
+  --fill-size: -8%;
+}
+.barraprogreso{
+  margin-left: 8px;
+  position: relative;
+  width: 200px;
+  height: 10px;
+  background-color:rgb(255 255 255 / 22%);
+  border-radius: 2em;
+  overflow: hidden;
+}
+#uv {
+  color: var(--coloraso);
+}
+.barraprogreso::before{
+  content :'';
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  background-color: var(--bar-color);
+  transform: translateX(-100%);
+  animation: fill-bar 0.8s 0.3s ease-in-out forwards;
+ 
+}
+@keyframes fill-bar {
+  to {
+    transform: translateX(var(--fill-size));
+  }
+}
+.video-background {
+  position: relative;
+  overflow: hidden;
+}
+.contenedorItem {
+  padding-top: 1%;
+}
+.video-background video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* Para que el video esté detrás del contenido de la tarjeta */
+}
+.detalles.contenedorItem{
+  display: flex;
+justify-content: end;
+
+}
+#ESP32_01_Temp {
+  height: 100px;
+  width: 100px;
+}
+p {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  margin-left: auto;
+}
+.body-tarjet {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  margin-left: auto;
+  margin-bottom: 200px;
+}
+.transparencia {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background: black;
+  opacity: 0.05;
+}
+.hidden {
+  overflow: hidden;
+}
+.centrado {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid #cef;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #cef transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+img {
+  box-shadow: 0px 0px 10px 1px rgba(140, 140, 140, 0.5);
+  border: 1px solid #00bafa;
+  justify-content: center;
+}
+html {
+  font-family: Arial;
+  display: inline-block;
+  text-align: center;
+  background-color: #232325;
+}
+
+h2 {
+  justify-content: center;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+body {
+  margin: 0;
+}
+.topnav {
+  overflow: hidden;
+  background-color: #25488d;
+  color: white;
+  font-size: 1.2rem;
+}
+.content {
+  padding: 5px;
+}
+.card {
+  border: 1px solid rgba(49, 43, 43, 0.753);
+  border-radius: 15px;
+}
+.card.header {
+  background-color: #25488d;
+  color: white;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
+}
+.cards {
+  max-width: 700px;
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+.contenedorTodosItem {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  overflow-x: auto; /* Agregado para permitir desplazamiento horizontal */
+}
+.detalles {
+  text-align: left;
+  margin-bottom: 55px;
+}
+.detalles h2{
+  margin-left: 5px;
+}
+.detalles p{
+  font-size: 0.5cm;
+  margin: 0;
+  margin-left: 8px;
+}
+
+.contenedorItem:first {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+}
+.contenedorInterior {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 5px; /* Espacio entre elementos */
+  padding-left: 5px; /* Ajusta el relleno izquierdo para centrar el primer elemento */
+  margin-bottom: 5px;
+}
+.detalles {
+  text-align: start;
+  margin-left: 1%;
+  white-space: nowrap; /* Evita el quiebre del texto en varias líneas */
+  font-weight: bold;
+}
+.contenedorItem {
+  box-shadow: 0px 0px 10px 1px rgba(140, 140, 140, 0.5);
+  border: 1px solid #00bafa;
+  border-radius: 15px;
+  display: inline-block;
+  height: auto; /* Cambiado a "auto" para permitir el crecimiento en altura según el contenido */
+  min-width: 80px; /* Establece un ancho mínimo para evitar el corte del primer elemento */
+  border: 2px solid rgba(255, 255, 255, 0.551); /* Hacer el borde transparente */
+  justify-content: flex-end;
+  justify-content: space-around;
+  overflow: hidden;
+  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  margin-left: auto;
+}
+
+.contenedorItem p {
+  margin: 0; /* Elimina el margen predeterminado del párrafo */
+  padding: 3px; /* Añade un pequeño relleno para mejorar la apariencia */
+  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+  overflow: hidden;
+  font-size: small; /* Puedes ajustar según tus preferencias */
+}
+
+.body-tarjet h1 {
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+.card.header h3 {
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+.topnav h3 {
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+.topnav h3 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+/* Consultas de medios para ajustar los márgenes según el ancho de la pantalla/ mover detalles p para arreglar el tamaño con el contenedortodositem */
+/* @media (max-width: 320px) {
+  .detalles p {
+    margin-bottom: 50px;
+  }
+
+}
+
+@media (min-width: 321px) and (max-width: 640px) {
+  .detalles p {
+    margin-bottom: 50px;
+  }
+
+}
+
+@media (min-width: 641px) and (max-width: 1023px) {
+  .detalles p {
+    margin-bottom: 50px;
+  }
+
+}
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .detalles p {
+    margin-bottom: 50px;
+  }
+
+} */
+
+
+/* Media Query para hacerlo responsivo */
+@media (max-width: 700px) {
+  .contenedorTodosItem {
+    padding: 0 0px;
+  }
+  .contenedorInterior {
+    margin-left: 0;
+  }
+}
+
+.sliderTS:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #f7f7f7;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .sliderTS {
+  background-color: #00878f;
+}
+
+input:focus + .sliderTS {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .sliderTS:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.sliderTS:after {
+  content: "OFF";
+  color: white;
+  display: block;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 70%;
+  font-size: 10px;
+  font-family: Verdana, sans-serif;
+}
+
+input:checked + .sliderTS:after {
+  left: 25%;
+  content: "ON";
+}
+
+input:disabled + .sliderTS {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
+}

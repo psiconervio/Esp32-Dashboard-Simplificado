@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Datos de UV</title>
+</head>
+<body>
+<h1>Datos de UV</h1>
+<script>
+    var myHeaders = new Headers();
+myHeaders.append("x-access-token", "openuv-165a9rlqaveqy0-io");
+myHeaders.append("Content-Type", "application/json");
+
+var requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+  redirect: 'follow'
+};
+
+fetch("https://api.openuv.io/api/v1/uv?lat=-28.51&lng=-65.82&alt=100&dt=", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+</script>
+<script>
+fetch('https://api.openuv.io/api/v1/uv?lat=-28.51&lng=-65.82&alt=100&dt=', requestOptions)
+  .then(response => response.json())
+  .then(data => {
+    // Acceder a los datos
+    const uv = data.result.uv;
+    const uvTiempo = data.result.uv_time;
+    const uvMax = data.result.uv_max;
+    const uvMaxTiempo = data.result.uv_max_time;
+    const ozono = data.result.ozone;
+    const ozonoTiempo = data.result.ozone_time;
+    const tiempoExposicionSegura = data.result.safe_exposure_time;
+    const informacionSolar = data.result.sun_info;
+    
+    // Acceder a más datos dentro de sunInfo
+    const tiemposSolares = informacionSolar.sun_times;
+    const mediodiaSolar = tiemposSolares.solarNoon;
+    const nadir = tiemposSolares.nadir;
+    const amanecer = tiemposSolares.sunrise;
+    const atardecer = tiemposSolares.sunset;
+    // ... y así sucesivamente
+    
+    const posicionSolar = informacionSolar.sun_position;
+    const azimuth = posicionSolar.azimuth;
+    const altitud = posicionSolar.altitude;
+    
+    // Hacer lo que necesites con los datos
+    document.body.innerHTML += `
+      <p>Índice UV: ${uv}</p>
+      <p>Tiempo del Índice UV: ${uvTiempo}</p>
+      <p>Índice UV Máximo: ${uvMax}</p>
+      <p>Tiempo del Índice UV Máximo: ${uvMaxTiempo}</p>
+      <p>Ozono: ${ozono}</p>
+      <p>Tiempo del Ozono: ${ozonoTiempo}</p>
+      <p>Tiempo de Exposición Segura:</p>
+      <ul>
+        <li>ST1: ${tiempoExposicionSegura.st1}</li>
+        <li>ST2: ${tiempoExposicionSegura.st2}</li>
+        <li>ST3: ${tiempoExposicionSegura.st3}</li>
+        <li>ST4: ${tiempoExposicionSegura.st4}</li>
+        <li>ST5: ${tiempoExposicionSegura.st5}</li>
+        <li>ST6: ${tiempoExposicionSegura.st6}</li>
+      </ul>
+      <p>Información Solar:</p>
+      <ul>
+        <li>Mediodía Solar: ${mediodiaSolar}</li>
+        <li>Nadir: ${nadir}</li>
+        <li>Amanecer: ${amanecer}</li>
+        <li>Atardecer: ${atardecer}</li>
+      </ul>
+      <p>Posición Solar:</p>
+      <ul>
+        <li>Azimut: ${azimuth}</li>
+        <li>Altitud: ${altitud}</li>
+      </ul>
+    `;
+  })
+  .catch(error => {
+    console.error('Error al obtener los datos:', error);
+  });
+</script>
+</body>
+</html>

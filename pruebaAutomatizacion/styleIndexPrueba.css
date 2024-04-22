@@ -1,0 +1,106 @@
+.video-background {
+  position: relative;
+  overflow: hidden;
+}
+
+.video-background video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* Para que el video esté detrás del contenido de la tarjeta */
+}
+
+
+
+img {box-shadow: 0px 0px 10px 1px rgba(140,140,140,.5); border: 1px solid #00BAFA;}
+html {font-family: Arial; display: inline-block; text-align: center; background-color: #232325;}
+p,h2 {font-size: 1.2rem;}
+
+body {margin: 0;}
+.topnav {overflow: hidden; background-color: #00BAFA; color: white; font-size: 1.2rem;}
+.content {padding: 5px; }
+.card { box-shadow: 0px 0px 10px 1px rgba(140,140,140,.5); border: 1px solid #00BAFA; border-radius: 15px;}
+.card.header {background-color: #00BAFA; color: white; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; border-top-right-radius: 12px; border-top-left-radius: 12px;}
+.cards {max-width: 700px; margin: 0 auto; display: grid; grid-gap: 2rem;  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));}
+.reading {font-size: 1.3rem;}
+.packet {color: #bebebe;}
+.anemometro_title {color: #fd7e14;}
+.pluviometro_title {color: #1b78e2;}
+.pluviometro {color: #1b78e2;}
+.veleta {color:#A97D35;}
+.veleta_title {color:#A97D35;}
+.humidityColor {color: #1b78e2;}
+.statusreadColor {color: #702963; font-size:12px;}
+.LEDColor {color: #183153;}
+.conttenedorr {color:#F3F4F6;}
+.contenedorTodosItem {
+  position: absolute;
+  align-items:flex-end;
+  display:flex;
+  justify-content:center ;
+}
+.contenedorItem {
+  width: 60px; /* Ajusta el tamaño según sea necesario */
+  height: 60px; /* Ajusta el tamaño según sea necesario */
+  border-radius: 10px; /* Establece el radio para redondear los bordes */
+  border: 2px solid white; /* Puedes ajustar el color y el grosor del borde según sea necesario */
+  position: absolute;
+  align-items:flex-end;
+  display:flex;
+  justify-content:center ;
+  transform: translateX(-50%); /* Centra horizontalmente el cuadrado */
+}
+
+
+.sliderTS:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #f7f7f7;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .sliderTS {
+  background-color: #00878F;
+}
+
+input:focus + .sliderTS {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .sliderTS:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.sliderTS:after {
+  content:'OFF';
+  color: white;
+  display: block;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 70%;
+  font-size: 10px;
+  font-family: Verdana, sans-serif;
+}
+
+input:checked + .sliderTS:after {  
+  left: 25%;
+  content:'ON';
+}
+
+input:disabled + .sliderTS {  
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
