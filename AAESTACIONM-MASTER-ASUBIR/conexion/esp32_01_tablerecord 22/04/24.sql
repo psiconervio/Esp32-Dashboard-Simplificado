@@ -41,6 +41,15 @@ CREATE TABLE `esp32_01_tablerecord` (
 
 --
 -- Volcado de datos para la tabla `esp32_01_tablerecord`
+--tabla de prueba
+--INSERT INTO `esp32_01_tablerecord` (`id`, `board`, `temperature`, `humidity`, `veleta`, `anemometro`, `pluviometro`, `time`, `date`) VALUES
+--('5555', 'esp32_01', 21.60, 57, 'ESTE', 0, 20, '02:08:27', '2024-04-05'),
+--('1111', 'esp32_01', 20.80, 59, 'ESTE', 0, 20, '06:18:11', '2024-04-06'),
+--('2222', 'esp32_01', 20.80, 60, 'ESTE', 0, 20, '06:19:49', '2024-04-07'),
+--('3333', 'esp32_01', 22.30, 48, 'SUR', 0, 0, '13:30:36', '2024-04-08'),
+--('444', 'esp32_01', 22.40, 51, 'ESTE', 0, 20, '14:44:17', '2024-04-08'),
+--('6666', 'esp32_01', 22.40, 51, 'ESTE', 0, 20, '14:44:17', '2024-04-09');
+
 --
 
 INSERT INTO `esp32_01_tablerecord` (`id`, `board`, `temperature`, `humidity`, `veleta`, `anemometro`, `pluviometro`, `time`, `date`) VALUES

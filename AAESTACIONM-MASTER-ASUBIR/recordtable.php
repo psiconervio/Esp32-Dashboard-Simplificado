@@ -158,12 +158,17 @@
      //     $fechaexactacambia = $dateformat;
 
           Database::disconnect();
-   //-logica para traer los ultimos dias grabados en la base de datos, hacer logica para traer los valores---------
+   //-logica para traer los ultimos dias grabados en la base de datos, hacer logica para traer los valores
+   //impplementar la carga de los ultimos 7 dias. probar con base de datos actualizada
           $fechaexactacambia = null; 
+          $longfechaexacta = sizeof($arrayfechaexactatotal);
+
           foreach ($arraydateFormat as $fechaexacta) {
-            if ($fechaexacta != $fechaexactacambia){
+            if ($fechaexacta != $fechaexactacambia && $longfechaexacta <=7 ){
+              
               array_push($arrayfechaexactatotal, $fechaexacta);
               $fechaexactacambia = $fechaexacta;
+              $longfechaexacta++;
    //     $arrayfechaexactatotal[] = $fechaexacta;
           }
            }
