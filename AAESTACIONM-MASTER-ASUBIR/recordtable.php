@@ -159,8 +159,8 @@
           
           //-logica para traer los ultimos dias grabados en la base de datos, hacer logica para traer los valores--------------------------------------
      //     foreach ($dateform as $fechaexacta) {
-     //       if ($fechaexacta !$fechaexacta){
-     //        mientras sea difrente guardar
+     //       if ($dateform != $fechaexacta){
+     //        $arrayfechaexacta.push guardar
      //       }
      //     }
           print_r($dateFormat);
