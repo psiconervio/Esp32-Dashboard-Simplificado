@@ -127,6 +127,8 @@
         <?php
           include 'conexion/database.php';
           $num = 0;
+          $arrayfechaexactatotal =[];
+          $arraydateFormat= [];
           //The process for displaying a record table containing the DHT11 sensor data and the state of the LEDs.
           $pdo = Database::connect();
           // replace_with_your_table_name, on this project I use the table name 'esp32_table_dht11_leds_record'.
@@ -149,21 +151,23 @@
             echo '<td>'. $dateFormat . '</td>';
             echo '</tr>';
             $data[] = ['date' => $dateFormat,'tiempo' =>$row['time'], 'temperature' => $row['temperature'], 'humidity' => $row['humidity']];
-  
-          }
-          
-          
-        //  print_r($data);
+         //   print_r($dateFormat);
+            array_push($arraydateFormat, $dateFormat);
+        }
+          $fechaexactacambia = $dateformat;
 
           Database::disconnect();
-          
-          //-logica para traer los ultimos dias grabados en la base de datos, hacer logica para traer los valores--------------------------------------
-     //     foreach ($dateform as $fechaexacta) {
-     //       if ($dateform != $fechaexacta){
-     //        $arrayfechaexacta.push guardar
-     //       }
-     //     }
-          print_r($dateFormat);
+   //-logica para traer los ultimos dias grabados en la base de datos, hacer logica para traer los valores---------
+          foreach ($arraydateFormat as $fechaexacta) {
+            if ($fechaexacta != $fechaexactacambia){
+              array_push($arrayfechaexactatotal, $fechaexacta);
+              $fechaexactacambia = $fechaexacta;
+   //     $arrayfechaexactatotal[] = $fechaexacta;
+          }
+           }
+            print_r($arrayfechaexactatotal);
+  //logica para funcion de sacar maximo y minimo de tiempo para el dashboard// sacar promedio de datos obtenidos de la base de datos, con una variacion de 5 grados
+
 ?>
       </tbody>
     </table>
@@ -196,8 +200,6 @@
               // Añadir la fecha formateada y el tiempo al array
               $fechachart[] = ['tiempo' => $formatofecha, 'fila' => $fila['time']];
           }
-          
-          
 
           Database::disconnect();
           if (empty($fechachart)) {
@@ -207,12 +209,9 @@
           //  print_r($fechachart);
             echo '</pre>';
         }
-              
         ini_set('display_errors', 1);
         ini_set('display_startup_errors', 1);
         error_reporting(E_ALL);
-
-          
           //------------------------------------------------------------
 
         ?>
