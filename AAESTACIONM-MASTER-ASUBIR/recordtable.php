@@ -288,7 +288,7 @@
         }
         if (arraypluvi >= constlowbatery) {
           console.log("bateria baja")
-          
+          ///pasar todo a javascritp
         }
         console.log(arraypluvi)
         console.log(arrayfecha);
