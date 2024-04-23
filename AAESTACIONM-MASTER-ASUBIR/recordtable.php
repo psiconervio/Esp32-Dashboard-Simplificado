@@ -283,10 +283,10 @@
            if (myChart) {
     myChart.update();
 }
-
+ const constlowbatery = 100;
           }
         }
-        if (arraypluvi >= 100) {
+        if (arraypluvi >= constlowbatery) {
           console.log("bateria baja")
           
         }
@@ -331,7 +331,7 @@
     </script>
             <h1>GRAFICO DE TIEMPO</h1>
 
-    <div id=graficocanvas style="height:80vh; width:100vw; margin: 0; display: flex; justify-content: center; align-items: center;">
+    <div id="graficocanvas" style="height:80vh; width:100vw; margin: 0; display: flex; justify-content: center; align-items: center;">
         <canvas id="myChart" ></canvas>
         </div>
     <script>
