@@ -179,50 +179,6 @@
 ?>
       </tbody>
     </table>
-    <!--proceso para sacar los ultimos 7 dias --->
-    <?php
-     $contador=0;
-         // contador para que itere los idas
-          // The process for displaying a record table containing the DHT11 sensor data and the state of the LEDs.
-          $pdo = Database::connect();
-          // replace_with_your_table_name, on this project I use the table name 'esp32_table_dht11_leds_record'.
-          // This table is used to store and record DHT11 sensor data updated by ESP32. 
-          // This table is also used to store and record the state of the LEDs, the state of the LEDs is controlled from the "home.php" page. 
-          // To store data, this table is operated with the "INSERT" command, so this table will contain many rows.
-          //traer dias de tabla
- //       $sql = 'SELECT * FROM esp32_01_tablerecord WHERE `date` >= DATE_SUB(CURDATE(), INTERVAL 7 DAY) ORDER BY `date` DESC;';    
-          $sql = 'SELECT * FROM `esp32_01_tablerecord` ORDER BY `esp32_01_tablerecord`.`date` DESC;';    
-          $result = $pdo->query($sql);
-
-          // Crear un array vacío para almacenar los resultados
-          $fechachart = array();
-          $fecha = array();
-          // Iterar sobre los resultados de la consulta
-          foreach ($result as $fila) {
-              // Crear un objeto DateTime a partir del tiempo en la fila actual
-              $fecha = date_create($fila['time']);
-          
-              // Formatear la fecha al formato deseado
-              $formatofecha = date_format($fecha,"d-m-y");
-          
-              // Añadir la fecha formateada y el tiempo al array
-              $fechachart[] = ['tiempo' => $formatofecha, 'fila' => $fila['time']];
-          }
-
-          Database::disconnect();
-          if (empty($fechachart)) {
-            echo 'No hay resultados para la consulta.';
-        } else {
-            echo '<pre>';
-          //  print_r($fechachart);
-            echo '</pre>';
-        }
-        ini_set('display_errors', 1);
-        ini_set('display_startup_errors', 1);
-        error_reporting(E_ALL);
-          //------------------------------------------------------------
-
-        ?>
     
     <br>
                     
@@ -312,7 +268,7 @@
             var hora = row.children[6];
             var pluvi= row.children[5];
             var valorpluvi = pluvi.innerText;
-            var valortemp =temp.innerText;
+            var valortemp = temp.innerText;
             var valorfecha = fecha.innerText;
             var valorhum = hum.innerText;
             var valorhora = hora.innerText;
@@ -324,6 +280,9 @@
             arrayhora.unshift(valorhora); 
            // console.log(valortemp);
            // console.log(valor);
+           if (myChart) {
+    myChart.update();
+}
 
           }
         }
