@@ -129,6 +129,8 @@
           $num = 0;
           $arrayfechaexactatotal =[];
           $arraydateFormat= [];
+          $arraytemperaturate = [];
+          $arrayhumedad = [];
           //The process for displaying a record table containing the DHT11 sensor data and the state of the LEDs.
           $pdo = Database::connect();
           // replace_with_your_table_name, on this project I use the table name 'esp32_table_dht11_leds_record'.
@@ -151,29 +153,34 @@
             echo '<td>'. $dateFormat . '</td>';
             echo '</tr>';
             $data[] = ['date' => $dateFormat,'tiempo' =>$row['time'], 'temperature' => $row['temperature'], 'humidity' => $row['humidity']];
-         //   print_r($dateFormat);
-            array_push($arraydateFormat, $dateFormat);
+           // $arraytemperaturate[] = ['temperaturaa'=>$row['temperature']];
+
+            //   print_r($dateFormat);
+           // array_push($arrayfechaexactatotal);
+           // array_push($arraydateFormat, $dateFormat);
            // array_push($arraydateFormat, $dateFormat);
         }
      //     $fechaexactacambia = $dateformat;
+     //pasar todos array php a javascript json para el manejo de la logica y asyncs y traer las tablas sea lo esperado
 
           Database::disconnect();
    //-logica para traer los ultimos dias grabados en la base de datos, hacer logica para traer los valores
    //impplementar la carga de los ultimos 7 dias. probar con base de datos actualizada
-          $fechaexactacambia = null; 
-          $longfechaexacta = sizeof($arrayfechaexactatotal);
-          $diass= 7;
-          foreach ($arraydateFormat as $fechaexacta) {
-            if ($fechaexacta != $fechaexactacambia && $longfechaexacta <$diass){
-
-              array_push($arrayfechaexactatotal, $fechaexacta);
-              $fechaexactacambia = $fechaexacta;
-              $longfechaexacta++;
-   //     $arrayfechaexactatotal[] = $fechaexacta;
-          }
-           }
-            print_r($arrayfechaexactatotal);
-            print_r($longfechaexacta);
+  // print_r($arraytemperaturate);
+//          $fechaexactacambia = null; 
+//          $longfechaexacta = sizeof($arrayfechaexactatotal);
+//          $diass= 7;
+//          foreach ($arraydateFormat as $fechaexacta) {
+//            if ($fechaexacta != $fechaexactacambia && $longfechaexacta <$diass){
+//
+//              array_push($arrayfechaexactatotal, $fechaexacta);
+//              $fechaexactacambia = $fechaexacta;
+//              $longfechaexacta++;
+//   //     $arrayfechaexactatotal[] = $fechaexacta;
+//          }
+//           }
+//            print_r($arrayfechaexactatotal);
+//            print_r($longfechaexacta);
   //logica para funcion de sacar maximo y minimo de tiempo para el dashboard// sacar promedio de datos obtenidos de la base de datos, con una variacion de 5 grados
 
 ?>
@@ -283,14 +290,14 @@
            if (myChart) {
     myChart.update();
 }
- const constlowbatery = 100;
           }
         }
+        const constlowbatery = 100;
         if (arraypluvi >= constlowbatery) {
           console.log("bateria baja")
           ///pasar todo a javascritp
         }
-        console.log(arraypluvi)
+        console.log(arraypluvi);
         console.log(arrayfecha);
         console.log(arraytemp);
         console.log(arrayhum);
@@ -330,18 +337,18 @@
       //------------------------------------------------------------
     </script>
             <h1>GRAFICO DE TIEMPO</h1>
-
     <div id="graficocanvas" style="height:80vh; width:100vw; margin: 0; display: flex; justify-content: center; align-items: center;">
         <canvas id="myChart" ></canvas>
         </div>
     <script>
    var arrayfechaexactatotal = <?php echo json_encode($arrayfechaexactatotal); ?>;
-
+   var arraytemperaturatotal = <?php echo json_encode($arraytemperaturate); ?>;
+   console.log(arraytemperaturatotal);
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: arrayfechaexactatotal,
+        labels: arrayfecha,
         datasets: [{
             label: 'Temperatura',
             data: arraytemp,
@@ -367,6 +374,7 @@ var myChart = new Chart(ctx, {
 if (myChart) {
     myChart.update();
 }
+console.log(arrayfechaexactatotal);
 
 </script>
   </body>

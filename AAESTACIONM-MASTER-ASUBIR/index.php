@@ -83,7 +83,8 @@
     </div>
   </div>
   <div class="topnav">
-    <h3>Laboratorio de Innovacion - Estacion Metereologica<img src="resources/img/logolabblack.png" style="heigth:50px; width: 50px;"> </h3>
+  <img src="resources/img/logolabblack.png" style="heigth:70px; width: 60px;">
+    <h3>Laboratorio de Innovacion - Estacion Metereologica </h3>
   </div>
   <br>
 
