@@ -282,9 +282,25 @@ body {
   .contenedorTodosItems, .contenedorTodosItem{
     margin-bottom: 5px;
   }
+  #whitecapi{
+    height: 100px;
+    width: 150;
+  }
+  #catacapi{
+    height: 100px;
+    width: 150;
+  }
 }
 /* Media Query para hacerlo responsivo */
 @media (max-width: 700px) {
+  #whitecapi{
+    height: 100px;
+    width: 150;
+  }
+  #catacapi{
+    height: 100px;
+    width: 150;
+  }
   .contenedorTodosItem {
     padding: 0 0px;
     align-content: center;
