@@ -2,65 +2,17 @@
 <html lang="es">
 
 <head>
+  <link rel="stylesheet" href="resources/background.css">
   <script src="resources/jquery.js"></script>
+  <script src="resources/cargaruv.js"></script>
   <script>
     window.onload = function () {
       $('#onload').fadeOut();
       $('body').removeClass('hidden');
+      document.querySelector('.svg-class').style.visibility = 'visible';
     }
   </script>
   <!--script api uv-->
-  <script>
-    var myHeaders = new Headers();
-    myHeaders.append("x-access-token", "openuv-165a9rlqaveqy0-io");
-    myHeaders.append("Content-Type", "application/json");
-
-    var requestOptions = {
-      method: 'GET',
-      headers: myHeaders,
-      redirect: 'follow'
-    }
-    function cargaruv() {
-      fetch("https://api.openuv.io/api/v1/uv?lat=-28.51&lng=-65.82&alt=100&dt=", requestOptions)
-        .then(response => response.json())
-        .then(data => {
-          // Acceder a los datos
-          let uv = data.result.uv;
-          document.getElementById('uv').innerText = uv;
-
-          if (uv <= 2) {
-            color = "#4fb400";
-            indiceuv.style.setProperty("--coloraso", color);
-          }
-          else if (uv <= 5) {
-            color = "#f8b600";
-            indiceuv.style.setProperty("--coloraso", color);
-          }
-          else if (uv <= 7) {
-            color = "#f85900";
-            indiceuv.style.setProperty("--coloraso", color);
-          }
-          else if (uv <= 10) {
-            color = "#d81f1d";
-            indiceuv.style.setProperty("--coloraso", color);
-          }
-          else if (uv >= 11) {
-            color = "#998cff";
-            indiceuv.style.setProperty("--coloraso", color);
-          }
-        })
-        .catch(error => {
-          console.error('Error al obtener los datos:', error);
-        });
-    }
-    cargaruv();
-
-    function timeruv() {
-      cargaruv();
-    }
-
-    setInterval(timeruv, 1200000);
-  </script>
   <script src="resources/apiclimaa.js"></script>
   <title>Laboratorio de Innovacion Social</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -69,12 +21,11 @@
   <link rel="stylesheet" href="resources/all.css"
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <link rel="stylesheet" href="resources/styleINDEXNUEVODISEÑO.css">
-
 </head>
 <!--loader-->
 
 <body class="hidden">
-  <div class="centrado" id='onload'>
+  <div class="centrado" id='onload' style="z-index: 2;">
     <div class="lds-ring">
       <div></div>
       <div></div>
@@ -82,8 +33,11 @@
       <div></div>
     </div>
   </div>
+
+
+
   <div class="topnav">
-  <img src="resources/img/logolabblack.png" style="heigth:70px; width: 60px;">
+    <img src="resources/img/logolabblack-modified.png" style="heigth:70px; width: 60px;">
     <h3>Laboratorio de Innovacion - Estacion Metereologica </h3>
   </div>
   <br>
@@ -137,7 +91,8 @@
             </div>
 
             <div class="contenedorItem">
-              <span class="reading"><i class="fa-solid fa-cloud-rain"></i> <span id="ESP32_01_Pluviometro"></span> ml</span>
+              <span class="reading"><i class="fa-solid fa-cloud-rain"></i> <span id="ESP32_01_Pluviometro"></span>
+                ml</span>
               <p class="pluviometro_title"> Caudal de Lluvia<br>
 
               </p>
@@ -170,81 +125,61 @@
               <p><i class="fa-solid fa-eye"></i> <span class="" id="visibilidad"></span> Km</p>
               <p>Visibilidad</p>
             </div>
-
-
           </div>
-
         </div>
       </div>
     </div>
   </div>
-<!--  -->
+  <!--  -->
 
-    <br>
-    <footer >
-      <div class="content">
-        <div class="cards">
-          <div class="card header" style="border-radius: 15px;display: flex; justify-content: space-around; align-items: center;">
-          <img id="catacapi" src="resources/img/catacapi.png" style="height:125px; width:255px;">
-          <div>
-            <h3 style="font-size: 0.7rem;">ÚLTIMA VEZ RECIBIDO DATOS DE ESP32 [ <span id="ESP32_01_LTRD"></span> ]</h3>
-            <button onclick="window.open('recordtable.php', '_blank');">Abrir tabla de registros</button>
-          </div>
-            <img id="whitenodo" src="resources/img/whitenodo.png" style="width:275px; height:100px">
-          </div>
-        </div>
-      </div>
-    </footer>
-    <script>
-      //---------posible error, las etiquetas(span con id de las etiquedas) no estan creadas y puede salir el error de ---------------------------------------------------
-      document.getElementById("ESP32_01_Temp").innerHTML = "NN";
-      document.getElementById("ESP32_01_Humd").innerHTML = "NN";
-      document.getElementById("ESP32_01_Veleta").innerHTML = "NN";
-      document.getElementById("ESP32_01_Anemometro").innerHTML = "NN";
-      document.getElementById("ESP32_01_Pluviometro").innerHTML = "NN";
-      //------------------------------------------------------------
+  <div class="background"></div>
+  <svg class="svg-class" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    x="0px" y="0px" width="100%" height="100%" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice">
 
-      Get_Data("esp32_01");
-
-      setInterval(myTimer, 5000);
-
-      //------------------------------------------------------------
-      function myTimer() {
-        Get_Data("esp32_01");
-      }
-      //------------------------------------------------------------
-
-      //------------------------------------------------------------
-      function Get_Data(id) {
-        if (window.XMLHttpRequest) {
-          // code for IE7+, Firefox, Chrome, Opera, Safari
-          xmlhttp = new XMLHttpRequest();
-        } else {
-          // code for IE6, IE5
-          xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function () {
-          if (this.readyState == 4 && this.status == 200) {
-            const myObj = JSON.parse(this.responseText);
-            if (myObj.id == "esp32_01") {
-              document.getElementById("ESP32_01_Temp").innerHTML = myObj.temperature;
-              document.getElementById("ESP32_01_Humd").innerHTML = myObj.humidity;
-              // document.getElementById("ESP32_01_LTRD").innerHTML = "Time : " + myObj.ls_time + " | Date : " + myObj.ls_date + " (dd-mm-yyyy)";
-              document.getElementById("ESP32_01_Veleta").innerHTML = myObj.veleta;
-              document.getElementById("ESP32_01_Anemometro").innerHTML = myObj.anemometro;
-              document.getElementById("ESP32_01_Pluviometro").innerHTML = myObj.pluviometro;
-              // 
-            }
-          }
-        };
-        xmlhttp.open("POST", "conexion/getdata.php", true);
-        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xmlhttp.send("id=" + id);
-      }
-      //------------------------------------------------------------
-
-
-    </script>
+    <defs>
+      <linearGradient id="bg">
+        <stop offset="0%" style="stop-color:rgba(130, 158, 249, 0.06)"></stop>
+        <stop offset="50%" style="stop-color:rgba(76, 190, 255, 0.6)"></stop>
+        <stop offset="100%" style="stop-color:rgba(115, 209, 72, 0.2)"></stop>
+      </linearGradient>
+      <path id="wave" fill="url(#bg)" d="M-363.852,502.589c0,0,236.988-41.997,505.475,0
+  s371.981,38.998,575.971,0s293.985-39.278,505.474,5.859s493.475,48.368,716.963-4.995v560.106H-363.852V502.589z" />
+    </defs>
+    <g>
+      <use xlink:href='#wave' opacity=".3">
+        <animateTransform attributeName="transform" attributeType="XML" type="translate" dur="10s" calcMode="spline"
+          values="270 230; -334 180; 270 230" keyTimes="0; .5; 1" keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0"
+          repeatCount="indefinite" />
+      </use>
+      <use xlink:href='#wave' opacity=".6">
+        <animateTransform attributeName="transform" attributeType="XML" type="translate" dur="8s" calcMode="spline"
+          values="-270 230;243 220;-270 230" keyTimes="0; .6; 1" keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0"
+          repeatCount="indefinite" />
+      </use>
+      <use xlink:href='#wave' opacty=".9">
+        <animateTransform attributeName="transform" attributeType="XML" type="translate" dur="6s" calcMode="spline"
+          values="0 230;-140 200;0 230" keyTimes="0; .4; 1" keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0"
+          repeatCount="indefinite" />
+      </use>
+    </g>
+  </svg>
+  </div>
+  <script src="resources/getdata.js"></script>
 </body>
+<footer>
+  <div class="content">
+    <div class="cards">
+      <div class="card header"
+        style="border-radius: 15px;display: flex; justify-content: space-around; align-items: center;">
+        <img id="catacapi" src="resources/img/catacapi.png" style="height:125px; width:255px;">
+        <div>
+          <h3 style="font-size: 0.7rem;">ÚLTIMA VEZ RECIBIDO DATOS DE ESP32 [ <span id="ESP32_01_LTRD"></span> ]</h3>
+          <button onclick="window.open('recordtable.php', '_blank');">Abrir tabla de registros</button>
+        </div>
+        <img id="whitenodo" src="resources/img/whitenodo.png" style="width:275px; height:100px">
+      </div>
+    </div>
+  </div>
+</footer>
 
 </html>

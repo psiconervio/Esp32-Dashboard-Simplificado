@@ -1,0 +1,18 @@
+.background {
+	padding: 0;
+	margin: 0;
+}
+
+.svg-class {
+	position: absolute;
+    z-index: -2;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	display: block;
+	background-color: #0e4166;
+    background-size: cover;
+	background-image: linear-gradient(to bottom, rgba(14, 65, 102, 0.86), #0e4166);
+}

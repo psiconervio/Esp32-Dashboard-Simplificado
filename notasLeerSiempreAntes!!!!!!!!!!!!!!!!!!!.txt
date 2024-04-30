@@ -10,3 +10,6 @@ poner sombra y mejorar el contraste
 cambiar orden de muestra recordtable
 
 hacer sensor low bateri cuanndo tire valores mal
+
+
+hacebordee transparente y mas redondo a la tarjeta dashboard
