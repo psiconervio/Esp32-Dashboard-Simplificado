@@ -40,8 +40,6 @@
     <img src="resources/img/logolabblack-modified.png" style="heigth:70px; width: 60px;">
     <h3>Laboratorio de Innovacion - Estacion Metereologica </h3>
   </div>
-  <br>
-
   <!-- MONITOREO Y CONTROL DE PANTALLAS (content es el contenedor main, cards son cada uno de los bloques) -->
   <div class="content">
     <div class="cards">
@@ -132,7 +130,6 @@
   </div>
   <!--  -->
 
-  <div class="background"></div>
   <svg class="svg-class" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
     x="0px" y="0px" width="100%" height="100%" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice">
 
@@ -170,13 +167,13 @@
   <div class="content">
     <div class="cards">
       <div class="card header"
-        style="border-radius: 15px;display: flex; justify-content: space-around; align-items: center;">
-        <img id="catacapi" src="resources/img/catacapi.png" style="height:125px; width:255px;">
+        style="border-radius: 15px;display: flex; justify-content: space-around; align-items: center; justify-content: center;">
+        <img id="catacapi" src="resources/img/catacapi.png"></img>
         <div>
           <h3 style="font-size: 0.7rem;">ÚLTIMA VEZ RECIBIDO DATOS DE ESP32 [ <span id="ESP32_01_LTRD"></span> ]</h3>
           <button onclick="window.open('recordtable.php', '_blank');">Abrir tabla de registros</button>
         </div>
-        <img id="whitenodo" src="resources/img/whitenodo.png" style="width:275px; height:100px">
+        <img id="whitenodo" src="resources/img/whitenodo.png"> </img>
       </div>
     </div>
   </div>

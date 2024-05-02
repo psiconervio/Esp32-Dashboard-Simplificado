@@ -106,7 +106,8 @@ html {
   font-family: Arial;
   display: inline-block;
   text-align: center;
-  background-color: #232325;
+  /* background-color: #232325; */
+  background-color: #0e4166;
 }
 
 h2 {
@@ -130,7 +131,7 @@ body {
   padding: 5px;
 }
 .card {
-  border: 1px solid rgba(49, 43, 43, 0.753);
+  border: 4px solid rgb(49 43 43 / 11%);
   border-radius: 15px;
 }
 .card.header {
@@ -244,6 +245,13 @@ body {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+#whitecapi{
+  height: 100px;
+  width: 150;
+}
+#catacapi{
+  height: 100px;
+  width: 150;}
 
 /* Consultas de medios para ajustar los márgenes según el ancho de la pantalla/ mover detalles p para arreglar el tamaño con el contenedortodositem */
 /* @media (max-width: 320px) {
@@ -270,45 +278,27 @@ body {
 
 
 } */
+.background {
+	padding: 0;
+	margin: 0;
+}
 
-@media (min-width: 767px) and (max-width: 2560px) {
-  .contenedorInterior {
-    padding: 0 0px;
-    margin: 0 auto;
-    }
-  .detalles, .detalless{
-  text-align: center;
-  }
-  .contenedorTodosItems, .contenedorTodosItem{
-    margin-bottom: 5px;
-  }
-  #whitecapi{
-    height: 100px;
-    width: 150;
-  }
-  #catacapi{
-    height: 100px;
-    width: 150;
-  }
+.svg-class {
+	position: absolute;
+    z-index: -2;
+	top: 100px;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	display: block;
+	background-color: #0e4166;
+    background-size: cover;
+	background-image: linear-gradient(to bottom, rgba(14, 65, 102, 0.86), #0e4166);
 }
-/* Media Query para hacerlo responsivo */
-@media (max-width: 700px) {
-  #whitecapi{
-    height: 100px;
-    width: 150;
-  }
-  #catacapi{
-    height: 100px;
-    width: 150;
-  }
-  .contenedorTodosItem {
-    padding: 0 0px;
-    align-content: center;
-  }
-  .contenedorInterior {
-    margin-left: 0;
-  }
-}
+
+
+
 
 .sliderTS:before {
   position: absolute;
@@ -358,4 +348,44 @@ input:disabled + .sliderTS {
   opacity: 0.3;
   cursor: not-allowed;
   pointer-events: none;
+}
+
+@media (min-width: 767px) and (max-width: 2560px) {
+  .contenedorInterior {
+    padding: 0 0px;
+    margin: 0 auto;
+    }
+  .detalles, .detalless{
+  text-align: center;
+  }
+  .contenedorTodosItems, .contenedorTodosItem{
+    margin-bottom: 5px;
+  }
+  #whitenodo{
+    height: 100px;
+    width: 200px;
+  }
+  #catacapi{
+    height: 100px;
+    width: 200px;
+  }
+}
+/* Media Query para hacerlo responsivo */
+@media (max-width: 700px) {
+  #whitenodo{
+    height: 70px;
+    width: 40px;
+  }
+  #catacapi{
+    height: 70px;
+    width: 40px;
+  }
+  .contenedorTodosItem {
+    padding: 0 0px;
+    align-content: center;
+  }
+  .contenedorInterior {
+    margin-left: 0;
+  }
+  
 }
