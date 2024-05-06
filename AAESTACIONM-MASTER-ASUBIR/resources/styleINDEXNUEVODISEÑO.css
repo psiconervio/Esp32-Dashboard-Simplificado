@@ -10,6 +10,9 @@
   background: rgba(62, 165, 188, 0.626);
 }
 
+.texto-footer h3{
+  font-size: 0.7rem;
+}
 .video-background {
   position: relative;
   overflow: hidden;
@@ -247,11 +250,11 @@ body {
 }
 #whitecapi{
   height: 100px;
-  width: 150;
+  width: 150px;
 }
 #catacapi{
   height: 100px;
-  width: 150;}
+  width: 150px;}
 
 /* Consultas de medios para ajustar los márgenes según el ancho de la pantalla/ mover detalles p para arreglar el tamaño con el contenedortodositem */
 /* @media (max-width: 320px) {
@@ -372,13 +375,16 @@ input:disabled + .sliderTS {
 }
 /* Media Query para hacerlo responsivo */
 @media (max-width: 700px) {
+  .texto-footer h3{
+    font-size: 0.6rem;
+  }
   #whitenodo{
-    height: 70px;
-    width: 40px;
+    height: px;
+    width: 140px;
   }
   #catacapi{
-    height: 70px;
-    width: 40px;
+    height: px;
+    width: 140px;
   }
   .contenedorTodosItem {
     padding: 0 0px;
@@ -386,6 +392,9 @@ input:disabled + .sliderTS {
   }
   .contenedorInterior {
     margin-left: 0;
+  }
+  .svg-class{
+    top: 40px;
   }
   
 }
