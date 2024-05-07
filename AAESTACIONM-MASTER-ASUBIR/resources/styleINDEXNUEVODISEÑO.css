@@ -249,11 +249,11 @@ body {
   margin-bottom: 10px;
 }
 #whitecapi{
-  height: 100px;
+
   width: 150px;
 }
 #catacapi{
-  height: 100px;
+
   width: 150px;}
 
 /* Consultas de medios para ajustar los márgenes según el ancho de la pantalla/ mover detalles p para arreglar el tamaño con el contenedortodositem */
@@ -365,11 +365,9 @@ input:disabled + .sliderTS {
     margin-bottom: 5px;
   }
   #whitenodo{
-    height: 100px;
     width: 200px;
   }
   #catacapi{
-    height: 100px;
     width: 200px;
   }
 }
