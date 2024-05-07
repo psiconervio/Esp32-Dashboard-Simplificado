@@ -168,7 +168,7 @@
     <div class="cards">
       <div class="card header"
         style="border-radius: 15px;display: flex; justify-content: space-around; align-items: center; justify-content: center;">
-        <img id="catacapi" src="resources/img/catacapi.png"></img>
+        <img id="catacapi" src="resources/img/muniwhite.png"></img>
         <div class="texto-footer">
           <h3>ÚLTIMA VEZ RECIBIDO DATOS DE ESP32 [ <span id="ESP32_01_LTRD"></span> ]</h3>
           <button onclick="window.open('recordtable.php', '_blank');">Abrir tabla de registros</button>
