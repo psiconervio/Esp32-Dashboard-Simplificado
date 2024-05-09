@@ -6,7 +6,7 @@
       document.getElementById("ESP32_01_Pluviometro").innerHTML = "NN";
       //------------------------------------------------------------
 
-      Get_Data("esp32_01");
+      // Get_Data("esp32_01");
 
       setInterval(myTimer, 5000);
 

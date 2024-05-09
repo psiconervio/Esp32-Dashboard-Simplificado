@@ -2,24 +2,24 @@
 <html lang="es">
 
 <head>
-  <link rel="stylesheet" href="resources/background.css">
-  <script src="resources/jquery.js"></script>
-  <script src="resources/cargaruv.js"></script>
+  <!-- <link rel="stylesheet" href="resources/background.css"> -->
+  <!-- <script src="resources/jquery.js"></script> -->
   <script>
-    window.onload = function () {
-      $('#onload').fadeOut();
-      $('body').removeClass('hidden');
-      document.querySelector('.svg-class').style.visibility = 'visible';
-    }
+window.onload = function () {
+  document.getElementById('onload').style.display = 'none';
+  document.body.classList.remove('hidden');
+  document.querySelector('.svg-class').style.visibility = 'visible';
+  cargaruv();
+  cargarDatos();
+  Get_Data("esp32_01");
+
+}
   </script>
   <!--script api uv-->
-  <script src="resources/apiclimaa.js"></script>
   <title>Laboratorio de Innovacion Social</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="resources/style-hover-moreinfo.css">
   <script src="resources/fontasome.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="resources/all.css"
-    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <link rel="stylesheet" href="resources/styleINDEXNUEVODISEÑO.css">
 </head>
 <!--loader-->
@@ -53,7 +53,7 @@
         <div class="body-tarjet">
           <h2>San Fernando Del Valle de Catamarca</h2>
           <h1><span id="ESP32_01_Temp"></span> &deg;C</span></h2>
-            <br>
+            
             <p><span id='iddescripcioncielo'></span> | Sensacion Termica <span id='sensaciontermica'></span>°C</p>
             <p>Rafaga de viento <span id="rafagadeviento"></span> km/h </p>
 
@@ -66,32 +66,32 @@
           <h2>Datos Estacion Nodo<span id="ESP32_01_Status_Read_DHT11"></span></h2>
         </div>
 
-        <br>
+        
         <div class="contenedorTodosItems">
           <!-- Muestra los valores de humedad y temperatura recibidos de ESP32.. *** -->
 
           <div class="contenedorInterior">
             <div class="contenedorItem">
               <i class="fas fa-tint"></i> <span class="reading"><span id="ESP32_01_Humd"></span>&percnt;</span>
-              <p class="humidityColor"> Humedad<br></p>
+              <p class="humidityColor"> Humedad</p>
             </div>
 
             <div class="contenedorItem">
               <i class="fa-solid fa-gauge-simple-high" aria-hidden="true"></i> <span class="temperatureColor"><span
                   id="ESP32_01_Anemometro"></span>km/h </span>
-              <p class="anemometro_title"> Velocidad Viento<br>
+              <p class="anemometro_title"> Velocidad Viento
               </p>
             </div>
             <div class="contenedorItem">
               <i class="fa-regular fa-compass" aria-hidden="true"></i> <span class="reading"><span
                   id="ESP32_01_Veleta">asd</span></span>
-              <p class="veleta_title"> Direccion Viento<br></p>
+              <p class="veleta_title"> Direccion Viento</p>
             </div>
 
             <div class="contenedorItem">
               <span class="reading"><i class="fa-solid fa-cloud-rain"></i> <span id="ESP32_01_Pluviometro"></span>
                 ml</span>
-              <p class="pluviometro_title"> Caudal de Lluvia<br>
+              <p class="pluviometro_title"> Caudal de Lluvia
 
               </p>
             </div>
@@ -105,18 +105,18 @@
             <div class="contenedorItem">
               <span id=indiceuv> <span class="reading"><i class="fa-regular fa-sun"></i> <span id="uv"></span></span>
               </span>
-              <p class="pluviometro_title"></i> Indice UV<br> </p>
+              <p class="pluviometro_title"></i> Indice UV </p>
             </div>
 
             <div class="contenedorItem">
               <i class="fa-solid fa-cloud-rain"></i>
               <span class="reading"><span id="nubosidad"></span></span>
-              <p class="pluviometro_title"> Nubosidad<br></p>
+              <p class="pluviometro_title"> Nubosidad</p>
             </div>
             <div class="contenedorItem">
               <span class="reading"><i class="fa-solid fa-arrow-down-short-wide" aria-hidden="true"></i> <span
                   id="presion"></span> hPA</span>
-              <p class="pluviometro_title"></i> Presion Atmosferica<br> </p>
+              <p class="pluviometro_title"></i> Presion Atmosferica </p>
             </div>
 
             <div class="contenedorItem">
@@ -161,7 +161,11 @@
     </g>
   </svg>
   </div>
+  <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+
+  <script src="resources/apiclimaa.js"></script>
   <script src="resources/getdata.js"></script>
+  <script src="resources/cargaruv.js"></script>
 </body>
 <footer>
   <div class="content">
