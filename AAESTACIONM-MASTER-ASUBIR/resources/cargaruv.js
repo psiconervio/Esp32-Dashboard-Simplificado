@@ -38,7 +38,7 @@ async function cargaruv() {
   
 //   cargaruv();
   
-  setInterval(cargaruv, 1200000);
+  //setInterval(cargaruv, 1200000);
   
 // function cargaruv() {
 //   var myHeaders = new Headers();

@@ -6,33 +6,35 @@
   <!-- <script src="resources/jquery.js"></script> -->
   <script>
 window.onload = function () {
-  document.getElementById('onload').style.display = 'none';
-  document.body.classList.remove('hidden');
-  document.querySelector('.svg-class').style.visibility = 'visible';
-  cargaruv();
-  cargarDatos();
-  Get_Data("esp32_01");
-
+//  document.getElementById('onload').style.display = 'none';
+//  document.body.classList.remove('hidden');
+//  document.querySelector('.svg-class').style.visibility = 'visible';
+  //cargaruv();
+  //cargarDatos();
+  //Get_Data("esp32_01");
+//setInterval(cargarDatos, 60000);
+//setInterval(cargaruv, 1200000);
+//setInterval(myTimer, 12000);
 }
   </script>
   <!--script api uv-->
   <title>Laboratorio de Innovacion Social</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="resources/style-hover-moreinfo.css">
-  <script src="resources/fontasome.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="resources/styleINDEXNUEVODISEÑO.css">
+  <!-- <link rel="stylesheet" href="resources/style-hover-moreinfo.css"> -->
+  <!-- <script src="resources/fontasome.js" ></script> -->
+  <link rel="stylesheet" href="resources/stylenew.css">
 </head>
 <!--loader-->
 
 <body class="hidden">
-  <div class="centrado" id='onload' style="z-index: 2;">
+  <!-- <div class="centrado" id='onload' style="z-index: 2;">
     <div class="lds-ring">
       <div></div>
       <div></div>
       <div></div>
       <div></div>
     </div>
-  </div>
+  </div> -->
 
 
 
@@ -47,7 +49,6 @@ window.onload = function () {
         <div class="card header">
           <h3 style="font-size: 1rem;">Estacion Metereologica Zona Norte</h3>
         </div>
-        <div class="transparencia"></div>
 
         <video id="miVideo"></video>
         <div class="body-tarjet">
@@ -58,13 +59,13 @@ window.onload = function () {
             <p>Rafaga de viento <span id="rafagadeviento"></span> km/h </p>
 
         </div>
-        <div class="detalless">
+        <!-- <div class="detalless">
           <h2>Datos Generales<span id="ESP32_01_Status_Read_DHT11"></span></h2>
         </div>
 
         <div class="detalles">
           <h2>Datos Estacion Nodo<span id="ESP32_01_Status_Read_DHT11"></span></h2>
-        </div>
+        </div> -->
 
         
         <div class="contenedorTodosItems">
@@ -130,7 +131,7 @@ window.onload = function () {
   </div>
   <!--  -->
 
-  <svg class="svg-class" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  <!-- <svg class="svg-class" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
     x="0px" y="0px" width="100%" height="100%" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice">
 
     <defs>
@@ -159,7 +160,7 @@ window.onload = function () {
           repeatCount="indefinite" />
       </use>
     </g>
-  </svg>
+  </svg> -->
   </div>
   <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
 

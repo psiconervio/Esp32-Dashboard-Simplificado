@@ -74,7 +74,7 @@ function actualizarVideoYDescripcion(descripcionCielo) {
 }
 
 // cargarDatos();
-setInterval(cargarDatos, 60000);
+//setInterval(cargarDatos, 60000);
 
 // const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?lat=-28.46957&lon=-65.78524&appid=2c290850870ebbba2a0d95586f2aa709';
 
