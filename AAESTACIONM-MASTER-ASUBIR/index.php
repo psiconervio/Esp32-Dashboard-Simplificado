@@ -6,6 +6,9 @@
   <!-- <script src="resources/jquery.js"></script> -->
   <script>
 window.onload = function () {
+  $('#onload').fadeOut();
+      $('body').removeClass('hidden');
+      document.querySelector('.svg-class').style.visibility = 'visible';
 //  document.getElementById('onload').style.display = 'none';
 //  document.body.classList.remove('hidden');
 //  document.querySelector('.svg-class').style.visibility = 'visible';
