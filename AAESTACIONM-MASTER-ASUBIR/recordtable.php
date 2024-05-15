@@ -4,101 +4,9 @@
   <head>
     <title>Datos Estacion Metereologica del Nodo Tecnologico</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+    <link rel="stylesheet" href="resources/stylerecord.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-      html {font-family: Arial; display: inline-block; text-align: center;}
-      p {font-size: 1.2rem;}
-      h4 {font-size: 0.8rem;}
-      body {margin: 0;}
-      /* ----------------------------------- TOPNAV STYLE color anterior verde agua#0c6980 */
-      .topnav {overflow: hidden; background-color: #25488d; color: white; font-size: 1.2rem;}
-      /* ----------------------------------- */
-      
-      /* ----------------------------------- TABLE STYLE */
-      .styled-table {
-        border-collapse: collapse;
-        margin-left: auto; 
-        margin-right: auto;
-        font-size: 0.9em;
-        font-family: sans-serif;
-        min-width: 400px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-        border-radius: 0.5em;
-        overflow: hidden;
-        width: 90%;
-      }
-
-      .styled-table thead tr {
-        background-color: #25488d;
-        color: #ffffff;
-        text-align: left;
-      }
-
-      .styled-table th {
-        padding: 12px 15px;
-        text-align: left;
-      }
-
-      .styled-table td {
-        padding: 12px 15px;
-        text-align: left;
-      }
-
-      .styled-table tbody tr:nth-of-type(even) {
-        background-color: #f3f3f3;
-      }
-
-      .styled-table tbody tr.active-row {
-        font-weight: bold;
-        color: #009879;
-      }
-
-      .bdr {
-        border-right: 1px solid #e3e3e3;
-        border-left: 1px solid #e3e3e3;
-      }
-      
-      td:hover {background-color: rgba(12, 105, 128, 0.21);}
-      tr:hover {background-color: rgba(12, 105, 128, 0.15);}
-      .styled-table tbody tr:nth-of-type(even):hover {background-color: rgba(12, 105, 128, 0.15);}
-      /* ----------------------------------- */
-      
-      /* ----------------------------------- BUTTON STYLE */
-      .btn-group .button {
-        background-color: #0c6980; /* Green */
-        border: 1px solid #e3e3e3;
-        color: white;
-        padding: 5px 8px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 14px;
-        cursor: pointer;
-        float: center;
-      }
-
-      .btn-group .button:not(:last-child) {
-        border-right: none; /* Prevent double borders */
-      }
-
-      .btn-group .button:hover {
-        background-color: #094c5d;
-      }
-
-      .btn-group .button:active {
-        background-color: #0c6980;
-        transform: translateY(1px);
-      }
-
-      .btn-group .button:disabled,
-      .button.disabled{
-        color:#fff;
-        background-color: #a0a0a0; 
-        cursor: not-allowed;
-        pointer-events:none;
-      }
-    </style>
+   
   </head>
   
   <body>
@@ -154,36 +62,41 @@
             echo '</tr>';
             $data[] = ['date' => $dateFormat,'tiempo' =>$row['time'], 'temperature' => $row['temperature'], 'humidity' => $row['humidity']];
            // $arraytemperaturate[] = ['temperaturaa'=>$row['temperature']];
+            $arreglofecha[]=['date' => $dateFormat];
+            
 
-            //   print_r($dateFormat);
-           // array_push($arrayfechaexactatotal);
-           // array_push($arraydateFormat, $dateFormat);
-           // array_push($arraydateFormat, $dateFormat);
+             print_r($arreglofecha);
+           // array_push($arrayfechaexactatotal,);
+            array_push($arraydateFormat, $dateFormat);
         }
-     //     $fechaexactacambia = $dateformat;
+       //   $fechaexactacambia = $dateformat;
      //pasar todos array php a javascript json para el manejo de la logica y asyncs y traer las tablas sea lo esperado
 
           Database::disconnect();
    //-logica para traer los ultimos dias grabados en la base de datos, hacer logica para traer los valores
-   //impplementar la carga de los ultimos 7 dias. probar con base de datos actualizada
+   //implementar la carga de los ultimos 7 dias. probar con base de datos actualizada
   // print_r($arraytemperaturate);
-//          $fechaexactacambia = null; 
-//          $longfechaexacta = sizeof($arrayfechaexactatotal);
-//          $diass= 7;
-//          foreach ($arraydateFormat as $fechaexacta) {
-//            if ($fechaexacta != $fechaexactacambia && $longfechaexacta <$diass){
-//
-//              array_push($arrayfechaexactatotal, $fechaexacta);
-//              $fechaexactacambia = $fechaexacta;
-//              $longfechaexacta++;
-//   //     $arrayfechaexactatotal[] = $fechaexacta;
-//          }
-//           }
+          $fechaexactacambia = null; 
+          $longfechaexacta = sizeof($arrayfechaexactatotal);
+          $diass= 7;
+          foreach ($arraydateFormat as $fechaexacta) {
+            if ($fechaexacta != $fechaexactacambia && $longfechaexacta <$diass){
+
+              array_push($arrayfechaexactatotal, $fechaexacta);
+              $fechaexactacambia = $fechaexacta;
+              $longfechaexacta++;
+               $arrayfechaexactatotal[] = $fechaexacta;
+          }
+           }
 //            print_r($arrayfechaexactatotal);
 //            print_r($longfechaexacta);
   //logica para funcion de sacar maximo y minimo de tiempo para el dashboard// sacar promedio de datos obtenidos de la base de datos, con una variacion de 5 grados
 
-?>
+      ?>
+      <script>
+           var arreglofechas = <?php echo json_encode($arreglofecha); ?>;
+           console.log(arreglofechas);
+      </script>
       </tbody>
     </table>
     
@@ -206,13 +119,13 @@
     <br>
     <script>
       //script para sacar fecha actual y de los ultimos 6 dias
-      let fechas = [];
-      for(let i = 0; i < 7; i++){
-          let fecha = new Date();
-          fecha.setDate(fecha.getDate() - i);
-          fechas.push(fecha.toISOString().split('T')[0]);
-      }
-      console.log(fechas);
+      // let fechas = [];
+      // for(let i = 0; i < 7; i++){
+      //     let fecha = new Date();
+      //     fecha.setDate(fecha.getDate() - i);
+      //     fechas.push(fecha.toISOString().split('T')[0]);
+      // }
+      // console.log(fechas);
         var arraypluvi= [];
         var arrayfecha = [];
         var arraytemp = []; 
@@ -348,7 +261,7 @@ var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: arrayfecha,
+        labels: arrayfechaexactatotal,
         datasets: [{
             label: 'Temperatura',
             data: arraytemp,
