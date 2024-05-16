@@ -60,20 +60,15 @@ window.onload = function () {
             
             <p><span id='iddescripcioncielo'></span> | Sensacion Termica <span id='sensaciontermica'></span>°C</p>
             <p>Rafaga de viento <span id="rafagadeviento"></span> km/h </p>
-
         </div>
         <!-- <div class="detalless">
           <h2>Datos Generales<span id="ESP32_01_Status_Read_DHT11"></span></h2>
         </div>
-
         <div class="detalles">
           <h2>Datos Estacion Nodo<span id="ESP32_01_Status_Read_DHT11"></span></h2>
         </div> -->
-
-        
         <div class="contenedorTodosItems">
           <!-- Muestra los valores de humedad y temperatura recibidos de ESP32.. *** -->
-
           <div class="contenedorInterior">
             <div class="contenedorItem">
               <i class="fas fa-tint"></i> <span class="reading"><span id="ESP32_01_Humd"></span>&percnt;</span>
@@ -95,9 +90,7 @@ window.onload = function () {
             <div class="contenedorItem">
               <span class="reading"><i class="fa-solid fa-cloud-rain"></i> <span id="ESP32_01_Pluviometro"></span>
                 ml</span>
-              <p class="pluviometro_title"> Caudal de Lluvia
-
-              </p>
+              <p class="pluviometro_title"> Caudal de Lluvia</p>
             </div>
           </div>
 

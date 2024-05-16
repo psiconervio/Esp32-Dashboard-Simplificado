@@ -68,38 +68,54 @@
         //para sacar humedad de fechas exactas hay que iterrar en el arrayintentar hacerlo en el array data
       
 
-        // print_r($arreglofecha);
+        // print_r($data);
         // array_push($arrayfechaexactatotal,);
         array_push($arraydateFormat, $dateFormat);
       }
       //   $fechaexactacambia = $dateformat;
       //pasar todos array php a javascript json para el manejo de la logica y asyncs y traer las tablas sea lo esperado
-      
       Database::disconnect();
       //-logica para traer los ultimos dias grabados en la base de datos, hacer logica para traer los valores
       //implementar la carga de los ultimos 7 dias. probar con base de datos actualizada
       // print_r($arraytemperaturate);
-      $fechaexactacambia = null;
-      $longfechaexacta = sizeof($arrayfechaexactatotal);
-      $diass = 7;
-      foreach ($arraydateFormat as $fechaexacta) {
-        if ($fechaexacta != $fechaexactacambia && $longfechaexacta < $diass) {
-
-          array_push($arrayfechaexactatotal, $fechaexacta);
-          $fechaexactacambia = $fechaexacta;
-          $longfechaexacta++;
-          $arrayfechaexactatotal[] = $fechaexacta;
-        }
-      }
+     // $fechaexactacambia = null;
+     // $longfechaexacta = sizeof($arrayfechaexactatotal);
+     // $diass = 7;
+     // foreach ($arraydateFormat as $fechaexacta) {
+     //   if ($fechaexacta != $fechaexactacambia && $longfechaexacta < $diass) {
+//
+     //     array_push($arrayfechaexactatotal, $fechaexacta);
+     //     $fechaexactacambia = $fechaexacta;
+     //     $longfechaexacta++;
+     //     $arrayfechaexactatotal[] = $fechaexacta;
+     //   }
+     // }
       //            print_r($arrayfechaexactatotal);
-//            print_r($longfechaexacta);
+      //            print_r($longfechaexacta);
       //logica para funcion de sacar maximo y minimo de tiempo para el dashboard// sacar promedio de datos obtenidos de la base de datos, con una variacion de 5 grados
       
       ?>
       <script>
-        var arreglofechas = <?php echo json_encode($arreglofecha); ?>;
-        var arreglodata = <?php echo json_encode($data); ?>;
+        let fechas =[]
+        let fechaanterior
+        var data = <?php echo json_encode($data); ?>;
         console.log(data);
+     function fechaa() {
+      for (let i = 0; i <= 6; i++) {
+        if (data[i].date !== fechaanterior) {
+          fechas.push(data[i].date);
+          fechaanterior = data[i].date;
+        }
+      }
+      console.log(fechas);
+
+    //  hacer una sola funcion para que se ejecute cuando se aprieta el boton
+     } 
+     fechaa()
+      //  let fechas = data;
+       // let temperaturadata = data.temperature;
+
+        var arreglofechas = <?php echo json_encode($arreglofecha); ?>;
       </script>
     </tbody>
   </table>
@@ -151,6 +167,7 @@
       if (current_page > 1) {
         current_page--;
         changePage(current_page);
+        fechaa()
         myChart.update()
       }
     }
@@ -204,6 +221,7 @@
           arrayhora.unshift(valorhora);
           // console.log(valortemp);
           // console.log(valor);
+          fechaa;
           if (myChart) {
             myChart.update();
           }
@@ -244,7 +262,6 @@
     function numPages() {
       return Math.ceil((l - 1) / records_per_page);
     }
-
     //------------------------------------------------------------
     window.onload = function () {
       var x = document.getElementById("number_of_rows").value;
@@ -288,12 +305,10 @@
         }
       }
     });
-
     if (myChart) {
       myChart.update();
     }
     console.log(arrayfechaexactatotal);
-
   </script>
 </body>
 <footer>
