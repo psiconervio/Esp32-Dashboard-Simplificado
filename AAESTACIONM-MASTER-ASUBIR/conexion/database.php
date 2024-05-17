@@ -1,7 +1,7 @@
 <?php
 	class Database {
 		//database local
-	    private static $dbName = 'id21999724_esp32_01'; // Example: private static $dbName = 'myDB';
+	    private static $dbName = 'id21999724_esp32_01_aas'; // Example: private static $dbName = 'myDB';
 	    private static $dbHost = 'localhost'; // Example: private static $dbHost = 'localhost';
 	    private static $dbUsername = 'root'; // Example: private static $dbUsername = 'myUserName';
 	    private static $dbUserPassword = ''; // // Example: private static $dbUserPassword = 'myPassword';

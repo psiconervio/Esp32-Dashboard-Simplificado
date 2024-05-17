@@ -1,24 +1,18 @@
 // recordtable.php
 <!DOCTYPE HTML>
 <html>
-
 <head>
   <title>Datos Estacion Metereologica del Nodo Tecnologico</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="resources/stylerecord.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
 </head>
-
 <body>
   <div class="topnav">
     <h3>LABORATORIO DE INNOVACION</h3>
   </div>
-
   <br>
-
   <h3 style="color: #0c6980;">DATOS ESTACION METEREOLOGICA</h3>
-
   <table class="styled-table" id="table_id">
     <thead>
       <tr>
@@ -35,6 +29,7 @@
     <tbody id="tbody_table_record">
       <?php
       include 'conexion/database.php';
+      //trabajar con php
       $num = 0;
       $arrayfechaexactatotal = [];
       $arraydateFormat = [];
@@ -47,9 +42,14 @@
       // This table is also used to store and record the state of the LEDs, the state of the LEDs is controlled from the "home.php" page. 
       // To store data, this table is operated with the "INSERT" command, so this table will contain many rows.
       $sql = 'SELECT * FROM esp32_01_tablerecord ORDER BY date DESC, time DESC';
+      $fechaanterior = null;
+      
       foreach ($pdo->query($sql) as $row) {
         $date = date_create($row['date']);
         $dateFormat = date_format($date, "d-m-Y");
+        $data[] = ['date' => $dateFormat, 'tiempo' => $row['time'], 'temperature' => $row['temperature'], 'humidity' => $row['humidity'], 'veleta' => $row['veleta'], 'anemometro' => $row['anemometro'], 'pluviometro' => $row['pluviometro']];
+        $longitudarray= count($data); 
+        
         $num++;
         echo '<tr>';
         echo '<td>' . $num . '</td>';
@@ -61,7 +61,6 @@
         echo '<td class="bdr">' . $row['time'] . '</td>';
         echo '<td>' . $dateFormat . '</td>';
         echo '</tr>';
-        $data[] = ['date' => $dateFormat, 'tiempo' => $row['time'], 'temperature' => $row['temperature'], 'humidity' => $row['humidity']];
         // $arraytemperaturate[] = ['temperaturaa'=>$row['temperature']];
         $arreglofecha[] = ['date' => $dateFormat];
         //para sacar temperatura de fechas exactas hay que iterrar en el array
@@ -75,53 +74,129 @@
       //   $fechaexactacambia = $dateformat;
       //pasar todos array php a javascript json para el manejo de la logica y asyncs y traer las tablas sea lo esperado
       Database::disconnect();
+      //funcion para promediar maximo y minimo de la temperatura en un solo dia
+      $varprimerafecha = null;
+      $arrayfechasphp = [];
+      
+      for ($i = 0; $i < $longitudarray; $i++) { 
+          if ($data[$i]['date'] !== $varprimerafecha) {
+              // Si la fecha actual es diferente a la fecha anterior, inicializar los arrays
+              $arrayfechasphp[$data[$i]['date']] = [
+                  'max_temp' => null,
+                  'min_temp' => null,
+                  'max_humidity' => null,
+                  'min_humidity' => null,
+                  'max_veleta' => null,
+                  'min_veleta' => null,
+                  'max_anemometro' => null,
+                  'min_anemometro' => null,
+                  'max_pluviometro' => null,
+                  'min_pluviometro' => null,
+              ];
+      
+              // Inicializar arrays temporales para almacenar los valores del día actual
+              $temperaturas_del_dia = [];
+              $humedad_del_dia = [];
+              $veleta_del_dia = [];
+              $anemometro_del_dia = [];
+              $pluviometro_del_dia = [];
+      
+              // Recorrer $data para encontrar los registros del día actual
+              foreach ($data as $registro) {
+                  if ($registro['date'] === $data[$i]['date']) {
+                      $temperaturas_del_dia[] = $registro['temperature'];
+                      $humedad_del_dia[] = $registro['humidity'];
+                      $veleta_del_dia[] = $registro['veleta'];
+                      $anemometro_del_dia[] = $registro['anemometro'];
+                      $pluviometro_del_dia[] = $registro['pluviometro'];
+                  }
+              }
+      
+              // Obtener los valores máximos y mínimos para cada tipo de dato del día actual
+              $arrayfechasphp[$data[$i]['date']]['max_temp'] = max($temperaturas_del_dia);
+              $arrayfechasphp[$data[$i]['date']]['min_temp'] = min($temperaturas_del_dia);
+      
+              $arrayfechasphp[$data[$i]['date']]['max_humidity'] = max($humedad_del_dia);
+              $arrayfechasphp[$data[$i]['date']]['min_humidity'] = min($humedad_del_dia);
+      
+              $arrayfechasphp[$data[$i]['date']]['max_veleta'] = max($veleta_del_dia);
+              $arrayfechasphp[$data[$i]['date']]['min_veleta'] = min($veleta_del_dia);
+      
+              $arrayfechasphp[$data[$i]['date']]['max_anemometro'] = max($anemometro_del_dia);
+              $arrayfechasphp[$data[$i]['date']]['min_anemometro'] = min($anemometro_del_dia);
+      
+              $arrayfechasphp[$data[$i]['date']]['max_pluviometro'] = max($pluviometro_del_dia);
+      
+              // Actualizar $varprimerafecha
+              $varprimerafecha = $data[$i]['date'];
+          }
+      }
+      
+      // Imprimir el array de manera ordenada
+      foreach ($arrayfechasphp as $fecha => $datos) {
+          echo "Fecha: $fecha\n <br>";
+          echo "Temperatura Máxima: " . $datos['max_temp'] . "°C\n <br>";
+          echo "Temperatura Mínima: " . $datos['min_temp'] . "°C\n <br>";
+          echo "Humedad Máxima: " . $datos['max_humidity'] . "%\n <br>";
+          echo "Humedad Mínima: " . $datos['min_humidity'] . "%\n <br>";
+          echo "Veleta Máxima: " . $datos['max_veleta'] . "\n <br>";
+          echo "Veleta Mínima: " . $datos['min_veleta'] . "\n <br>";
+          echo "Anemómetro Máximo: " . $datos['max_anemometro'] . " km/h\n <br>";
+          echo "Anemómetro Mínimo: " . $datos['min_anemometro'] . " km/h\n <br>";
+          echo "Pluviómetro Máximo: " . $datos['max_pluviometro'] . " ml\n <br>";
+          echo "-------------------------\n <br>";
+      }
+      
+      
+      
+      
       //-logica para traer los ultimos dias grabados en la base de datos, hacer logica para traer los valores
       //implementar la carga de los ultimos 7 dias. probar con base de datos actualizada
       // print_r($arraytemperaturate);
-     // $fechaexactacambia = null;
-     // $longfechaexacta = sizeof($arrayfechaexactatotal);
-     // $diass = 7;
-     // foreach ($arraydateFormat as $fechaexacta) {
-     //   if ($fechaexacta != $fechaexactacambia && $longfechaexacta < $diass) {
+      // $fechaexactacambia = null;
+      // $longfechaexacta = sizeof($arrayfechaexactatotal);
+      // $diass = 7;
+      // foreach ($arraydateFormat as $fechaexacta) {
+      //   if ($fechaexacta != $fechaexactacambia && $longfechaexacta < $diass) {
 //
-     //     array_push($arrayfechaexactatotal, $fechaexacta);
-     //     $fechaexactacambia = $fechaexacta;
-     //     $longfechaexacta++;
-     //     $arrayfechaexactatotal[] = $fechaexacta;
-     //   }
-     // }
+      //     array_push($arrayfechaexactatotal, $fechaexacta);
+      //     $fechaexactacambia = $fechaexacta;
+      //     $longfechaexacta++;
+      //     $arrayfechaexactatotal[] = $fechaexacta;
+      //   }
+      // }
       //            print_r($arrayfechaexactatotal);
       //            print_r($longfechaexacta);
       //logica para funcion de sacar maximo y minimo de tiempo para el dashboard// sacar promedio de datos obtenidos de la base de datos, con una variacion de 5 grados
       
       ?>
       <script>
-        let fechas =[]
-        let fechaanterior
+        let fechas = [];
+        let fechaanterior ;
         var data = <?php echo json_encode($data); ?>;
         console.log(data);
-     function fechaa() {
-      for (let i = 0; i <= 6; i++) {
-        if (data[i].date !== fechaanterior) {
-          fechas.push(data[i].date);
-          fechaanterior = data[i].date;
+        function fechaa() {
+          for (let i = 0; i <= 15; i++) {
+
+            if (data[i].date !== fechaanterior) {
+              fechas.push(data[i].date);
+              fechaanterior = data[i].date;
+
+            }
+          }
+          console.log(fechas);
+
+          //  hacer una sola funcion para que se ejecute cuando se aprieta el boton
         }
-      }
-      console.log(fechas);
+        fechaa()
+        //  let fechas = data;
+        // let temperaturadata = data.temperature;
 
-    //  hacer una sola funcion para que se ejecute cuando se aprieta el boton
-     } 
-     fechaa()
-      //  let fechas = data;
-       // let temperaturadata = data.temperature;
-
-        var arreglofechas = <?php echo json_encode($arreglofecha); ?>;
+      //  var arreglofechas = <?php echo json_encode($arreglofecha); ?>;
       </script>
     </tbody>
   </table>
-
   <br>
-
   <div class="btn-group">
     <button class="button" id="btn_prev" onclick="prevPage()">Anterior</button>
     <button class="button" id="btn_next" onclick="nextPage()">Siguiente</button>
@@ -155,7 +230,6 @@
     var current_page = 1;
     var records_per_page = 10;
     var l = document.getElementById("table_id").rows.length
-
     //------------------------------------------------------------
     function apply_Number_of_Rows() {
       var x = document.getElementById("number_of_rows").value;
@@ -196,7 +270,6 @@
       for (var i = (page - 1) * records_per_page + 1; i < (page * records_per_page) + 1; i++) {
         if (listing_table.rows[i]) {
           listing_table.rows[i].style.display = ""
-
           //listing_table.rows contiene el valor de cada elemento a poner en la tabla , buscar variable que controla la cantidad
           //console.log(listing_table.rows[i].style.display);
           //extrae datos especificos de la tabla
@@ -312,7 +385,5 @@
   </script>
 </body>
 <footer>
-
 </footer>
-
 </html>
